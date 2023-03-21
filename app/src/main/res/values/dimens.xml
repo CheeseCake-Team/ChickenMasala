@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin16">16dp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="rudius">100dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="font_size_hint">12sp</dimen>
+    <dimen name="font_size_details">14sp</dimen>
+    <dimen name="font_size_title_main">16sp</dimen>
+    <dimen name="font_size_title_secondary">18sp</dimen>
+</resources>

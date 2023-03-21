@@ -6,5 +6,23 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="black36">#5c000000</color>
+    <color name="black86">#db000000</color>
+    <color name="black60">#99000000</color>
+    <color name="textDetalis">#A9A9A9</color>
+    <color name="white">#FFFBFF</color>
+    <color name="primaryColor">#22BB9C</color>
+    <color name="secondaryColor">#F7F7F9</color>
+    <color name="titel_back">#DB000000</color>
+    <color name="color_black_36">#5c000000</color>
+    <color name="color_black_60">#99000000</color>
+    <color name="color_black_86">#db000000</color>
+    <color name="color_black_100">#FF000000</color>
+    <color name="color_text_details">#A9A9A9</color>
+    <color name="color_white">#FFFBFF</color>
+    <color name="color_primary">#22BB9C</color>
+    <color name="color_secondary">#F7F7F9</color>
+    <color name="color_navigation">#E6FFF5</color>
 </resources>
