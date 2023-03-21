@@ -10,7 +10,7 @@ import androidx.viewbinding.ViewBinding
 abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
 
     abstract val bindingInflater: (LayoutInflater) -> viewBinding
-    private lateinit var _binding: ViewBinding
+    private var _binding: viewBinding? = null
     protected val binding = _binding
 
 
@@ -20,7 +20,7 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = bindingInflater.invoke(inflater)
-        return binding.root
+        return binding!!.root
     }
 
 }
