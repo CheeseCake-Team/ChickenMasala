@@ -18,4 +18,15 @@
     <item name="labelVisibilityMode">selected</item>
     <item name="android:color">@color/color_primary</item>
     </style>
+    <style name="ModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <!-- Apply attributes here -->
+    </style>
+
+    <style name="ModalBottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.ChickenMasala">
+        <item name="bottomSheetDialogTheme">@style/ModalBottomSheetDialog</item>
+    </style>
 </resources>
