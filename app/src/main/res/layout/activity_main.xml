@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingVertical="@dimen/padding_extra_small"
-        app:layout_constraintBottom_toTopOf="@+id/navBarButton"
+        app:layout_constraintBottom_toTopOf="@id/navBarButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navBarButton"
