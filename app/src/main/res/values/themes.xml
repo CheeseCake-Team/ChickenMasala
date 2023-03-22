@@ -14,6 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="cuisineImageStyle" >
+        <item name="cornerSize">@dimen/cuisine_image_corner</item>
+    </style>
+
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
     <item name="labelVisibilityMode">selected</item>
     <item name="android:color">@color/color_primary</item>

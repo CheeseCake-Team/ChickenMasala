@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.cuisine -> {
-                    loadFragmentIntoContainer(CategoriesFragment())
+                    loadFragmentIntoContainer(CuisineFragment())
                     true
                 }
                 R.id.history -> {
