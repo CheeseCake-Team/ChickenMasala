@@ -22,4 +22,7 @@
     <string name="breakfast">Breakfast</string>
     <string name="soups">Soups</string>
     <string name="search">Search</string>
+    <string name="meal_name">Spicy chicken burger with French fries</string>
+    <string name="ingredient">ingredient</string>
+    <string name="procedure">procedure</string>
 </resources>
