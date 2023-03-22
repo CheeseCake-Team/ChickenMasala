@@ -11,22 +11,26 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentMealsBinding =
         FragmentMealsBinding::inflate
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        fillLinerLayoutWithCardItem()
+        binding = bindingInflater.invoke(inflater)
         return super.onCreateView(inflater, container, savedInstanceState)
-
     }
 
-    fun fillLinerLayoutWithCardItem(){
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        fillLinerLayoutWithCardItem()
+    }
+
+    private fun fillLinerLayoutWithCardItem() {
         for (i in 0 until 20) {
             val cardItemView = ItemMealCardBinding.inflate(layoutInflater)
-
-
-            binding!!.leaner.addView(cardItemView.root)
+            binding!!.linear.addView(cardItemView.view2)
         }
     }
 }

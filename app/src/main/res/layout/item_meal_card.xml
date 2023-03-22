@@ -17,11 +17,12 @@
         android:layout_width="102dp"
         android:layout_height="96dp"
         android:layout_gravity="end"
-        android:layout_marginLeft="210dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/foodimg" />
+        android:src="@drawable/foodimg"
+        android:contentDescription="@string/card_pic" />
 
     <TextView
 
@@ -30,8 +31,7 @@
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Steak with tomato sauce
-            and bulgur rice."
+        android:text="@string/card_text"
         android:textColor="#484848"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -44,14 +44,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="59dp"
-        android:drawableStart="@drawable/outline_timer_24"
         android:drawablePadding="5dp"
-        android:text="20 mins"
+        android:text="@string/_20_mins"
         android:textColor="#A9A9A9"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:drawableStartCompat="@drawable/outline_timer_24" />
 
     <TextView
         android:id="@+id/textView4"

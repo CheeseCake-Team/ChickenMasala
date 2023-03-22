@@ -10,8 +10,8 @@ import androidx.viewbinding.ViewBinding
 abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
 
     abstract val bindingInflater: (LayoutInflater) -> viewBinding
-    private lateinit var _binding: ViewBinding
-    protected val binding = _binding
+    private var _binding: viewBinding? = null
+    protected var binding = _binding
 
 
     override fun onCreateView(
