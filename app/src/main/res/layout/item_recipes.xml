@@ -17,12 +17,12 @@
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/recipe_image"
-            android:layout_width="102dp"
+            android:layout_width="match_parent"
             android:layout_height="102dp"
             android:layout_gravity="center"
-            android:layout_marginTop="4dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/fasted_card" />
+            android:src="@drawable/history_img3"
+            app:roundPercent="0.25"/>
 
         <TextView
             android:id="@+id/recipe_name"
@@ -34,7 +34,8 @@
             android:gravity="center"
             android:maxLines="2"
             android:text="Classic Greek Salad"
-            android:textColor="@color/color_black_86" />
+            android:textColor="@color/color_black_86"
+            android:fontFamily="@font/roboto_medium"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,21 +47,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Northern India"
-                android:textSize="@dimen/font_size_hint" />
-
-            <View
-
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="@dimen/margin_large"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/clock_icon" />
-
+                android:layout_marginEnd="@dimen/margin16"
+                android:textSize="@dimen/font_size_details"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="min" />
+                android:text="10 "
+                android:textColor="@color/black36"
+                android:drawableEnd="@drawable/outline_timer_24"
+                android:fontFamily="@font/roboto_light"/>
 
         </LinearLayout>
     </LinearLayout>
