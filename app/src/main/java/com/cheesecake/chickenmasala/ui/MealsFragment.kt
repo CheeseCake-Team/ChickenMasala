@@ -16,6 +16,14 @@ class MealsFragment(private val meals: List<Meal>) : BaseFragment<FragmentMealsB
         FragmentMealsBinding::inflate
 
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fillLinerLayoutWithCardItem()
@@ -35,6 +43,10 @@ class MealsFragment(private val meals: List<Meal>) : BaseFragment<FragmentMealsB
                 loadMealFragment(meal)
             }
 
+
+        for (i in 0 until 20) {
+            val cardItemView = ItemMealCardBinding.inflate(layoutInflater)
+            binding.linear.addView(cardItemView.view2)
         }
 
 

@@ -7,11 +7,32 @@
     </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home">Home</string>
+    <string name="no_result_found">No result found</string>
+    <string name="result_hint">Your search did not match any results, try search for something else</string>
+    <string name="_5_10_min">5-10 min</string>
+    <string name="_10_15_min">10-15 min</string>
+    <string name="_15_30_min">15-30 min</string>
+    <string name="_30_min_1_hour">30 min - 1 hour</string>
+    <string name="category">Category</string>
+    <string name="side_dishes">Side dishes</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="north_india">North india</string>
+    <string name="salads">Salads</string>
+    <string name="spicy">Spicy</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="soups">Soups</string>
     <string name="search">Search</string>
+    <string name="meal_name">Spicy chicken burger with French fries</string>
+    <string name="ingredient">ingredient</string>
+    <string name="procedure">procedure</string>
+    <string name="home">Home</string>
     <string name="cuisine">Cuisine</string>
+    <string name="filter">Filter</string>
+    <string name="details_card">Details Card</string>
     <string name="history">History</string>
     <string name="card_pic">card_pic</string>
     <string name="card_text">Steak with tomato sauce and bulgur rice.</string>
     <string name="_20_mins">20 mins</string>
+    <string name="country_cuisine">country</string>
+    <string name="image_button">image_button</string>
 </resources>
