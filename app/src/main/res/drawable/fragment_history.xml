@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".screen.HistoryFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/history_img5"
+            android:layout_width="0dp"
+            android:layout_height="174dp"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:background="@drawable/history_img3"
+            android:layout_marginTop="@dimen/margin_small"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+
+            app:layout_constraintStart_toEndOf="@+id/history_img4"
+            app:layout_constraintTop_toBottomOf="@+id/history_img3"
+            app:roundPercent="0.3" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/history_img4"
+            android:layout_width="0dp"
+            android:layout_height="174dp"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:scaleType="centerCrop"
+            android:src="@drawable/history_img2"
+            app:layout_constraintEnd_toStartOf="@+id/history_img5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/history_img5"
+            app:roundPercent="0.3" />
+
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:background="@null"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="@+id/text_app_bar"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/text_app_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/history_of_indian_cuisine"
+            android:textColor="@color/color_black_86"
+            android:textSize="18sp"
+            style="@style/margin_activity.title_style"
+            app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/detils_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:maxLines="10"
+            android:text="@string/food"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/img_history1"
+            app:layout_constraintTop_toBottomOf="@+id/img_history1" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/img_history1"
+            android:layout_width="match_parent"
+            android:layout_height="124dp"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:scaleType="centerCrop"
+            android:src="@drawable/history_img1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_app_bar"
+            app:roundPercent="0.3" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/history_img2"
+            android:layout_width="0dp"
+            android:layout_height="174dp"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:scaleType="centerCrop"
+            android:src="@drawable/history_img2"
+            app:layout_constraintEnd_toStartOf="@+id/history_img3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/history_img3"
+            app:roundPercent="0.3" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/history_img3"
+            android:layout_width="0dp"
+            android:layout_height="174dp"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:background="@drawable/history_img3"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/history_img2"
+            app:layout_constraintTop_toBottomOf="@+id/detils_text"
+            app:roundPercent="0.3" />
+
+        <TextView
+            android:id="@+id/text_app_bar3"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:maxLines="11"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:text="@string/food"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/history_img5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

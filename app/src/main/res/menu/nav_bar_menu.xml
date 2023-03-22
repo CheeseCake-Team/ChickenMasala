@@ -15,5 +15,19 @@
     <item
         android:id="@+id/history"
         android:title="History"
+
+    android:title="@string/home"
+    android:icon="@drawable/home_icon"/>
+    <item
+        android:id="@+id/search"
+        android:title="@string/search"
+        android:icon="@drawable/search_icon"/>
+    <item
+        android:id="@+id/cuisine"
+        android:title="@string/cuisine"
+        android:icon="@drawable/cuisine_icon"/>
+    <item
+        android:id="@+id/history"
+        android:title="@string/history"
         android:icon="@drawable/history_icon"/>
 </menu>

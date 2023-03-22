@@ -23,6 +23,7 @@
         <item name="android:layout_marginTop">@dimen/margin_large</item>
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
     </style>
+
     <style name="margin_activity.title_style" parent="margin_activity">
 
         <item name="android:textStyle">bold</item>
