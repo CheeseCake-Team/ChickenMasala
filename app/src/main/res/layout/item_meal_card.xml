@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/view2"
+    android:id="@+id/cardOfMeal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
@@ -13,7 +13,7 @@
     app:layout_constraintTop_toBottomOf="@+id/view">
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/imageCardOfMeal"
         android:layout_width="102dp"
         android:layout_height="96dp"
         android:layout_gravity="end"
@@ -26,7 +26,7 @@
 
     <TextView
 
-        android:id="@+id/textView2"
+        android:id="@+id/tvNameOfMeal"
         android:layout_width="186dp"
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvTimeToMakeMeal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -54,7 +54,7 @@
         app:drawableStartCompat="@drawable/outline_timer_24" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvLocationOfMeal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
