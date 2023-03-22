@@ -159,7 +159,6 @@
                 android:textColor="@color/black36"
                 app:chipCornerRadius="100dp" />
 
-
         </com.google.android.material.chip.ChipGroup>
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
