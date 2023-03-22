@@ -13,12 +13,12 @@
         android:layout_marginStart="@dimen/margin_large"
         android:layout_marginTop="@dimen/margin_large"
         android:layout_marginEnd="@dimen/margin_large"
-        app:roundPercent="0.2"
         android:scaleType="centerCrop"
         android:src="@drawable/meal_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundPercent="0.2" />
 
     <TextView
         android:id="@+id/meal_name"
@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_large"
         android:layout_marginTop="24dp"
-        android:textSize="@dimen/font_size_title_secondary"
         android:text="@string/meal_name"
+        android:textSize="@dimen/font_size_title_secondary"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/meal_image" />
@@ -39,9 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="132dp"
-        android:visibility="gone"
         android:background="@drawable/check_icon"
         android:elevation="1dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/toggleButton"
         app:layout_constraintTop_toTopOf="@+id/toggleButton" />
 
@@ -83,11 +83,11 @@
         android:id="@+id/meal_time"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:gravity="center_vertical"
         android:layout_marginStart="@dimen/margin_large"
         android:layout_marginTop="4dp"
         android:drawableStart="@drawable/time"
         android:drawableTint="@color/color_black_60"
+        android:gravity="center_vertical"
         android:text="  m"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,70 +97,33 @@
         android:id="@+id/meal_count"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
+        android:layout_marginTop="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_large"
         android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/margin_small"
         android:text="10 Ingredients"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+
     <ScrollView
         android:id="@+id/sroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:paddingStart="16dp"
-        android:paddingEnd="@dimen/margin_large"
         android:paddingTop="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toggleButton">
 
         <LinearLayout
+            android:id="@+id/item_recipe_holder"
             android:layout_width="match_parent"
-            android:layout_marginTop="48dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="48dp"
             android:orientation="vertical">
 
-            <include
-                android:id="@+id/myIncludedLayout"
-                layout="@layout/item_recipe_meal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
-            <include
-                android:id="@+id/myIncludedLayout"
-                layout="@layout/item_recipe_meal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <include
-                android:id="@+id/myIncludedLayout"
-                layout="@layout/item_recipe_meal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <include
-                android:id="@+id/myIncludedLayout"
-                layout="@layout/item_recipe_meal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:id="@+id/myIncludedLayout"
-                layout="@layout/item_recipe_meal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <include
-                android:id="@+id/myIncludedLayout"
-                layout="@layout/item_recipe_meal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <include
-                android:id="@+id/myIncludedLayout"
-                layout="@layout/item_recipe_meal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 

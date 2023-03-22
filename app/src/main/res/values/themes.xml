@@ -25,19 +25,17 @@
     <style name="ModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
         <!-- Apply attributes here -->
     </style>
-
     <style name="ModalBottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
     </style>
-
     <style name="AppTheme" parent="Theme.ChickenMasala">
         <item name="bottomSheetDialogTheme">@style/ModalBottomSheetDialog</item>
+    </style>
     <style name="margin_activity" parent="">
         <item name="android:layout_marginStart">@dimen/margin_large</item>
         <item name="android:layout_marginTop">@dimen/margin_large</item>
         <item name="android:layout_marginEnd">@dimen/margin_large</item>
     </style>
-
     <style name="margin_activity.title_style" parent="margin_activity">
 
         <item name="android:textStyle">bold</item>

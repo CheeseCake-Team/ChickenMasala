@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        loadFragmentIntoContainer(HomeFragment())
+        binding.navBarButton.selectedItemId = R.id.home
     }
 
     override fun onStart() {

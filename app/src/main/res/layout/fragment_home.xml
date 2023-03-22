@@ -93,29 +93,7 @@
 
                     android:paddingBottom="@dimen/margin_large">
 
-                    <include
-                        android:id="@+id/myIncludedLayout"
-                        layout="@layout/item_recipes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
 
-                    <include
-                        android:id="@+id/myIncludedLayout"
-                        layout="@layout/item_recipes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <include
-                        android:id="@+id/myIncludedLayout"
-                        layout="@layout/item_recipes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <include
-                        android:id="@+id/myIncludedLayout"
-                        layout="@layout/item_recipes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
 
                 </LinearLayout>
 
@@ -148,47 +126,9 @@
                     android:orientation="horizontal"
                     android:paddingBottom="@dimen/margin_large">
 
-                    <include
-                        android:id="@+id/myIncludedLayout"
-                        layout="@layout/item_recipes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <include
-                        android:id="@+id/myIncludedLayout"
-                        layout="@layout/item_recipes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <include
-                        android:id="@+id/myIncludedLayout"
-                        layout="@layout/item_recipes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <include
-                        android:id="@+id/myIncludedLayout"
-                        layout="@layout/item_recipes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-
                 </LinearLayout>
 
             </HorizontalScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </ScrollView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navBarButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_navigation"
-        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_bar_menu" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

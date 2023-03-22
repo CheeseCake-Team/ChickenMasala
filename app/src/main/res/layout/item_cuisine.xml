@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:shapeAppearanceOverlay="@style/cuisineImageStyle"
-        app:srcCompat="@drawable/cooking_image" />
+        app:srcCompat="@drawable/cook" />
 
     <TextView
         android:id="@+id/cuisineCountry"
