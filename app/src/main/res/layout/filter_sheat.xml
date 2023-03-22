@@ -48,8 +48,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/_5_10_min"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
-
                 app:chipCornerRadius="100dp" />
 
             <com.google.android.material.chip.Chip
@@ -57,7 +55,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/_10_15_min"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
                 app:chipCornerRadius="100dp" />
 
             <com.google.android.material.chip.Chip
@@ -65,8 +62,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/_15_30_min"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
-
                 app:chipCornerRadius="100dp" />
 
             <com.google.android.material.chip.Chip
@@ -74,8 +69,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/_30_min_1_hour"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
-
                 app:chipCornerRadius="100dp" />
 
         </com.google.android.material.chip.ChipGroup>
@@ -107,8 +100,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/side_dishes"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
-
                 app:chipCornerRadius="100dp" />
 
             <com.google.android.material.chip.Chip
@@ -116,7 +107,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/vegetables"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
                 app:chipCornerRadius="100dp" />
 
             <com.google.android.material.chip.Chip
@@ -124,7 +114,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/north_india"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
                 app:chipCornerRadius="100dp" />
 
             <com.google.android.material.chip.Chip
@@ -132,7 +121,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/salads"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
                 app:chipCornerRadius="100dp" />
 
             <com.google.android.material.chip.Chip
@@ -140,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/spicy"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
+
                 app:chipCornerRadius="100dp" />
 
             <com.google.android.material.chip.Chip
@@ -149,14 +137,13 @@
                 android:text="@string/breakfast"
                 app:chipCornerRadius="100dp"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
                 />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/soups"
                 android:textSize="@dimen/font_size_details"
-                android:textColor="@color/black36"
+
                 app:chipCornerRadius="100dp" />
 
         </com.google.android.material.chip.ChipGroup>
