@@ -29,5 +29,6 @@
     <color name="color_warning">#FFEB3B</color>
     <color name="color_success">#4CAF50</color>
 
+    <color name="midnight_forest">#5C000000</color>
 
 </resources>
