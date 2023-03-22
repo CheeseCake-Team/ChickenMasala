@@ -108,17 +108,19 @@
     <ScrollView
         android:id="@+id/sroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_height="0dp"
         android:paddingStart="16dp"
         android:paddingTop="@dimen/margin_small"
         android:paddingEnd="@dimen/margin_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toggleButton">
+        app:layout_constraintTop_toBottomOf="@+id/meal_count">
 
         <LinearLayout
             android:id="@+id/item_recipe_holder"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="48dp"
             android:orientation="vertical">
