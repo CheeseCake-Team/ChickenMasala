@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.history -> {
+                    changeAppBarTitle(R.string.history_of_indian_cuisine)
                     loadFragmentIntoContainer(HistoryFragment())
                     true
                 }
@@ -53,6 +54,11 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    private fun changeAppBarTitle(resourceString: Int) {
+        if (supportActionBar?.isShowing != true) supportActionBar?.show()
+        supportActionBar?.title =
+            getString(resourceString)
+    }
 
     private fun loadFragmentIntoContainer(baseFragment: BaseFragment<*>){
         supportFragmentManager
