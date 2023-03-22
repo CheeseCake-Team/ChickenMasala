@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.MealFragment">
+    tools:context=".ui.MealFragment">
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/meal_image"
@@ -25,23 +25,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginTop="24dp"
+        android:textSize="@dimen/font_size_title_secondary"
         android:text="@string/meal_name"
-        android:visibility="gone"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/meal_image" />
 
-    <ImageView
-        android:id="@+id/check_icon_ingredient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/check_icon"
-        android:elevation="1dp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@+id/toggleButton"
-        app:layout_constraintTop_toTopOf="@+id/toggleButton" />
 
     <ImageView
         android:id="@+id/check_icon_procedure"
@@ -60,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_large"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/margin_large"
         android:layout_marginEnd="@dimen/margin_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,5 +78,90 @@
             app:cornerRadius="@dimen/margin_large" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <TextView
+        android:id="@+id/meal_time"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:gravity="center_vertical"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="4dp"
+        android:drawableStart="@drawable/time"
+        android:drawableTint="@color/color_black_60"
+        android:text="  m"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton" />
+
+    <TextView
+        android:id="@+id/meal_count"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="10 Ingredients"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+    <ScrollView
+        android:id="@+id/sroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="@dimen/margin_large"
+        android:paddingTop="@dimen/margin_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="48dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/myIncludedLayout"
+                layout="@layout/item_recipe_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/myIncludedLayout"
+                layout="@layout/item_recipe_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/myIncludedLayout"
+                layout="@layout/item_recipe_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/myIncludedLayout"
+                layout="@layout/item_recipe_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:id="@+id/myIncludedLayout"
+                layout="@layout/item_recipe_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/myIncludedLayout"
+                layout="@layout/item_recipe_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/myIncludedLayout"
+                layout="@layout/item_recipe_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

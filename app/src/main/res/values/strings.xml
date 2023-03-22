@@ -25,4 +25,8 @@
     <string name="meal_name">Spicy chicken burger with French fries</string>
     <string name="ingredient">ingredient</string>
     <string name="procedure">procedure</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="cuisine">Cuisine</string>
+    <string name="history">History</string>
 </resources>
