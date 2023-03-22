@@ -22,7 +22,7 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = bindingInflater.invoke(layoutInflater)
-        return _binding!!.root
+        return binding.root
     }
 
 

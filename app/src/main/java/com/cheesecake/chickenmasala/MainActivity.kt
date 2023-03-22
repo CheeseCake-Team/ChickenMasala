@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        loadFragmentIntoContainer(HomeFragment())
+        binding.navBarButton.selectedItemId = R.id.home
     }
 
     override fun onStart() {
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.cuisine -> {
-                    loadFragmentIntoContainer(CategoriesFragment())
+                    loadFragmentIntoContainer(CuisineFragment())
                     true
                 }
                 R.id.history -> {

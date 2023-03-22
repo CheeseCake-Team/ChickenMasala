@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <LinearLayout
+        android:id="@+id/horizantel_linear3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_secondary"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/img_card3"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/fasted_card" />
+
+        <TextView
+            android:id="@+id/text_fast_title3"
+            style="@style/margin_activity.title_style"
+            android:layout_width="108dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="Classic Greek Salad"
+            android:textColor="@color/color_black_86" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_small">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Northern India"
+                android:textSize="@dimen/font_size_hint" />
+
+            <View
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/clock_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="min" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

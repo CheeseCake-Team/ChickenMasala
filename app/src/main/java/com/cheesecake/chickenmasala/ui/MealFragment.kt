@@ -6,6 +6,7 @@ import com.cheesecake.chickenmasala.databinding.FragmentMealBinding
 import com.cheesecake.chickenmasala.databinding.ItemTranslatedIngredientBinding
 import com.cheesecake.chickenmasala.databinding.ItemTranslatedInstructionBinding
 import com.cheesecake.chickenmasala.model.Meal
+import com.cheesecake.chickenmasala.databinding.ItemRecipeMealBinding
 
 class MealFragment(private val meal: Meal) : BaseFragment<FragmentMealBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentMealBinding =
@@ -55,6 +56,13 @@ class MealFragment(private val meal: Meal) : BaseFragment<FragmentMealBinding>()
             itemRecipeMealBinding.instruction.text = translatedInstructions[i]
             binding.itemRecipeHolder.addView(itemRecipeMealBinding.root)
         }
+        fillLinearLayoutWithCard()
     }
 
+    private fun fillLinearLayoutWithCard() {
+        for (recipe in 0..20) {
+            val itemCuisineBinding = ItemRecipeMealBinding.inflate(layoutInflater)
+            binding.itemRecipeHolder.addView(itemCuisineBinding.root)
+        }
+    }
 }
