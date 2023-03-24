@@ -63,8 +63,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:backgroundTint="@color/primaryColor"
-            android:drawableStart="@drawable/check_icon"
             android:text="@string/ingredient"
             app:cornerRadius="@dimen/margin_large" />
 
@@ -75,7 +73,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/procedure"
-            android:textColor="@color/primaryColor"
             app:cornerRadius="@dimen/margin_large" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
