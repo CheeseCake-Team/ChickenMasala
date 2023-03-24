@@ -2,23 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home"
-        android:icon="@drawable/home_icon"
-        android:iconTint="@color/black36"
-        android:title="Home" />
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
     <item
         android:id="@+id/search"
-        android:icon="@drawable/search_icon"
-        android:iconTint="@color/black36"
-        android:title="Search" />
+        android:icon="@drawable/ic_search"
+        android:title="@string/search" />
     <item
-        android:id="@+id/cuisine"
-        android:iconTint="@color/black36"
-        android:icon="@drawable/cuisine_icon"
-        android:title="Cuisine" />
+        android:id="@+id/categories"
+        android:icon="@drawable/ic_categories"
+        android:title="@string/Categories" />
     <item
         android:id="@+id/history"
-        android:iconTint="@color/black36"
-        android:icon="@drawable/history_icon"
+        android:icon="@drawable/ic_history"
         android:title="History" />
 
 </menu>
