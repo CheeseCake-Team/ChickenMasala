@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginTop="@dimen/space_small"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:maxLines="2"

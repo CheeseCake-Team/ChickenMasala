@@ -4,7 +4,7 @@
     android:id="@+id/home_crad"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/margin_large">
+    android:layout_marginTop="@dimen/space_large">
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/img1"

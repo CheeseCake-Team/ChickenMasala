@@ -9,13 +9,13 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/margin_large"
+        android:paddingStart="@dimen/space_large"
         app:layout_constraintBottom_toTopOf="@+id/instruction" />
 
     <TextView
         android:id="@+id/instruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/margin_large"
+        android:paddingStart="@dimen/space_large"
         app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

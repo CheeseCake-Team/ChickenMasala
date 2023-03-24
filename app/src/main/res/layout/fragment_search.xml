@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/margin_large"
+    android:padding="@dimen/space_large"
     tools:context=".ui.search.SearchFragment">
 
     <com.google.android.material.search.SearchBar
@@ -54,7 +54,7 @@
         android:id="@+id/no_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginTop="@dimen/space_small"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/no_result_found"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
         android:id="@+id/hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginTop="@dimen/space_small"
         android:fontFamily="@font/roboto_light"
         android:gravity="center"
         android:text="@string/result_hint"
