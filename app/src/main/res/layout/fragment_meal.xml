@@ -39,11 +39,11 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="132dp"
         android:background="@drawable/check_icon"
+        android:contentDescription="@string/cd"
         android:elevation="1dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/toggleButton"
-        app:layout_constraintTop_toTopOf="@+id/toggleButton"
-        android:contentDescription="@string/cd" />
+        app:layout_constraintTop_toTopOf="@+id/toggleButton" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/toggleButton"
@@ -85,10 +85,9 @@
         android:gravity="center_vertical"
         android:text="@string/m"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toggleButton"
         app:drawableStartCompat="@drawable/time"
-        app:drawableTint="@color/color_black_60" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton" />
 
     <TextView
         android:id="@+id/meal_count"
