@@ -9,7 +9,7 @@ import com.cheesecake.chickenmasala.datasource.CsvParser
 import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseActivity
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
-import com.cheesecake.chickenmasala.ui.cuisine.CuisineFragment
+import com.cheesecake.chickenmasala.ui.categories.CategoriesFragment
 import com.cheesecake.chickenmasala.ui.history.HistoryFragment
 import com.cheesecake.chickenmasala.ui.home.HomeFragment
 import com.cheesecake.chickenmasala.ui.search.SearchFragment
@@ -52,8 +52,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     loadFragmentIntoContainer(SearchFragment())
                     true
                 }
-                R.id.cuisine -> {
-                    loadFragmentIntoContainer(CuisineFragment(recipes))
+                R.id.categories -> {
+                    loadFragmentIntoContainer(CategoriesFragment())
                     true
                 }
                 R.id.history -> {
