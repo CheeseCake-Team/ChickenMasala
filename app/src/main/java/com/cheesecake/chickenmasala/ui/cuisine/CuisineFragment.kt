@@ -7,12 +7,12 @@ import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentCuisineBinding
 import com.cheesecake.chickenmasala.databinding.ItemCuisineBinding
 import com.cheesecake.chickenmasala.model.Meal
-import com.cheesecake.chickenmasala.model.Recipes
+import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meals.MealsFragment
 
 
-class CuisineFragment(private val recipes: Recipes) : BaseFragment<FragmentCuisineBinding>() {
+class CuisineFragment(private val recipes: RecipesManager) : BaseFragment<FragmentCuisineBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentCuisineBinding =
         FragmentCuisineBinding::inflate
 
@@ -22,11 +22,11 @@ class CuisineFragment(private val recipes: Recipes) : BaseFragment<FragmentCuisi
     }
 
     private fun fillCuisines(){
-        recipes.cuisines.forEach {cuisine ->
+        recipes.getCuisines().forEach {cuisine ->
             val itemCuisineBinding = ItemCuisineBinding.inflate(layoutInflater)
              itemCuisineBinding.cuisineCountry.text = cuisine
 
-            itemCuisineBinding.root.setOnClickListener { loadMealsFragment(recipes.getCuisineRecipe(cuisine)) }
+            itemCuisineBinding.root.setOnClickListener { loadMealsFragment(recipes.getCuisineRecipes(cuisine)) }
 
             binding.cuisineContainer.addView(itemCuisineBinding.root)
         }

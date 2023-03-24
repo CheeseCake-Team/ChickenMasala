@@ -1,4 +1,4 @@
-package com.cheesecake.chickenmasala.dataSource
+package com.cheesecake.chickenmasala.datasource
 
 import com.cheesecake.chickenmasala.model.Meal
 import java.io.BufferedReader

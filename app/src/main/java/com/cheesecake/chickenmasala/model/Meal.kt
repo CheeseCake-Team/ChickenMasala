@@ -10,11 +10,5 @@ data class Meal(
     val translatedIngredients: List<String>,
     val imageUrl: String,
     val ingredientCount:Int,
-) {
-    val course: MealCourse? = when (true) {
-        translatedRecipeName.contains("Soup") -> MealCourse.SOUP
-        translatedRecipeName.contains("Appetizer") -> MealCourse.APPETIZER
-        translatedRecipeName.contains("Spicy") -> MealCourse.SPICY
-        else -> null
-    }
-}
+    val course: MealCourse?
+)

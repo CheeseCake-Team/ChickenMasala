@@ -3,10 +3,10 @@ package com.cheesecake.chickenmasala
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.LayoutInflater
-import com.cheesecake.chickenmasala.dataSource.CsvDataSource
-import com.cheesecake.chickenmasala.dataSource.CsvParser
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
-import com.cheesecake.chickenmasala.model.Recipes
+import com.cheesecake.chickenmasala.datasource.CsvDataSource
+import com.cheesecake.chickenmasala.datasource.CsvParser
+import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseActivity
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.cuisine.CuisineFragment
@@ -19,16 +19,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
 
-    private lateinit var recipes: Recipes
+    private lateinit var recipes: RecipesManager
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        setupRecipes()
+
         loadFragmentIntoContainer(HomeFragment(recipes))
     }
 
     override fun onStart() {
         super.onStart()
+        setupRecipes()
         binding.navBarButton.selectedItemId = R.id.home
         addCallBacks()
     }
@@ -36,12 +37,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun setupRecipes() {
         val parser = CsvParser()
         val dataSource = CsvDataSource(parser, assets.open(FILE_NAME))
-        recipes = Recipes(dataSource.getAllMealsData())
+        recipes = RecipesManager(dataSource.getAllMealsData())
     }
 
 
     private fun addCallBacks() {
-        binding!!.navBarButton.setOnItemSelectedListener { item ->
+        binding.navBarButton.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
                     loadFragmentIntoContainer(HomeFragment(recipes))
@@ -67,14 +68,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
 
-
     private fun changeAppBarTitle(resourceString: Int) {
         if (supportActionBar?.isShowing != true) supportActionBar?.show()
         supportActionBar?.title =
             getString(resourceString)
     }
 
-    private fun loadFragmentIntoContainer(baseFragment: BaseFragment<*>){
+    private fun loadFragmentIntoContainer(baseFragment: BaseFragment<*>) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container, baseFragment)

@@ -1,6 +1,7 @@
-package com.cheesecake.chickenmasala.dataSource
+package com.cheesecake.chickenmasala.datasource
 
 import com.cheesecake.chickenmasala.model.Meal
+import com.cheesecake.chickenmasala.model.MealCourse
 
 class CsvParser {
     private val tokenizedList: MutableList<String> = mutableListOf()
@@ -10,7 +11,7 @@ class CsvParser {
         if (csvLine.contains(",")) {
             val tokenizedList1 = csvLine.split(",").toMutableList()
             if (tokenizedList1.first().contains("\"")) {
-                appendToLastIndex(tokenizedList1.first())
+                appendToLastIndexInTokenizedList(tokenizedList1.first())
                 tokenizedList1.removeFirst()
             }
             tokenizedList.addAll(tokenizedList1)
@@ -21,11 +22,11 @@ class CsvParser {
                 tokenizedList.removeAll(mealTokens)
             }
         } else {
-            appendToLastIndex(csvLine)
+            appendToLastIndexInTokenizedList(csvLine)
         }
     }
 
-    private fun appendToLastIndex(string: String) {
+    private fun appendToLastIndexInTokenizedList(string: String) {
         val lastToken = tokenizedList.last()
         val newToken = "$lastToken $string"
         tokenizedList[tokenizedList.lastIndex] = newToken
@@ -45,15 +46,26 @@ class CsvParser {
             TotalTimeInMinutes = tokenizedList[ColumnIndex.TOTAL_TIME_IN_MINUTES].toInt(),
             cleanedIngredients = tokenizedList[ColumnIndex.CLEANED_INGREDIENTS].split("-"),
             translatedIngredients = tokenizedList[ColumnIndex.TRANSLATED_INGREDIENTS].split("-"),
-            ingredientCount = tokenizedList[ColumnIndex.INGREDIENT_COUNT].toInt()
+            ingredientCount = tokenizedList[ColumnIndex.INGREDIENT_COUNT].toInt(),
+            course = getMealCourse(tokenizedList[ColumnIndex.TRANSLATED_RECIPE_NAME])
+
         )
+    }
+
+    private fun getMealCourse(mealName: String): MealCourse? {
+        return when {
+            mealName.contains("Soup") -> MealCourse.SOUP
+            mealName.contains("Appetizer") -> MealCourse.APPETIZER
+            mealName.contains("Spicy") -> MealCourse.SPICY
+            else -> null
+        }
     }
 
 
     object ColumnIndex {
         const val TRANSLATED_RECIPE_NAME = 0
         const val TRANSLATED_INGREDIENTS = 1
-        const val TOTAL_TIME_IN_MINUTES  = 2
+        const val TOTAL_TIME_IN_MINUTES = 2
         const val CUISINE = 3
         const val TRANSLATED_INSTRUCTIONS = 4
         const val URL = 5
