@@ -21,21 +21,17 @@
 
             <TextView
                 android:id="@+id/title_card"
-                style="@style/margin_activity.title_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="72dp"
                 android:gravity="center_vertical"
                 android:text="Limit Added Sugars"
-                android:textColor="@color/color_white"
-                android:textSize="@dimen/font_size_title_main"
                 app:layout_constraintStart_toStartOf="@+id/img1"
                 app:layout_constraintTop_toTopOf="@+id/img1" />
 
             <TextView
                 android:id="@+id/ditels_card"
-                style="@style/margin_activity.title_style"
                 android:layout_width="256dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -43,8 +39,7 @@
                 android:gravity="center_vertical"
                 android:maxLines="3"
                 android:text="@string/details_card"
-                android:textColor="@color/color_white"
-                android:textSize="@dimen/font_size_hint"
+                android:textSize="@dimen/font_size_extra_small"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="@+id/img1"
                 app:layout_constraintTop_toBottomOf="@+id/title_card" />
