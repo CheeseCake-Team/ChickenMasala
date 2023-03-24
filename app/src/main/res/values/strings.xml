@@ -37,4 +37,8 @@
     <string name="cd">cd</string>
     <string name="_10_ingredients">10 Ingredients</string>
     <string name="m">...m</string>
+    <string name="time">Time</string>
+    <string name="classic_greek_salad">Classic Greek Salad</string>
+    <string name="northern_india">Northern India</string>
+    <string name="_10_m">10 m</string>
 </resources>

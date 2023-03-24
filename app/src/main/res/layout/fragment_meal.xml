@@ -10,9 +10,9 @@
         android:id="@+id/meal_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_large"
-        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginStart="@dimen/space_large"
+        android:layout_marginTop="@dimen/space_large"
+        android:layout_marginEnd="@dimen/space_large"
         android:scaleType="centerCrop"
         android:src="@drawable/meal_image"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,10 +24,9 @@
         android:id="@+id/meal_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginStart="@dimen/space_large"
         android:layout_marginTop="24dp"
         android:text="@string/meal_name"
-        android:textSize="@dimen/font_size_title_secondary"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/meal_image" />
@@ -40,19 +39,19 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="132dp"
         android:background="@drawable/check_icon"
+        android:contentDescription="@string/cd"
         android:elevation="1dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/toggleButton"
-        app:layout_constraintTop_toTopOf="@+id/toggleButton"
-        android:contentDescription="@string/cd" />
+        app:layout_constraintTop_toTopOf="@+id/toggleButton" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/toggleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_large"
-        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginStart="@dimen/space_large"
+        android:layout_marginTop="@dimen/space_large"
+        android:layout_marginEnd="@dimen/space_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/meal_name"
@@ -63,10 +62,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:backgroundTint="@color/primaryColor"
-            android:drawableStart="@drawable/check_icon"
             android:text="@string/ingredient"
-            app:cornerRadius="@dimen/margin_large" />
+            app:cornerRadius="@dimen/space_large" />
 
         <Button
             android:id="@+id/Procedure_button"
@@ -75,8 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/procedure"
-            android:textColor="@color/primaryColor"
-            app:cornerRadius="@dimen/margin_large" />
+            app:cornerRadius="@dimen/space_large" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -84,22 +80,21 @@
         android:id="@+id/meal_time"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginStart="@dimen/space_large"
         android:layout_marginTop="4dp"
         android:gravity="center_vertical"
         android:text="@string/m"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toggleButton"
         app:drawableStartCompat="@drawable/time"
-        app:drawableTint="@color/color_black_60" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton" />
 
     <TextView
         android:id="@+id/meal_count"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginTop="@dimen/space_small"
+        android:layout_marginEnd="@dimen/space_large"
         android:gravity="center_vertical"
         android:text="@string/_10_ingredients"
         android:textSize="20sp"
@@ -111,8 +106,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingStart="16dp"
-        android:paddingTop="@dimen/margin_small"
-        android:paddingEnd="@dimen/margin_large"
+        android:paddingTop="@dimen/space_small"
+        android:paddingEnd="@dimen/space_large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

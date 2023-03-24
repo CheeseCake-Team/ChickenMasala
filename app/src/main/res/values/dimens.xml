@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin16">16dp</dimen>
-    <dimen name="margin8">8dp</dimen>
-    <dimen name="rudius">100dp</dimen>
-    <dimen name="image_history_card_height">174dp</dimen>
-    <dimen name="margin_large">16dp</dimen>
-    <dimen name="margin_small">8dp</dimen>
-    <dimen name="font_size_small">12sp</dimen>
-    <dimen name="font_size_hint">4sp</dimen>
-    <dimen name="font_size_details">14sp</dimen>
-    <dimen name="font_size_title_main">16sp</dimen>
-    <dimen name="font_size_title_secondary">18sp</dimen>
-    <dimen name="cuisine_height">110dp</dimen>
-    <dimen name="cuisine_image_corner">16dp</dimen>
-    <dimen name="font_size_cuisine_country">18sp</dimen>
-    <dimen name="padding_extra_small">4dp</dimen>
-    <dimen name="image_history_header">124dp</dimen>
+
 </resources>

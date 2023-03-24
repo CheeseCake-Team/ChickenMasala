@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/margin16"
+    android:padding="@dimen/space_large"
     tools:context=".ui.search.SearchFragment">
 
     <com.google.android.material.search.SearchBar
@@ -32,45 +32,10 @@
         android:id="@+id/chipGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar">
 
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/soups"
-            android:textSize="@dimen/font_size_details"
-            app:chipCornerRadius="100dp" />
-
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/spicy"
-            android:textSize="@dimen/font_size_details"
-            app:chipCornerRadius="100dp" />
-
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10 min"
-            android:textSize="@dimen/font_size_details"
-            app:chipCornerRadius="100dp" />
-
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/salads"
-            android:textSize="@dimen/font_size_details"
-            app:chipCornerRadius="100dp" />
-
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/breakfast"
-            android:textSize="@dimen/font_size_details"
-            app:chipCornerRadius="100dp" />
     </com.google.android.material.chip.ChipGroup>
 
     <ImageView
@@ -88,11 +53,9 @@
         android:id="@+id/no_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginTop="@dimen/space_small"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/no_result_found"
-        android:textColor="@color/black60"
-        android:textSize="@dimen/font_size_title_secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image" />
@@ -101,12 +64,10 @@
         android:id="@+id/hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginTop="@dimen/space_small"
         android:fontFamily="@font/roboto_light"
         android:gravity="center"
         android:text="@string/result_hint"
-        android:textColor="@color/black60"
-        android:textSize="@dimen/font_size_details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/no_result" />

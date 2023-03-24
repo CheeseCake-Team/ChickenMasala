@@ -3,41 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/standard_bottom_sheet"
         style="@style/Widget.Material3.BottomSheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/margin16"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <com.google.android.material.bottomsheet.BottomSheetDragHandleView
             android:id="@+id/drag_handle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Time"
-            android:textSize="@dimen/font_size_title_secondary"
-            android:textColor="@color/black86"
+            android:layout_marginStart="@dimen/space_large"
+            android:layout_marginTop="@dimen/space_large"
+            android:layout_marginEnd="@dimen/space_large"
             android:fontFamily="@font/roboto_medium"
-            android:layout_marginBottom="@dimen/margin_small"
-            app:layout_constraintTop_toBottomOf="@id/drag_handle"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:text="@string/time"
+            android:textSize="@dimen/font_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/drag_handle" />
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroup1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin16"
+            android:layout_marginStart="@dimen/space_large"
+            android:layout_marginTop="@dimen/space_small"
+            android:layout_marginEnd="@dimen/space_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_time">
@@ -45,30 +47,26 @@
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_5_10_min"
-                android:textSize="@dimen/font_size_details"
-                app:chipCornerRadius="100dp" />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/_5_10_min" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_10_15_min"
-                android:textSize="@dimen/font_size_details"
-                app:chipCornerRadius="100dp" />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/_10_15_min" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_15_30_min"
-                android:textSize="@dimen/font_size_details"
-                app:chipCornerRadius="100dp" />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/_15_30_min" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_30_min_1_hour"
-                android:textSize="@dimen/font_size_details"
-                app:chipCornerRadius="100dp" />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/_30_min_1_hour" />
 
         </com.google.android.material.chip.ChipGroup>
 
@@ -76,86 +74,82 @@
             android:id="@+id/category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/category"
-            android:textSize="@dimen/font_size_title_secondary"
-            android:textColor="@color/black86"
+            android:layout_marginTop="@dimen/space_small"
+            android:layout_marginStart="@dimen/space_large"
+            android:layout_marginEnd="@dimen/space_large"
             android:fontFamily="@font/roboto_medium"
-            android:layout_marginBottom="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_small"
-            app:layout_constraintTop_toBottomOf="@id/chipGroup1"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:text="@string/category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chipGroup1" />
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroup2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin16"
+            android:layout_marginStart="@dimen/space_large"
+            android:layout_marginTop="@dimen/space_small"
+            android:layout_marginEnd="@dimen/space_large"
+            app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/category">
+            app:layout_constraintTop_toBottomOf="@id/category"
+            app:layout_constraintVertical_bias="0.0">
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/side_dishes"
-                android:textSize="@dimen/font_size_details"
-                app:chipCornerRadius="100dp" />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/side_dishes" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/vegetables"
-                android:textSize="@dimen/font_size_details"
-                app:chipCornerRadius="100dp" />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/vegetables" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/north_india"
-                android:textSize="@dimen/font_size_details"
-                app:chipCornerRadius="100dp" />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/north_india" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/salads"
-                android:textSize="@dimen/font_size_details"
-                app:chipCornerRadius="100dp" />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/salads" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/spicy"
-                android:textSize="@dimen/font_size_details"
-
-                app:chipCornerRadius="100dp" />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/spicy" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/breakfast"
-                app:chipCornerRadius="100dp"
-                android:textSize="@dimen/font_size_details"
-                />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/breakfast" />
+
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/soups"
-                android:textSize="@dimen/font_size_details"
-
-                app:chipCornerRadius="100dp" />
+                style="@style/Widget.Material3.Chip.Filter"
+                android:text="@string/soups" />
 
         </com.google.android.material.chip.ChipGroup>
-        <androidx.appcompat.widget.AppCompatButton
+
+        <Button
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/chipGroup2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/space_large"
             android:text="@string/filter"
-            android:textColor="@color/color_white"
-            android:background="@drawable/button_shape"
-            android:layout_marginTop="@dimen/margin16"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
