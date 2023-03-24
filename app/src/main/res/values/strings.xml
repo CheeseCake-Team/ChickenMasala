@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Chicken Masala</string>
+    <string name="Categories">Categories</string>
 
     <string name="history_of_indian_cuisine">History of Indian Cuisine</string>
     <string name="food">"
+
         Spices and herbs are the dominant feature of Indian cooking. Ginger, turmeric, tamarind, black pepper, cardamom and sesame seeds are indigenous to India. The spice is noted for its antibiotic properties and several Indian treatises describing the medicinal benefits of its inclusion in cuisine. Contrary to popular belief, Indian food isn't always "hot" in the sense that it's excruciatingly hot. All over the country, spices are added to food whole or ground. Spices are often roasted to bring out their flavour, and often blended to make garam masala. Every region in India has its own type of garam masala."
     </string>
+    <string name="food">"Spices and herbs are the dominant feature of Indian cooking. Ginger, turmeric, tamarind, black pepper, cardamom and sesame seeds are indigenous to India. The spice is noted for its antibiotic properties and several Indian treatises describing the medicinal benefits of its inclusion in cuisine. Contrary to popular belief, Indian food isn't always "hot" in the sense that it's excruciatingly hot. All over the country, spices are added to food whole or ground. Spices are often roasted to bring out their flavour, and often blended to make gram masala. Every region in India has its own type of gram masala."</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_result_found">No result found</string>
