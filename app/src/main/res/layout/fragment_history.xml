@@ -9,11 +9,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp">
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/history_img5"
+            android:id="@+id/historyImageOne"
             android:layout_width="0dp"
+            android:layout_height="@dimen/image_history_card_height"
             android:layout_height="174dp"
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_large"
@@ -21,23 +23,23 @@
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-
-            app:layout_constraintStart_toEndOf="@+id/history_img4"
-            app:layout_constraintTop_toBottomOf="@+id/history_img3"
+            app:layout_constraintStart_toEndOf="@+id/historyImageThree"
+            app:layout_constraintTop_toBottomOf="@+id/imageHistoryFour"
             app:roundPercent="0.3" />
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/history_img4"
+            android:id="@+id/historyImageThree"
             android:layout_width="0dp"
+            android:layout_height="@dimen/image_history_card_height"
             android:layout_height="174dp"
             android:layout_marginStart="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_small"
             android:scaleType="centerCrop"
             android:src="@drawable/history_img2"
-            app:layout_constraintEnd_toStartOf="@+id/history_img5"
+            app:layout_constraintEnd_toStartOf="@+id/historyImageOne"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/history_img5"
+            app:layout_constraintTop_toTopOf="@+id/historyImageOne"
             app:roundPercent="0.3" />
 
         <ImageButton
@@ -52,6 +54,12 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/detailsText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:justificationMode="inter_word"
+
             android:id="@+id/text_app_bar"
             style="@style/margin_activity.title_style"
             android:layout_width="wrap_content"
@@ -71,51 +79,80 @@
             android:layout_marginStart="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_large"
             android:maxLines="10"
+            android:textColor="@color/black60"
             android:text="@string/food"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/img_history1"
-            app:layout_constraintTop_toBottomOf="@+id/img_history1" />
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/font_size_small"
+            app:layout_constraintEnd_toEndOf="@+id/imageHistoryHeader"
+            app:layout_constraintStart_toStartOf="@+id/imageHistoryHeader"
+            app:layout_constraintTop_toBottomOf="@+id/imageHistoryHeader" />
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/img_history1"
+            android:id="@+id/imageHistoryHeader"
             android:layout_width="match_parent"
+            android:layout_height="@dimen/image_history_header"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_small"
+
             android:layout_height="124dp"
             android:layout_marginStart="@dimen/margin_large"
             android:layout_marginTop="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_large"
             android:scaleType="centerCrop"
             android:src="@drawable/history_img1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_app_bar"
+            app:layout_constraintTop_toTopOf="parent"
             app:roundPercent="0.3" />
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/history_img2"
+            android:id="@+id/historyImageTwo"
             android:layout_width="0dp"
+            android:layout_height="@dimen/image_history_card_height"
+
             android:layout_height="174dp"
             android:layout_marginStart="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_small"
             android:scaleType="centerCrop"
             android:src="@drawable/history_img2"
-            app:layout_constraintEnd_toStartOf="@+id/history_img3"
+            app:layout_constraintEnd_toStartOf="@+id/imageHistoryFour"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/history_img3"
+            app:layout_constraintTop_toTopOf="@+id/imageHistoryFour"
             app:roundPercent="0.3" />
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/history_img3"
+            android:id="@+id/imageHistoryFour"
             android:layout_width="0dp"
+            android:layout_height="@dimen/image_history_card_height"
+            android:layout_marginTop="8dp"
+
             android:layout_height="174dp"
             android:layout_marginTop="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_large"
             android:background="@drawable/history_img3"
-            android:scaleType="centerCrop"
+            android:scaleType="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/history_img2"
-            app:layout_constraintTop_toBottomOf="@+id/detils_text"
+            app:layout_constraintStart_toEndOf="@+id/historyImageTwo"
+            app:layout_constraintTop_toBottomOf="@+id/detailsText"
             app:roundPercent="0.3" />
 
         <TextView
+            android:id="@+id/detailsHistoryTwo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:layout_marginVertical="@dimen/margin_small"
+            android:justificationMode="inter_word"
+            android:maxLines="11"
+            android:textColor="@color/black60"
+            android:text="@string/food"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/font_size_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/historyImageOne" />
+
             android:id="@+id/text_app_bar3"
             android:layout_width="match_parent"
             android:layout_height="165dp"
