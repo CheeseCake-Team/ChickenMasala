@@ -9,7 +9,7 @@
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/img1"
                 android:layout_width="360dp"
-                android:layout_height="170dp"
+                android:layout_height="@dimen/_170sdp"
                 android:layout_margin="16dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/recycler_img1"

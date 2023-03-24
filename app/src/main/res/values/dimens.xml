@@ -1,20 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="space_large">16sdp</dimen>
-    <dimen name="space_small">8sdp</dimen>
-    <dimen name="space_extra_small">4sdp</dimen>
-    <dimen name="padding_extra_small">4sdp</dimen>
-    <dimen name="padding_small">8sdp</dimen>
-    <dimen name="padding_large">16sdp</dimen>
-    <dimen name="image_history_card_height">174sdp</dimen>
-    <dimen name="font_size_extra_small">4ssp</dimen>
-    <dimen name="font_size_very_small">8ssp</dimen>
-    <dimen name="font_size_small">12ssp</dimen>
-    <dimen name="font_size_medium">14ssp</dimen>
-    <dimen name="font_size_title_extra_medium">16ssp</dimen>
-    <dimen name="font_size_title_large">18ssp</dimen>
-    <dimen name="cuisine_height">110sdp</dimen>
-    <dimen name="cuisine_image_corner">16sdp</dimen>
-    <dimen name="font_size_cuisine_country">18ssp</dimen>
-    <dimen name="image_history_header">124sdp</dimen>
+
 </resources>
