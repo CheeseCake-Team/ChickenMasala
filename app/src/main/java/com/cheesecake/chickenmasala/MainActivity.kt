@@ -1,28 +1,35 @@
 package com.cheesecake.chickenmasala
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.os.PersistableBundle
+import android.view.LayoutInflater
 import com.cheesecake.chickenmasala.dataSource.CsvDataSource
 import com.cheesecake.chickenmasala.dataSource.CsvParser
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
 import com.cheesecake.chickenmasala.model.Recipes
-import com.cheesecake.chickenmasala.ui.*
+import com.cheesecake.chickenmasala.ui.base.BaseActivity
+import com.cheesecake.chickenmasala.ui.base.BaseFragment
+import com.cheesecake.chickenmasala.ui.cuisine.CuisineFragment
+import com.cheesecake.chickenmasala.ui.history.HistoryFragment
+import com.cheesecake.chickenmasala.ui.home.HomeFragment
+import com.cheesecake.chickenmasala.ui.search.SearchFragment
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
+        get() = ActivityMainBinding::inflate
+
     private lateinit var recipes: Recipes
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
         setupRecipes()
         loadFragmentIntoContainer(HomeFragment(recipes))
-        binding.navBarButton.selectedItemId = R.id.home
     }
 
     override fun onStart() {
         super.onStart()
+        binding.navBarButton.selectedItemId = R.id.home
         addCallBacks()
     }
 
@@ -34,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun addCallBacks() {
-        binding.navBarButton.setOnItemSelectedListener { item ->
+        binding!!.navBarButton.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
                     loadFragmentIntoContainer(HomeFragment(recipes))

@@ -1,4 +1,4 @@
-package com.cheesecake.chickenmasala.ui
+package com.cheesecake.chickenmasala.ui.meal
 
 import android.view.LayoutInflater
 import com.bumptech.glide.Glide
@@ -7,6 +7,7 @@ import com.cheesecake.chickenmasala.databinding.ItemRecipesBinding
 import com.cheesecake.chickenmasala.databinding.ItemTranslatedIngredientBinding
 import com.cheesecake.chickenmasala.databinding.ItemTranslatedInstructionBinding
 import com.cheesecake.chickenmasala.model.Meal
+import com.cheesecake.chickenmasala.ui.base.BaseFragment
 
 class MealFragment(private val meal: Meal) : BaseFragment<FragmentMealBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentMealBinding =

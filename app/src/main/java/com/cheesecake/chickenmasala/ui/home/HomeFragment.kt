@@ -1,4 +1,4 @@
-package com.cheesecake.chickenmasala.ui
+package com.cheesecake.chickenmasala.ui.home
 
 import android.view.LayoutInflater
 import android.widget.LinearLayout
@@ -8,6 +8,8 @@ import com.cheesecake.chickenmasala.databinding.FragmentHomeBinding
 import com.cheesecake.chickenmasala.databinding.ItemRecipesBinding
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.Recipes
+import com.cheesecake.chickenmasala.ui.base.BaseFragment
+import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
 class HomeFragment(private val recipes: Recipes) : BaseFragment<FragmentHomeBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentHomeBinding =

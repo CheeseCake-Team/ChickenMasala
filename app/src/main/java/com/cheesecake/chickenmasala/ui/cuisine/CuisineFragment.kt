@@ -1,4 +1,4 @@
-package com.cheesecake.chickenmasala.ui
+package com.cheesecake.chickenmasala.ui.cuisine
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import com.cheesecake.chickenmasala.databinding.FragmentCuisineBinding
 import com.cheesecake.chickenmasala.databinding.ItemCuisineBinding
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.Recipes
+import com.cheesecake.chickenmasala.ui.base.BaseFragment
+import com.cheesecake.chickenmasala.ui.meals.MealsFragment
 
 
 class CuisineFragment(private val recipes: Recipes) : BaseFragment<FragmentCuisineBinding>() {

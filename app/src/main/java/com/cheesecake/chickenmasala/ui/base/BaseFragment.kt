@@ -1,4 +1,4 @@
-package com.cheesecake.chickenmasala.ui
+package com.cheesecake.chickenmasala.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,18 +12,16 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
     abstract val bindingInflater: (LayoutInflater) -> viewBinding
     private var _binding: viewBinding? = null
 
+
     protected val binding: viewBinding
         get() = _binding as viewBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = bindingInflater.invoke(layoutInflater)
-        return binding.root
+        _binding = bindingInflater(layoutInflater)
+        return _binding!!.root
     }
-
-
 }

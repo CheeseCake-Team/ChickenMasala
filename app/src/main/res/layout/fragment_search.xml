@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/margin16"
-    tools:context=".ui.SearchFragment">
+    tools:context=".ui.search.SearchFragment">
 
     <com.google.android.material.search.SearchBar
         android:id="@+id/search_bar"
