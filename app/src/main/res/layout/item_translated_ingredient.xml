@@ -15,7 +15,5 @@
     android:background="@drawable/style_item_card"
     android:paddingBottom="@dimen/margin_large"
     android:paddingTop="@dimen/margin_large"
-    android:textColor="@color/color_black_86"
-    android:textSize="@dimen/font_size_title_main"
     />
 </LinearLayout>
