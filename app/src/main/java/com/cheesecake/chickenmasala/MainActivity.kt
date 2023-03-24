@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.cuisine -> {
-                    loadFragmentIntoContainer(CuisineFragment())
+                    loadFragmentIntoContainer(CuisineFragment(recipes))
                     true
                 }
                 R.id.history -> {
@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun loadFragmentIntoContainer(baseFragment: BaseFragment<*>) {
 
     private fun changeAppBarTitle(resourceString: Int) {
         if (supportActionBar?.isShowing != true) supportActionBar?.show()

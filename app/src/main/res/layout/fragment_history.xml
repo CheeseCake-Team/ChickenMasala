@@ -16,7 +16,6 @@
             android:id="@+id/historyImageOne"
             android:layout_width="0dp"
             android:layout_height="@dimen/image_history_card_height"
-            android:layout_height="174dp"
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_large"
             android:background="@drawable/history_img3"
@@ -31,7 +30,6 @@
             android:id="@+id/historyImageThree"
             android:layout_width="0dp"
             android:layout_height="@dimen/image_history_card_height"
-            android:layout_height="174dp"
             android:layout_marginStart="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_small"
             android:scaleType="centerCrop"
@@ -44,8 +42,8 @@
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:background="@null"
             android:contentDescription="@string/image_button"
@@ -54,12 +52,15 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            app:layout_constraintBottom_toBottomOf="@+id/text_app_bar"
+            app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/detailsText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
-            android:justificationMode="inter_word"
+            android:justificationMode="inter_word"/>
 
+        <TextView
             android:id="@+id/text_app_bar"
             style="@style/margin_activity.title_style"
             android:layout_width="wrap_content"
@@ -88,12 +89,16 @@
             app:layout_constraintTop_toBottomOf="@+id/imageHistoryHeader" />
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/imageHistoryHeader"
             android:layout_width="match_parent"
             android:layout_height="@dimen/image_history_header"
             android:layout_marginHorizontal="@dimen/margin_large"
-            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"/>
 
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:layout_width="match_parent"
             android:layout_height="124dp"
             android:layout_marginStart="@dimen/margin_large"
             android:layout_marginTop="@dimen/margin_large"
@@ -108,8 +113,6 @@
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/historyImageTwo"
             android:layout_width="0dp"
-            android:layout_height="@dimen/image_history_card_height"
-
             android:layout_height="174dp"
             android:layout_marginStart="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_small"
@@ -125,9 +128,6 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/image_history_card_height"
             android:layout_marginTop="8dp"
-
-            android:layout_height="174dp"
-            android:layout_marginTop="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_large"
             android:background="@drawable/history_img3"
             android:scaleType="center"
@@ -153,6 +153,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/historyImageOne" />
 
+        <TextView
             android:id="@+id/text_app_bar3"
             android:layout_width="match_parent"
             android:layout_height="165dp"
@@ -164,7 +165,7 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/history_img5" />
+            app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

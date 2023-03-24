@@ -1,18 +1,14 @@
 <resources>
     <string name="app_name">Chicken Masala</string>
     <string name="Categories">Categories</string>
-
     <string name="history_of_indian_cuisine">History of Indian Cuisine</string>
-    <string name="food">"
-
-        Spices and herbs are the dominant feature of Indian cooking. Ginger, turmeric, tamarind, black pepper, cardamom and sesame seeds are indigenous to India. The spice is noted for its antibiotic properties and several Indian treatises describing the medicinal benefits of its inclusion in cuisine. Contrary to popular belief, Indian food isn't always "hot" in the sense that it's excruciatingly hot. All over the country, spices are added to food whole or ground. Spices are often roasted to bring out their flavour, and often blended to make garam masala. Every region in India has its own type of garam masala."
-    </string>
     <string name="food">"Spices and herbs are the dominant feature of Indian cooking. Ginger, turmeric, tamarind, black pepper, cardamom and sesame seeds are indigenous to India. The spice is noted for its antibiotic properties and several Indian treatises describing the medicinal benefits of its inclusion in cuisine. Contrary to popular belief, Indian food isn't always "hot" in the sense that it's excruciatingly hot. All over the country, spices are added to food whole or ground. Spices are often roasted to bring out their flavour, and often blended to make gram masala. Every region in India has its own type of gram masala."</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_result_found">No result found</string>
     <string name="result_hint">Your search did not match any results, try search for something else</string>
     <string name="_5_10_min">5-10 min</string>
+    <string name="fastest_recipes">fastest_recipes</string>
+    <string name="recipes_of_the_day">recipes_of_the_day</string>
     <string name="_10_15_min">10-15 min</string>
     <string name="_15_30_min">15-30 min</string>
     <string name="_30_min_1_hour">30 min - 1 hour</string>
@@ -38,4 +34,7 @@
     <string name="_20_mins">20 mins</string>
     <string name="country_cuisine">country</string>
     <string name="image_button">image_button</string>
+    <string name="cd">cd</string>
+    <string name="_10_ingredients">10 Ingredients</string>
+    <string name="m">...m</string>
 </resources>

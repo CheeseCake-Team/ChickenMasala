@@ -43,7 +43,8 @@
         android:elevation="1dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/toggleButton"
-        app:layout_constraintTop_toTopOf="@+id/toggleButton" />
+        app:layout_constraintTop_toTopOf="@+id/toggleButton"
+        android:contentDescription="@string/cd" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/toggleButton"
@@ -85,13 +86,13 @@
         android:layout_height="36dp"
         android:layout_marginStart="@dimen/margin_large"
         android:layout_marginTop="4dp"
-        android:drawableStart="@drawable/time"
-        android:drawableTint="@color/color_black_60"
         android:gravity="center_vertical"
-        android:text="  m"
+        android:text="@string/m"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toggleButton" />
+        app:layout_constraintTop_toBottomOf="@id/toggleButton"
+        app:drawableStartCompat="@drawable/time"
+        app:drawableTint="@color/color_black_60" />
 
     <TextView
         android:id="@+id/meal_count"
@@ -100,13 +101,13 @@
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_large"
         android:gravity="center_vertical"
-        android:text="10 Ingredients"
+        android:text="@string/_10_ingredients"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
 
     <ScrollView
-        android:id="@+id/sroll"
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingStart="16dp"
@@ -121,7 +122,6 @@
             android:id="@+id/item_recipe_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_height="match_parent"
             android:layout_marginTop="48dp"
             android:orientation="vertical">
 
