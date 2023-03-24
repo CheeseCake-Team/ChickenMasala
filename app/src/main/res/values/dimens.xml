@@ -9,4 +9,8 @@
     <dimen name="font_size_details">14sp</dimen>
     <dimen name="font_size_title_main">16sp</dimen>
     <dimen name="font_size_title_secondary">18sp</dimen>
+    <dimen name="cuisine_height">110dp</dimen>
+    <dimen name="cuisine_image_corner">16dp</dimen>
+    <dimen name="font_size_cuisine_country">18sp</dimen>
+    <dimen name="padding_extra_small">4dp</dimen>
 </resources>

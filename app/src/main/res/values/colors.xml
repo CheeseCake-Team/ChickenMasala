@@ -25,4 +25,10 @@
     <color name="color_primary">#22BB9C</color>
     <color name="color_secondary">#F7F7F9</color>
     <color name="color_navigation">#E6FFF5</color>
+    <color name="color_error">#F44336</color>
+    <color name="color_warning">#FFEB3B</color>
+    <color name="color_success">#4CAF50</color>
+
+    <color name="midnight_forest">#5C000000</color>
+
 </resources>

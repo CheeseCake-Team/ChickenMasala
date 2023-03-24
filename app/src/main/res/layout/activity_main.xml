@@ -6,6 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingVertical="@dimen/padding_extra_small"
+        app:layout_constraintBottom_toTopOf="@+id/navBarButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navBarButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_navigation"
+        android:pointerIcon="top_right_diagonal_double_arrow"
+        app:elevation="1dp"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+        app:itemIconTint="@color/color_black_60"
+        app:itemTextColor="@color/color_black_60"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/nav_bar_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
