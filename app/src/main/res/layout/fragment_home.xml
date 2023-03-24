@@ -21,16 +21,13 @@
 
             <TextView
                 android:id="@+id/home_text_view"
-                style="@style/margin_activity.title_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Welcome to your kitchen !"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:fontFamily="@font/roboto_medium"
-                android:textSize="@dimen/font_size_title_main"
-                android:textColor="@color/black86"/>
+                android:fontFamily="@font/roboto_medium" />
 
 
             <HorizontalScrollView
@@ -70,12 +67,9 @@
 
             <TextView
                 android:id="@+id/fastest_recipes_text"
-                style="@style/margin_activity.title_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fastest_recipes"
-                android:textSize="@dimen/font_size_title_secondary"
-                android:textColor="@color/black60"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/scroll_view_home" />
 
@@ -101,12 +95,9 @@
 
             <TextView
                 android:id="@+id/home_text_view3"
-                style="@style/margin_activity.title_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/recipes_of_the_day"
-                android:textSize="@dimen/font_size_title_secondary"
-                android:textColor="@color/black60"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/recycler_fast" />
 
