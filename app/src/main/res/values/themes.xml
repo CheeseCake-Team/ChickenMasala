@@ -30,7 +30,7 @@
     </style>
 
     <style name="cuisineImageStyle">
-        <item name="cornerSize">@dimen/cuisine_image_corner</item>
+        <item name="cornerSize">@dimen/_16sdp</item>
     </style>
 <!--
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
@@ -51,9 +51,9 @@
     </style>
 
     <style name="margin_activity" parent="">
-        <item name="android:layout_marginStart">@dimen/space_large</item>
-        <item name="android:layout_marginTop">@dimen/space_large</item>
-        <item name="android:layout_marginEnd">@dimen/space_large</item>
+        <item name="android:layout_marginStart">@dimen/_16sdp</item>
+        <item name="android:layout_marginTop">@dimen/_16sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_16sdp</item>
     </style>
 <!--
     <style name="margin_activity.title_style" parent="margin_activity">
