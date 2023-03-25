@@ -67,10 +67,9 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="ic_launcher_background">@color/md_theme_light_background</color>
-    <color name="color_black_60">#99000000</color>
-    <color name="color_black_86">#db000000</color>
 
     <color name="midnight_forest">#5C000000</color>
-
+    <color name="title_light_mode">#DB000000</color>
+    <color name="title_dark_mode">@color/md_theme_dark_onSurface</color>
 
 </resources>
