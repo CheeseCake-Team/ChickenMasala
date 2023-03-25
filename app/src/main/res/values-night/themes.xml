@@ -28,4 +28,13 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
     </style>
+
+    <style name="BodyMediumTextStyle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/md_theme_dark_onSurfaceVariant</item>
+    </style>
+
+    <style name="TitleMediumTextStyle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/md_theme_dark_onSurface</item>
+    </style>
+
 </resources>
