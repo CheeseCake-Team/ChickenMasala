@@ -122,7 +122,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+        android:id="@+id/recyclerView_ingredient_procedure"
         android:name="com.cheesecake.chickenmasala.meal_Fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
