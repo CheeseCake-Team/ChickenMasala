@@ -21,7 +21,7 @@ class InstructionAdapter() :
     }
 
 
-    class IngredientViewHolder(private var binding: ItemTranslatedInstructionBinding) :
+    class IngredientViewHolder private constructor(private var binding: ItemTranslatedInstructionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: String, position: Int) {
