@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,9 +11,9 @@
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/historyImageOne"
             android:layout_width="0dp"
-            android:layout_height="@dimen/image_history_card_height"
-            android:layout_marginTop="@dimen/space_small"
-            android:layout_marginEnd="@dimen/space_large"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
             android:background="@drawable/history_img3"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,9 +25,9 @@
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/historyImageThree"
             android:layout_width="0dp"
-            android:layout_height="@dimen/image_history_card_height"
-            android:layout_marginStart="@dimen/space_large"
-            android:layout_marginEnd="@dimen/space_small"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/history_img2"
             app:layout_constraintEnd_toStartOf="@+id/historyImageOne"
@@ -39,14 +38,14 @@
 
         <TextView
             android:id="@+id/detailsText"
+            style="@style/TextAppearance.Material3.TitleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_small"
+            android:layout_marginTop="@dimen/_8sdp"
             android:justificationMode="inter_word"
             android:maxLines="10"
             android:text="@string/food"
             android:textAlignment="viewStart"
-            android:textSize="@dimen/font_size_small"
             app:layout_constraintEnd_toEndOf="@+id/imageHistoryHeader"
             app:layout_constraintStart_toStartOf="@+id/imageHistoryHeader"
             app:layout_constraintTop_toBottomOf="@+id/imageHistoryHeader" />
@@ -54,9 +53,9 @@
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/imageHistoryHeader"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/image_history_header"
-            android:layout_marginHorizontal="@dimen/space_large"
-            android:layout_marginTop="@dimen/space_small"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/history_img1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,9 +66,9 @@
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/historyImageTwo"
             android:layout_width="0dp"
-            android:layout_height="@dimen/image_history_card_height"
-            android:layout_marginStart="@dimen/space_large"
-            android:layout_marginEnd="@dimen/space_small"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/history_img2"
             app:layout_constraintEnd_toStartOf="@+id/imageHistoryFour"
@@ -80,9 +79,9 @@
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/imageHistoryFour"
             android:layout_width="0dp"
-            android:layout_height="@dimen/image_history_card_height"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="@dimen/space_large"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
             android:background="@drawable/history_img3"
             android:scaleType="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,15 +91,15 @@
 
         <TextView
             android:id="@+id/detailsHistoryTwo"
+            style="@style/TextAppearance.Material3.TitleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/space_large"
-            android:layout_marginVertical="@dimen/space_small"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginVertical="@dimen/_8sdp"
             android:justificationMode="inter_word"
             android:maxLines="11"
             android:text="@string/food"
             android:textAlignment="viewStart"
-            android:textSize="@dimen/font_size_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

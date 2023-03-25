@@ -77,7 +77,7 @@
                 android:id="@+id/recycler_fast"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/space_large"
+                android:padding="@dimen/_16sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fastest_recipes_text">
@@ -87,7 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="@dimen/space_large">
+                    android:paddingBottom="@dimen/_16sdp">
 
                 </LinearLayout>
 
@@ -105,7 +105,7 @@
                 android:id="@+id/recipes_of_day_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/space_large"
+                android:padding="@dimen/_16sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_text_view3">
@@ -115,7 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="@dimen/space_large">
+                    android:paddingBottom="@dimen/_16sdp">
 
                 </LinearLayout>
 
