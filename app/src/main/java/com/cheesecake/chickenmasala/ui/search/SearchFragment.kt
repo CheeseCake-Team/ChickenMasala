@@ -45,7 +45,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
                 chip.customChip.text = x
                 binding.result.addView(chip.root)
                 binding.searchAutoCompleteTextView.setText("")
-
                 return@setOnKeyListener true
             }
             return@setOnKeyListener false
