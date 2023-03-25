@@ -1,4 +1,4 @@
-package com.cheesecake.chickenmasala.adapter
+package com.cheesecake.chickenmasala.ui.meals
 
 import android.content.Context
 import android.view.LayoutInflater

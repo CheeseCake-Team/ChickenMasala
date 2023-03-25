@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import com.cheesecake.chickenmasala.R
-import com.cheesecake.chickenmasala.adapter.CategoriesAdapter
 import com.cheesecake.chickenmasala.databinding.FragmentCategoriesBinding
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
