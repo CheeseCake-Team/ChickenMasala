@@ -1,71 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardOfMeal"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="11dp"
-    android:layout_marginEnd="16dp"
-    app:cardBackgroundColor="#F8F8F8"
-    app:cardCornerRadius="16dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/view">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
 
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardOfMeal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent=".2"
+
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        app:cardBackgroundColor="#FAFDFB"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,NotSibling"
+        />
     <ImageView
         android:id="@+id/imageCardOfMeal"
-        android:layout_width="102dp"
-        android:layout_height="96dp"
-        android:layout_gravity="end"
-        android:layout_marginStart="210dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/card_pic"
         android:src="@drawable/foodimg"
-        android:contentDescription="@string/card_pic" />
+android:foreground="@color/md_theme_light_shadow_card_meal"
+        app:layout_constraintBottom_toBottomOf="@id/cardOfMeal"
+        app:layout_constraintEnd_toEndOf="@id/cardOfMeal"
+        app:layout_constraintHeight_percent=".2"
+        app:layout_constraintTop_toTopOf="@id/cardOfMeal"
+        app:layout_constraintWidth_percent=".3" />
 
-    <TextView
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent=".2"
+        app:layout_constraintWidth_percent=".6"
+        android:layout_marginVertical="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageCardOfMeal"
+        app:layout_constraintEnd_toStartOf="@id/imageCardOfMeal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageCardOfMeal"
 
-        android:id="@+id/tvNameOfMeal"
-        android:layout_width="186dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/card_text"
-        android:textColor="#484848"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
 
-    <TextView
-        android:id="@+id/tvTimeToMakeMeal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="59dp"
-        android:drawablePadding="5dp"
-        android:text="@string/_20_mins"
-        android:textColor="#A9A9A9"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2"
-        app:drawableStartCompat="@drawable/outline_timer_24" />
+        >
 
-    <TextView
-        android:id="@+id/tvLocationOfMeal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="82dp"
-        android:drawableStart="@drawable/outline_outlined_flag_24"
-        android:drawablePadding="5dp"
-        android:text="Northern India"
-        android:textColor="#A9A9A9"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        <TextView
 
-</com.google.android.material.card.MaterialCardView>
+            android:id="@+id/tvNameOfMeal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/card_text"
+            android:textColor="#191C1B"
+            android:gravity="top"
+
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvTimeToMakeMeal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/_20_mins"
+
+            android:textColor="#3F4946"
+            android:textSize="12sp"
+            app:drawableStartCompat="@drawable/outline_timer_24" />
+
+        <TextView
+            android:id="@+id/tvLocationOfMeal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/outline_outlined_flag_24"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="bottom"
+
+            android:text="Northern India"
+            android:textColor="#3F4946"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
