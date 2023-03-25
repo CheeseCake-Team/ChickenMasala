@@ -17,39 +17,13 @@ class HomeFragment(private val recipes: RecipesManager) : BaseFragment<FragmentH
 
     override fun onStart() {
         super.onStart()
-        fillFastRecipes()
-        fillRecipesOfToday()
-    }
+        val fastRecipeAdapter = HomeRecipeAdapter(HomeRecipeListener { loadMealFragment(it) })
+        val recipesOfTodayAdapter = HomeRecipeAdapter(HomeRecipeListener { loadMealFragment(it) })
+        binding.recyclerViewFastRecipes.adapter = fastRecipeAdapter
+        binding.recyclerViewRecipesOfToday.adapter = recipesOfTodayAdapter
 
-    private fun fillFastRecipes() {
-        val fastRecipes = recipes.getFastMeals()
-        fastRecipes.forEach {
-            loadRecipeItems(it, binding.linearCardFast)
-        }
-    }
-
-
-    private fun fillRecipesOfToday() {
-        val recipesOfToday = recipes.getRandomMeals()
-        recipesOfToday.forEach {
-            loadRecipeItems(it, binding.recipesOfToday)
-        }
-    }
-
-    private fun loadRecipeItems(meal: Meal, linearCard: LinearLayout) {
-        val itemRecipesBinding = ItemRecipesBinding.inflate(layoutInflater)
-
-        Glide.with(this).load(meal.imageUrl).into(itemRecipesBinding.recipeImage)
-
-        itemRecipesBinding.cuisine.text = meal.cuisine
-        itemRecipesBinding.time.text = meal.TotalTimeInMinutes.toString()
-        itemRecipesBinding.recipeName.text = meal.translatedRecipeName
-
-        itemRecipesBinding.root.setOnClickListener {
-            loadMealFragment(meal)
-        }
-
-        linearCard.addView(itemRecipesBinding.root)
+        fastRecipeAdapter.submitList(recipes.getFastMeals())
+        recipesOfTodayAdapter.submitList(recipes.getRandomMeals())
     }
 
     private fun loadMealFragment(meal: Meal) {
