@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".ui.meal.MealFragment">
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
@@ -28,7 +27,7 @@
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="24dp"
         android:text="@string/meal_name"
-        android:textSize="@dimen/font_size_title_secondary"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/meal_image" />
 
@@ -39,6 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="132dp"
+        android:background="@drawable/check_icon"
+        android:contentDescription="@string/cd"
         android:elevation="1dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/toggleButton"
@@ -54,16 +55,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/meal_name"
-        app:singleSelection="true"
-        app:selectionRequired="true">
+        app:singleSelection="true">
 
         <Button
-            style="?attr/materialButtonOutlinedStyle"
             android:id="@+id/ingredient_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:drawableStart="@drawable/check_icon"
             android:text="@string/ingredient"
             app:cornerRadius="@dimen/_16sdp" />
 
@@ -82,14 +80,12 @@
         android:id="@+id/meal_time"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginStart="@dimen/space_large"
         android:layout_marginTop="4dp"
         android:gravity="center_vertical"
-        android:text="@string/minute"
-        android:textColor="@color/color_black_60"
-        android:textSize="12sp"
-        app:drawableStartCompat="@drawable/timer_icon"
-        app:drawableTint="@color/color_black_60"
+        android:text="@string/m"
+        android:textSize="24sp"
+        app:drawableStartCompat="@drawable/time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toggleButton" />
 
@@ -105,6 +101,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
 
+    <ScrollView
+        android:id="@+id/scroll"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_ingredient_procedure"
@@ -117,7 +117,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meal_time"
-        tools:context=".meal_Fragment"
-        tools:listitem="@layout/item_translated_ingredient" />
+        app:layout_constraintTop_toBottomOf="@+id/meal_count">
+
+        <LinearLayout
+            android:id="@+id/item_recipe_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
