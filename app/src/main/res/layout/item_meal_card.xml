@@ -30,6 +30,8 @@
         android:layout_height="0dp"
         android:contentDescription="@string/card_pic"
         android:src="@drawable/foodimg"
+        android:foreground="@color/md_theme_light_onshadow_of_image"
+
 android:foreground="@color/md_theme_light_shadow_card_meal"
         app:layout_constraintBottom_toBottomOf="@id/cardOfMeal"
         app:layout_constraintEnd_toEndOf="@id/cardOfMeal"
@@ -91,19 +93,11 @@ android:foreground="@color/md_theme_light_shadow_card_meal"
             android:fontFamily="@font/roboto_medium"
             android:gravity="bottom"
 
+            android:text="Northern India"
             android:text="@string/northern_india"
             android:textColor="#3F4946"
             android:textSize="12sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
-
 

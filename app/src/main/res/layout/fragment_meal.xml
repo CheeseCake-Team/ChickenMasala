@@ -10,9 +10,9 @@
         android:id="@+id/meal_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_large"
-        android:layout_marginTop="@dimen/space_large"
-        android:layout_marginEnd="@dimen/space_large"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:scaleType="centerCrop"
         android:src="@drawable/meal_image"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
         android:id="@+id/meal_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_large"
+        android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="24dp"
         android:text="@string/meal_name"
         android:textStyle="bold"
@@ -49,9 +49,9 @@
         android:id="@+id/toggleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_large"
-        android:layout_marginTop="@dimen/space_large"
-        android:layout_marginEnd="@dimen/space_large"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/meal_name"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/ingredient"
-            app:cornerRadius="@dimen/space_large" />
+            app:cornerRadius="@dimen/_16sdp" />
 
         <Button
             android:id="@+id/Procedure_button"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/procedure"
-            app:cornerRadius="@dimen/space_large" />
+            app:cornerRadius="@dimen/_16sdp" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -80,12 +80,12 @@
         android:id="@+id/meal_time"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginStart="@dimen/space_large"
+        android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="4dp"
         android:gravity="center_vertical"
         android:text="@string/m"
         android:textSize="24sp"
-        app:drawableStartCompat="@drawable/time"
+        app:drawableStartCompat="@drawable/filter_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toggleButton" />
 
@@ -93,21 +93,27 @@
         android:id="@+id/meal_count"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginTop="@dimen/space_small"
-        android:layout_marginEnd="@dimen/space_large"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:gravity="center_vertical"
         android:text="@string/_10_ingredients"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
 
-    <ScrollView
+    <!--<ScrollView
         android:id="@+id/scroll"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton" />-->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_ingredient_procedure"
+        android:name="com.cheesecake.chickenmasala.meal_Fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingStart="16dp"
-        android:paddingTop="@dimen/space_small"
-        android:paddingEnd="@dimen/space_large"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_16sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,6 +128,6 @@
 
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,7 +54,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     true
                 }
                 R.id.categories -> {
-                    loadFragmentIntoContainer(CategoriesFragment())
+                    loadFragmentIntoContainer(CategoriesFragment(recipes.getFastMeals()))
                     true
                 }
                 R.id.history -> {
