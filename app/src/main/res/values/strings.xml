@@ -41,4 +41,8 @@
     <string name="classic_greek_salad">Classic Greek Salad</string>
     <string name="northern_india">Northern India</string>
     <string name="_10_m">10 m</string>
+    <string name="ingredients">3 Tomato\'s</string>
+    <string name="minute">minute</string>
+    <string name="meal_count_number">10</string>
+    <string name="ingredients_text">Ingredients</string>
 </resources>
