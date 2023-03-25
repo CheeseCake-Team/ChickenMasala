@@ -1,4 +1,4 @@
-package com.cheesecake.chickenmasala.adapter
+package com.cheesecake.chickenmasala.ui.categories
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -31,14 +31,14 @@ class CategoriesAdapter(
         val currentCategory = categoriesList[position]
         holder.apply {
             binding.textCardAddress.text = currentCategory.cuisine
-            Glide.with(context).load(currentCategory.imageUrl)
+            Glide.with(context).load(currentCategory.imageUrl).centerCrop()
                 .into(object : CustomTarget<Drawable>() {
                     override fun onResourceReady(
                         resource: Drawable,
                         transition: Transition<in Drawable>?
                     ) {
                         // Set the loaded image as the background of the CardView
-                        binding.cardImg.background = resource
+                        binding.cardImgHolder.background = resource
                     }
 
                     override fun onLoadCleared(placeholder: Drawable?) {
