@@ -24,7 +24,7 @@ class HomeRecipeAdapter(private val clickListener: HomeRecipeListener) :
     }
 
 
-    class RecipeViewHolder(private var binding: ItemRecipesBinding) :
+    class RecipeViewHolder private constructor(private var binding: ItemRecipesBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(listener: HomeRecipeListener, item: Meal) {
