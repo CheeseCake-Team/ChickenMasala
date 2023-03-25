@@ -65,6 +65,8 @@
     <color name="md_theme_dark_scrim">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#FF000000</color>
+    <color name="color_black_60">#99000000</color>
+    <color name="color_black_86">#db000000</color>
 
     <color name="midnight_forest">#5C000000</color>
 
