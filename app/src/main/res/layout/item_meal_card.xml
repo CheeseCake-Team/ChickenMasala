@@ -91,7 +91,7 @@ android:foreground="@color/md_theme_light_shadow_card_meal"
             android:fontFamily="@font/roboto_medium"
             android:gravity="bottom"
 
-            android:text="Northern India"
+            android:text="@string/northern_india"
             android:textColor="#3F4946"
             android:textSize="12sp" />
 
