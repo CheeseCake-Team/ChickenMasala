@@ -30,7 +30,7 @@
         android:layout_height="0dp"
         android:contentDescription="@string/card_pic"
         android:src="@drawable/foodimg"
-
+        android:foreground="@color/md_theme_light_onshadow_of_image"
         app:layout_constraintBottom_toBottomOf="@id/cardOfMeal"
         app:layout_constraintEnd_toEndOf="@id/cardOfMeal"
         app:layout_constraintHeight_percent=".2"
