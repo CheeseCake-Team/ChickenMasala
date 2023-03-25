@@ -2,34 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_16sdp"
-    >
-<TextView
-    android:id="@+id/text_meal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingStart="@dimen/_16sdp"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
-    android:text="3 Tomato's"
-    android:background="@drawable/style_item_card"
-    android:paddingBottom="@dimen/_16sdp"
-    android:paddingTop="@dimen/_16sdp"
-    />
-=========
-    android:layout_marginTop="@dimen/margin_small"
-    >
+    android:layout_margin="@dimen/_16sdp">
+
+
     <TextView
         android:id="@+id/text_meal"
+        style="@style/TextAppearance.Material3.TitleMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/margin_large"
-        android:text="@string/ingredients"
         android:background="@drawable/style_item_card"
-        android:paddingBottom="@dimen/margin_large"
-        android:paddingTop="@dimen/margin_large"
-        android:textColor="@color/color_black_86"
-        android:textSize="@dimen/font_size_title_main"
-        />
->>>>>>>>> Temporary merge branch 2
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingTop="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_16sdp"
+        android:text="@string/ingredients"
+        android:textColor="@color/color_black_86" />
+
 </LinearLayout>
