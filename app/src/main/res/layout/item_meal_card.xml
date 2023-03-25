@@ -27,7 +27,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/card_pic"
-        android:foreground="@color/md_theme_light_shadow_card_meal"
+        android:foreground="@drawable/gradient"
         android:src="@drawable/foodimg"
         app:layout_constraintBottom_toBottomOf="@id/cardOfMeal"
         app:layout_constraintEnd_toEndOf="@id/cardOfMeal"
