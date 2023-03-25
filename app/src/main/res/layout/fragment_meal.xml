@@ -10,36 +10,62 @@
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/meal_image"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_large"
         android:scaleType="centerCrop"
         android:src="@drawable/meal_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:roundPercent="0.1" />
+        app:roundPercent="0.2" />
 
     <TextView
         android:id="@+id/meal_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingVertical="8dp"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="24dp"
         android:text="@string/meal_name"
-        style="@style/TextAppearance.Material3.TitleLarge"
+        android:textSize="@dimen/font_size_title_secondary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meal_image"/>
+        app:layout_constraintTop_toBottomOf="@+id/meal_image" />
+
+
+    <ImageView
+        android:id="@+id/check_icon_procedure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="132dp"
+        android:elevation="1dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/toggleButton"
+        app:layout_constraintTop_toTopOf="@+id/toggleButton" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/toggleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/meal_name"
-        app:singleSelection="true">
+        app:singleSelection="true"
+        app:selectionRequired="true">
 
         <Button
+            style="?attr/materialButtonOutlinedStyle"
             android:id="@+id/ingredient_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:drawableStart="@drawable/check_icon"
             android:text="@string/ingredient"
-            app:cornerRadius="20dp" />
+            app:cornerRadius="@dimen/margin_large" />
 
         <Button
             android:id="@+id/Procedure_button"
@@ -48,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/procedure"
-            app:cornerRadius="20dp" />
+            app:cornerRadius="@dimen/margin_large" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -56,33 +82,57 @@
         android:id="@+id/meal_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="8dp"
+        android:drawablePadding="@dimen/margin_small"
         android:gravity="center_vertical"
-        android:text="15 min"
-        android:layout_marginVertical="8dp"
-        style="@style/TextAppearance.Material3.SearchView.Prefix"
+        android:text="@string/minute"
+        android:textColor="@color/color_black_60"
+        android:textSize="12sp"
         app:drawableStartCompat="@drawable/timer_icon"
-        android:drawablePadding="4dp"
+        app:drawableTint="@color/color_black_60"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toggleButton" />
 
-    <TextView
-        android:id="@+id/meal_count"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/margin_large"
         android:gravity="center_vertical"
-        android:text="@string/_10_ingredients"
-        android:layout_marginVertical="8dp"
-        style="@style/TextAppearance.Material3.SearchView.Prefix"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton">
 
-    <ScrollView
-        android:id="@+id/scroll"
+        <TextView
+            android:id="@+id/meal_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meal_count_number"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/ingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/ingredients_text"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:name="com.cheesecake.chickenmasala.meal_Fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:clickable="false"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginStart="@dimen/margin_large"
+        app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meal_count"
-        android:layout_marginTop="8dp">
-    </ScrollView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meal_time"
+        tools:context=".meal_Fragment"
+        tools:listitem="@layout/item_translated_ingredient" />
 </androidx.constraintlayout.widget.ConstraintLayout>

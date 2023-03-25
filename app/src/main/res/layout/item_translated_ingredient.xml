@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/space_large"
+    android:layout_marginTop="@dimen/margin_small"
     >
-<TextView
-    android:id="@+id/text_meal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingStart="@dimen/space_large"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
-    android:text="3 Tomato's"
-    android:background="@drawable/style_item_card"
-    android:paddingBottom="@dimen/space_large"
-    android:paddingTop="@dimen/space_large"
-    />
+    <TextView
+        android:id="@+id/text_meal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_large"
+        android:text="@string/ingredients"
+        android:background="@drawable/style_item_card"
+        android:paddingBottom="@dimen/margin_large"
+        android:paddingTop="@dimen/margin_large"
+        android:textColor="@color/color_black_86"
+        android:textSize="@dimen/font_size_title_main"
+        />
 </LinearLayout>
