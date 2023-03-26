@@ -10,3 +10,20 @@
     android:text="@string/item_translated_ingredient_placeholder"
     android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
     android:textColor="@color/material_on_surface_emphasis_high_type" />
+
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_16sdp">
+
+
+    <TextView
+        android:id="@+id/text_meal"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/style_item_card"
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingTop="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_16sdp"
+        android:text="@string/ingredients" />
+
+</LinearLayout>
