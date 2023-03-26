@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
 import com.cheesecake.chickenmasala.datasource.CsvDataSource
 import com.cheesecake.chickenmasala.datasource.CsvParser
+import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseActivity
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
@@ -21,9 +22,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private lateinit var recipes: RecipesManager
 
+
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-
         loadFragmentIntoContainer(HomeFragment(recipes))
     }
 
@@ -49,11 +50,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     true
                 }
                 R.id.search -> {
-                    loadFragmentIntoContainer(SearchFragment())
+                    loadFragmentIntoContainer(SearchFragment.createFragment(recipes))
                     true
                 }
                 R.id.categories -> {
-                    loadFragmentIntoContainer(CategoriesFragment())
+                    loadFragmentIntoContainer(CategoriesFragment(recipes.getFastMeals()))
                     true
                 }
                 R.id.history -> {

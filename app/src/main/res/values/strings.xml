@@ -36,7 +36,7 @@
     <string name="image_button">image_button</string>
     <string name="cd">cd</string>
     <string name="_10_ingredients">10 Ingredients</string>
-    <string name="m">...m</string>
+    <string name="m"> 45 m</string>
     <string name="time">Time</string>
     <string name="classic_greek_salad">Classic Greek Salad</string>
     <string name="northern_india">Northern India</string>
@@ -44,4 +44,15 @@
     <string name="history_text">History</string>
     <string name="indian_food">Spices and herbs are the dominant feature of Indian cooking. Ginger, turmeric, tamarind, black pepper, cardamom and sesame seeds are indigenous to India. The spice is noted for its antibiotic properties and several Indian treatises describing the medicinal benefits of its inclusion in cuisine. Contrary to popular belief, Indian food isn\'t always"hot" in the sense that it's excruciatingly hot. All over the country, spices are added to food whole or ground. Spices are often roasted to bring out their flavour, and often blended to make garam masala. Every region in India has its own type of garam masala.</string>
     <string name="more_food">The Islamic conquest of India introduced fruits such as apricots, melons, and plums, as well as a rich gravy style of cooking. Kebabs cooked over coals and pilaf became popular during this period and are still classified as Mughlai cuisine in present-day India. The biryani, a celebratory meal made using meat, rice, yogurt, onion, and spices, originated in Persia but evolved in India during this era. Biryani now has multiple variants across the country, with the most popular ones credited to the Mughalsand the nizams of Hyderabad. The arrival of New World vegetables by way of the Portuguese in the 16th century resulted in yet more changes to the cuisines of India. In the state of Goa, which was under Portuguese rule for 450 years, the Portuguese influence on cooking is still especially visible.</string>
+
+    <string name="indian_meal_image">indian meal image</string>
+    <string name="item_translated_ingredient_placeholder">3 Tomato\'s</string>
+    <string name="lorem_text">Lorem ipsum tempor incididunt ut labore letjhdolore,in voluptate velit esse cillum dolore eu fugiat nulla pariatur?</string>
+    <string name="step">step 1</string>
+    <string name="step_1">1</string>
+    <string name="ingredients">3 Tomato\'s</string>
+    <string name="minute">minute</string>
+    <string name="meal_count_number">10</string>
+    <string name="ingredients_text">Ingredients</string>
+    <string name="no_result_logo">No result logo</string>
 </resources>

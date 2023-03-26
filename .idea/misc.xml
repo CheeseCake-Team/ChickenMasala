@@ -4,13 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1795" />
+        <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/activity_main.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/fragment_categories.xml" value="0.4" />
         <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/fragment_history.xml" value="0.536" />
         <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/fragment_home.xml" value="0.12183383991894631" />
         <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/fragment_meal.xml" value="0.12183383991894631" />
         <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/fragment_meals.xml" value="0.12183383991894631" />
-        <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/fragment_search.xml" value="0.12183383991894631" />
-        <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/item_category.xml" value="0.176" />
+        <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/fragment_search.xml" value="0.536" />
+        <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/item_category.xml" value="0.4" />
+        <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/item_meal.xml" value="0.6" />
+        <entry key="..\:/Users/Microsoft/AndroidStudioProjects/ChickenMasala/app/src/main/res/layout/item_meal_card.xml" value="0.6" />
       </map>
     </option>
   </component>

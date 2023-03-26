@@ -30,8 +30,15 @@
     </style>
 
     <style name="cuisineImageStyle">
-        <item name="cornerSize">@dimen/cuisine_image_corner</item>
+        <item name="cornerSize">@dimen/_16sdp</item>
     </style>
+
+    <style name="Theme.App.ChickenMasala.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_light_mode</item>
+        <item name="windowSplashScreenBackground">@color/md_theme_light_primary</item>
+        <item name="postSplashScreenTheme">@style/Theme.ChickenMasala</item>
+    </style>
+
 <!--
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="labelVisibilityMode">selected</item>
@@ -51,9 +58,9 @@
     </style>
 
     <style name="margin_activity" parent="">
-        <item name="android:layout_marginStart">@dimen/space_large</item>
-        <item name="android:layout_marginTop">@dimen/space_large</item>
-        <item name="android:layout_marginEnd">@dimen/space_large</item>
+        <item name="android:layout_marginStart">@dimen/_16sdp</item>
+        <item name="android:layout_marginTop">@dimen/_16sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_16sdp</item>
     </style>
 <!--
     <style name="margin_activity.title_style" parent="margin_activity">
@@ -61,4 +68,13 @@
         <item name="android:textSize">@dimen/font_size_title_secondary</item>
         <item name="android:textColor">@color/color_black_86</item>
     </style>-->
+
+    <style name="BodyMediumTextStyle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
+    </style>
+
+    <style name="TitleMediumTextStyle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+
 </resources>
