@@ -101,7 +101,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_meal_count"
         tools:itemCount="12"
-        tools:listitem="@layout/item_translated_instruction" />
+        tools:listitem="@layout/item_translated_ingredient" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
