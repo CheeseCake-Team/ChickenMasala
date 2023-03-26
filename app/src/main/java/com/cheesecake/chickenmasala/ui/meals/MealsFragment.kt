@@ -38,7 +38,7 @@ class MealsFragment(private val meals: List<Meal>) :
     override fun onClick(meal: Meal) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.addToBackStack(null)
-        transaction.add(R.id.fragment_container, MealFragment(meal)).commit()
+        transaction.add(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
     }
 
     }

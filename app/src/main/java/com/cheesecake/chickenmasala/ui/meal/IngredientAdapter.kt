@@ -27,7 +27,7 @@ class IngredientAdapter() :
 
         fun bind(item: String) {
             binding.apply {
-                textMeal.text = item
+                textIngredient.text = item
             }
         }
 
