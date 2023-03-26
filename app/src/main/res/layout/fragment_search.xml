@@ -56,7 +56,7 @@
         android:layout_marginTop="@dimen/space_small"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/no_result_found"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndO f="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image" />
 
