@@ -1,5 +1,5 @@
 package com.cheesecake.chickenmasala.model
 
 enum class MealCourse {
-    SOUP,APPETIZER,SPICY
+    SOUPS,APPETIZER,SPICY,NORTH_INDIAN,SOUTH_INDIA,DESERT,SIDE_DISHES,DRINKS,
 }

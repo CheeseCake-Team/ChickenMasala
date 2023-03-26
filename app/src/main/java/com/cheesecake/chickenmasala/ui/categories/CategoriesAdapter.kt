@@ -38,7 +38,7 @@ class CategoriesAdapter(
                         transition: Transition<in Drawable>?
                     ) {
                         // Set the loaded image as the background of the CardView
-                        binding.cardImgHolder.background = resource
+                             binding.cardImgHolder.background = resource
                     }
 
                     override fun onLoadCleared(placeholder: Drawable?) {
