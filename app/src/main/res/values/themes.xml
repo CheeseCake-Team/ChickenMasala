@@ -71,12 +71,12 @@
         <item name="android:textColor">@color/color_black_86</item>
     </style>-->
 
-    <style name="BodyMediumTextStyle" parent="TextAppearance.Material3.BodyMedium">
+    <style name="BodyMediumTextStyle">
         <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
         <item name="android:textSize">@dimen/_14ssp</item>
     </style>
 
-    <style name="TitleMediumTextStyle" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TitleMediumTextStyle">
         <item name="android:textColor">@color/md_theme_light_onSurface</item>
         <item name="android:textSize">@dimen/_14ssp</item>
     </style>
