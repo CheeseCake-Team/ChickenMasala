@@ -36,11 +36,16 @@
     <string name="image_button">image_button</string>
     <string name="cd">cd</string>
     <string name="_10_ingredients">10 Ingredients</string>
-    <string name="m">...m</string>
+    <string name="m"> 45 m</string>
     <string name="time">Time</string>
     <string name="classic_greek_salad">Classic Greek Salad</string>
     <string name="northern_india">Northern India</string>
     <string name="_10_m">10 m</string>
+    <string name="indian_meal_image">indian meal image</string>
+    <string name="item_translated_ingredient_placeholder">3 Tomato\'s</string>
+    <string name="lorem_text">Lorem ipsum tempor incididunt ut labore letjhdolore,in voluptate velit esse cillum dolore eu fugiat nulla pariatur?</string>
+    <string name="step">step 1</string>
+    <string name="step_1">1</string>
     <string name="ingredients">3 Tomato\'s</string>
     <string name="minute">minute</string>
     <string name="meal_count_number">10</string>
