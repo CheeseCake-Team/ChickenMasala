@@ -15,6 +15,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+        android:paddingStart="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@+id/instruction" />
+
     <TextView
         android:id="@+id/label_step_content"
         style="@style/BodyMediumTextStyle"
@@ -25,6 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/label_step"
         app:layout_constraintTop_toBottomOf="@+id/label_step" />
-
-
+        android:paddingStart="@dimen/_16sdp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

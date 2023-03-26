@@ -3,9 +3,6 @@ package com.cheesecake.chickenmasala.ui.meal
 import android.view.LayoutInflater
 import com.bumptech.glide.Glide
 import com.cheesecake.chickenmasala.databinding.FragmentMealBinding
-import com.cheesecake.chickenmasala.databinding.ItemRecipesBinding
-import com.cheesecake.chickenmasala.databinding.ItemTranslatedIngredientBinding
-import com.cheesecake.chickenmasala.databinding.ItemTranslatedInstructionBinding
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 
@@ -13,57 +10,33 @@ class MealFragment(private val meal: Meal) : BaseFragment<FragmentMealBinding>()
     override val bindingInflater: (LayoutInflater) -> FragmentMealBinding =
         FragmentMealBinding::inflate
 
+    private val ingredientAdapter = IngredientAdapter()
+    private val instructionAdapter = InstructionAdapter()
+
     override fun onStart() {
         super.onStart()
-        fillMealData()
-        addCallBack()
+
+        ingredientAdapter.submitList(meal.translatedIngredients)
+        instructionAdapter.submitList(meal.translatedInstructions)
+
+        binding.apply {
+            recyclerViewIngredientProcedure.adapter = ingredientAdapter
+            Glide.with(this@MealFragment).load(meal.imageUrl).into(mealImage)
+            mealTime.text = meal.TotalTimeInMinutes.toString()
+            mealCount.text = meal.ingredientCount.toString()
+            mealName.text = meal.translatedRecipeName
+        }
+
+        addCallBacks()
     }
 
-    private fun addCallBack() {
+    private fun addCallBacks() {
         binding.ingredientButton.setOnClickListener {
-            binding.itemRecipeHolder.removeAllViews()
-            fillTranslatedIngredients(meal.translatedIngredients)
+            binding.recyclerViewIngredientProcedure.adapter = ingredientAdapter
         }
 
         binding.ProcedureButton.setOnClickListener {
-            binding.itemRecipeHolder.removeAllViews()
-            fillTranslatedInstructions(meal.translatedInstructions)
-        }
-    }
-
-    private fun fillMealData() {
-        Glide.with(this).load(meal.imageUrl).into(binding.mealImage)
-        binding.mealName.text = meal.translatedRecipeName
-        binding.mealCount.text = meal.ingredientCount.toString()
-        binding.mealTime.text = meal.TotalTimeInMinutes.toString()
-        fillTranslatedIngredients(meal.translatedIngredients)
-    }
-
-    private fun fillTranslatedIngredients(translatedIngredients: List<String>) {
-        translatedIngredients.forEach {
-            val itemRecipeMealBinding = ItemTranslatedIngredientBinding.inflate(layoutInflater)
-            itemRecipeMealBinding.textMeal.text = it
-            binding.itemRecipeHolder.addView(itemRecipeMealBinding.root)
-        }
-    }
-
-    private fun fillTranslatedInstructions(translatedInstructions: List<String>) {
-        translatedInstructions.first().drop(1)
-        translatedInstructions.last().dropLast(1)
-        for (i in translatedInstructions.indices) {
-            val itemRecipeMealBinding = ItemTranslatedInstructionBinding.inflate(layoutInflater)
-            val instructionNumber = "Step ${i + 1}"
-            itemRecipeMealBinding.instructionNumber.text = instructionNumber
-            itemRecipeMealBinding.instruction.text = translatedInstructions[i]
-            binding.itemRecipeHolder.addView(itemRecipeMealBinding.root)
-        }
-        fillLinearLayoutWithCard()
-    }
-
-    private fun fillLinearLayoutWithCard() {
-        for (recipe in 0..20) {
-            val itemCuisineBinding = ItemRecipesBinding.inflate(layoutInflater)
-            binding.itemRecipeHolder.addView(itemCuisineBinding.root)
+            binding.recyclerViewIngredientProcedure.adapter = instructionAdapter
         }
     }
 }

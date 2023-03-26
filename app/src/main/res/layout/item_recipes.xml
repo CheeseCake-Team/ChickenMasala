@@ -5,7 +5,7 @@
     style="@style/Widget.Material3.CardView.Outlined"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/padding_small"
+    android:paddingBottom="@dimen/_8sdp"
     app:cardCornerRadius="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/space_small"
+            android:layout_marginTop="@dimen/_8sdp"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:maxLines="2"
@@ -45,7 +45,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_light"
             android:text="@string/northern_india"
-            android:textSize="@dimen/font_size_details"
+            style="@style/TextAppearance.Material3.TitleMedium"
             app:layout_constraintStart_toStartOf="@+id/recipe_name"
             app:layout_constraintTop_toBottomOf="@+id/recipe_name" />
 

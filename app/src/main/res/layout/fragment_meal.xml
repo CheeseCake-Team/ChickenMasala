@@ -14,6 +14,13 @@
         android:layout_marginTop="@dimen/_16sdp"
         android:scaleType="fitXY"
         android:src="@drawable/meals_images"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/meal_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,6 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_8sdp"
+
+        android:layout_marginTop="24dp"
         android:text="@string/meal_name"
         android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
         android:textColor="@color/material_on_background_emphasis_high_type"
@@ -38,6 +47,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_16sdp"
+
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_meal_name"
@@ -51,6 +64,9 @@
             android:layout_weight="0.5"
             android:text="@string/ingredient" />
 
+            android:text="@string/ingredient"
+            app:cornerRadius="@dimen/_16sdp" />
+
         <Button
             android:id="@+id/button_procedure"
             style="?attr/materialButtonOutlinedStyle"
@@ -58,6 +74,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/procedure" />
+
+            android:text="@string/procedure"
+            app:cornerRadius="@dimen/_16sdp" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -77,6 +96,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/text_meal_count"
         app:layout_constraintStart_toStartOf="parent" />
 
+        android:layout_height="36dp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:text="@string/m"
+        android:textSize="24sp"
+        app:drawableStartCompat="@drawable/filter_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton" />
+
     <TextView
         android:id="@+id/text_meal_count"
         style="@style/TextAppearance.Material3.LabelLarge"
@@ -84,6 +113,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_24sdp"
         android:layout_marginEnd="@dimen/_16sdp"
+
+        android:layout_height="36dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:gravity="center_vertical"
         android:text="@string/_10_ingredients"
         android:textColor="@color/material_on_background_emphasis_medium"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,5 +132,34 @@
         app:layout_constraintTop_toBottomOf="@+id/text_meal_time"
         tools:itemCount="12"
         tools:listitem="@layout/item_translated_instruction" />
+
+    <!--<ScrollView
+        android:id="@+id/scroll"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton" />-->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_ingredient_procedure"
+        android:name="com.cheesecake.chickenmasala.meal_Fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingStart="16dp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_16sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meal_count">
+
+        <LinearLayout
+            android:id="@+id/item_recipe_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
