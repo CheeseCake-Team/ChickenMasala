@@ -18,14 +18,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/home_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="Welcome to your kitchen !" />
+                android:text="@string/Home_welcome_text" />
 
 
             <HorizontalScrollView
@@ -34,17 +34,18 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:id="@+id/linear_card_hme"
-                    android:layout_width="match_parent"
+                    android:id="@+id/linear_card_home"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="@dimen/_4sdp">
 
                     <include
                         android:id="@+id/myIncludedLayout"
                         layout="@layout/item_home_welcome"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"/>
 
                     <include
                         android:id="@+id/myIncludedLayout2"
@@ -61,10 +62,10 @@
             </HorizontalScrollView>
 
             <TextView
-                android:id="@+id/home_text_view2"
+                android:id="@+id/fastest_recipes_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fastest Recipes"
+                android:text="@string/fastest_recipes_title"
                 android:textStyle="normal" />
 
 
@@ -74,15 +75,15 @@
                 android:layout_height="wrap_content"
                 android:clipToPadding="true"
                 android:orientation="horizontal"
-                android:paddingHorizontal="4dp"
+                android:paddingHorizontal="@dimen/_8sdp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_recipes" />
 
             <TextView
-                android:id="@+id/home_text_view3"
+                android:id="@+id/recipes_of_the_day_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Recipes of the day"
+                android:text="@string/recipes_of_the_day_title"
                 android:textStyle="normal" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -91,7 +92,23 @@
                 android:layout_height="wrap_content"
                 android:clipToPadding="true"
                 android:orientation="horizontal"
-                android:paddingHorizontal="4dp"
+                android:paddingHorizontal="@dimen/_8sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_recipes" />
+            <TextView
+                android:id="@+id/low_ingredients_food_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/low_ingredients_food_text"
+                android:textStyle="normal" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_low_ingredients_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="true"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_8sdp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_recipes" />
         </LinearLayout>

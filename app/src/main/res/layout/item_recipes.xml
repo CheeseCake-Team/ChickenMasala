@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Widget.Material3.CardView.Outlined"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_8sdp"
     android:paddingBottom="@dimen/padding_small"
     app:cardCornerRadius="12dp">
 
@@ -14,7 +15,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/recipe_image"
-            android:layout_width="@dimen/_158sdp"
+            android:layout_width="@dimen/_136sdp"
             android:layout_height="@dimen/_108sdp"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
