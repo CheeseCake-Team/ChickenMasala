@@ -2,6 +2,8 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:clipToPadding="false"
+    android:paddingVertical="@dimen/_16sdp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,38 +11,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text_title"
-            style="@style/TextAppearance.Material3.ActionBar.Title"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:gravity="center_vertical"
-            android:paddingStart="@dimen/_16sdp"
-            android:text="@string/history_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/main_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_112sdp"
+            app:shapeAppearanceOverlay="@style/HistoryImageStyle"
+            android:layout_height="@dimen/_122sdp"
             android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_title"
-            app:srcCompat="@drawable/spice_" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/spices_and_herbs_first_image" />
 
         <TextView
             android:id="@+id/text_details"
-            style="@style/TextAppearance.Material3.ActionBar.Subtitle"
+            style="@style/BodyMediumTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:text="@string/indian_food"
+            android:justificationMode="inter_word"
+            android:text="@string/food"
             app:layout_constraintEnd_toEndOf="@+id/main_image"
             app:layout_constraintStart_toStartOf="@+id/main_image"
             app:layout_constraintTop_toBottomOf="@+id/main_image" />
@@ -49,48 +41,56 @@
             android:id="@+id/author_image"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_99sdp"
+            app:shapeAppearanceOverlay="@style/HistoryImageStyle"
             android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_8sdp"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="@+id/text_details"
             app:layout_constraintStart_toStartOf="@+id/text_details"
             app:layout_constraintTop_toBottomOf="@+id/text_details"
-            app:srcCompat="@drawable/shantanu" />
+            app:srcCompat="@drawable/spices_and_herbs_second_image" />
 
-        <LinearLayout
-            android:id="@+id/linear_for_image"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_155sdp"
-            android:orientation="horizontal"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/related_spice_image2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_145sdp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/HistoryImageStyle"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/related_spice_image1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/related_spice_image1"
+            app:layout_constraintTop_toTopOf="@+id/related_spice_image1"
+            app:srcCompat="@drawable/spices_and_herbs_third_image" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/related_spice_image1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_145sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/HistoryImageStyle"
+            app:layout_constraintEnd_toStartOf="@+id/related_spice_image2"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/author_image">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/related_spice_image1"
-                android:layout_width="@dimen/_126sdp"
-                android:layout_height="@dimen/_145sdp"
-                android:layout_marginStart="@dimen/_16sdp"
-                app:srcCompat="@drawable/more_spice1" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/related_spice_image2"
-                android:layout_width="@dimen/_126sdp"
-                android:layout_height="@dimen/_145sdp"
-                android:layout_marginStart="@dimen/_16sdp"
-                app:srcCompat="@drawable/food" />
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/author_image"
+            app:srcCompat="@drawable/food_image_eleven" />
 
         <TextView
             android:id="@+id/text_related_spices"
-            style="@style/TextAppearance.Material3.ActionBar.Subtitle"
+            style="@style/BodyMediumTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:text="@string/more_food"
+            android:justificationMode="inter_word"
+            android:text="@string/history_second_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linear_for_image" />
+            app:layout_constraintTop_toBottomOf="@+id/related_spice_image1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
