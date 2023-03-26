@@ -42,4 +42,8 @@
     <string name="northern_india">Northern India</string>
     <string name="_10_m">10 m</string>
     <string name="no_result_logo">No result logo</string>
+    <string name="chicken_legs">Chicken Legs</string>
+    <string name="_5m">5m</string>
+    <string name="limit_added_sugars">Limit Added Sugars</string>
+    <string name="advice_txt">Too much added sugar in your diet can contribute to weight gain, obesity, type 2 diabetes, and heart disease.</string>
 </resources>
