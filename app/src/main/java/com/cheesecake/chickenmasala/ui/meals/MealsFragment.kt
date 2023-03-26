@@ -6,21 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealsBinding
-import com.cheesecake.chickenmasala.model.Meal
+import com.cheesecake.chickenmasala.model.*
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
-class MealsFragment(private val meals: List<Meal>) :
+class MealsFragment :
     BaseFragment<FragmentMealsBinding>(), MealsAdapter.MealListener {
-
 
     override val bindingInflater: (LayoutInflater) -> FragmentMealsBinding =
         FragmentMealsBinding::inflate
-
+    private lateinit var mealCourse: MealCourse
 
     private lateinit var mealsAdapter: MealsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mealCourse = arguments?.getParcelable(Constants.MEALS)!!
+        val meals =
+            RecipesManager.indianFoodSearch.filterMealsByCourse(mealCourse)
+                .getSearchedMeals()
         installViews(meals, this, requireContext())
     }
 
@@ -39,6 +42,13 @@ class MealsFragment(private val meals: List<Meal>) :
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.addToBackStack(null)
         transaction.add(R.id.fragment_container, MealFragment(meal)).commit()
+    }
+    companion object{
+        fun createFragment(mealCourse: MealCourse)=MealsFragment().apply {
+            arguments=Bundle().apply {
+                putParcelable(Constants.MEALS,mealCourse)
+            }
+        }
     }
 
     }
