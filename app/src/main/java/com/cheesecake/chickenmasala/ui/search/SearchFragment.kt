@@ -65,7 +65,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         chip.customChip.text = text
         binding.result.addView(chip.root)
 
-        // Add a click listener to remove the chip and the corresponding ingredient from the search bar inputs.
+
         chip.customChip.setOnCloseIconClickListener {
             searchBarInputs.remove(text)
             binding.result.removeView(chip.root)
