@@ -35,6 +35,6 @@ class IndianFoodSearch(private val meals: List<Meal>) : Parcelable {
 
 
     @IgnoredOnParcel
-    var isSearchByName = true
+    var isSearchByName = false
 
 }

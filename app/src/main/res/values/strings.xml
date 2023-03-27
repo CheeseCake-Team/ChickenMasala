@@ -42,8 +42,8 @@
     <string name="northern_india">Northern India</string>
     <string name="_10_m">10 m</string>
     <string name="history_text">History</string>
-    <string name="indian_food">Spices and herbs are the dominant feature of Indian cooking.</string>
-    <string name="more_food">The Islamic conquest of India introduced fruits such as apricots</string>
+    <string name="indian_food">Spices and herbs are </string>
+    <string name="more_food">The Islamic conques   </string>
 
     <string name="indian_meal_image">indian meal image</string>
     <string name="item_translated_ingredient_placeholder">3 Tomato\'s</string>
