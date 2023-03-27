@@ -33,7 +33,7 @@
             app:layout_constraintTop_toBottomOf="@id/drag_handle" />
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup1"
+            android:id="@+id/chips_group_for_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16sdp"
@@ -44,24 +44,28 @@
             app:layout_constraintTop_toBottomOf="@id/text_time">
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_for_5_minute"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_5_10_min" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_for_10_minute"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_10_15_min" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_for_15_minute"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_15_30_min" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_for_30_minute"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,16 +84,16 @@
             android:text="@string/category"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chipGroup1" />
+            app:layout_constraintTop_toBottomOf="@id/chips_group_for_time" />
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup2"
+            android:id="@+id/chips_group_for_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_16sdp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toTopOf="@+id/filter_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
@@ -97,42 +101,49 @@
             app:layout_constraintVertical_bias="0.0">
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chips_for_slide_dishes"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/side_dishes" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chips_for_vegetables"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/vegetables" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chips_for_north_india"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/north_india" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chips_for_salads"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/salads" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chips_for_spicy"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/spicy" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chips_for_break_fast"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/breakfast" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chips_for_soups"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -141,7 +152,7 @@
         </com.google.android.material.chip.ChipGroup>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/filter_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/_16sdp"
