@@ -6,22 +6,17 @@ import android.view.LayoutInflater
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
 import com.cheesecake.chickenmasala.datasource.CsvDataSource
 import com.cheesecake.chickenmasala.datasource.CsvParser
-import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseActivity
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
-import com.cheesecake.chickenmasala.ui.categories.CategoriesFragment
 import com.cheesecake.chickenmasala.ui.history.HistoryFragment
-import com.cheesecake.chickenmasala.ui.home.HomeFragment
 import com.cheesecake.chickenmasala.ui.search.SearchFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
@@ -36,7 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         addCallBacks()
     }
 
-    private fun setupRecipes():List<Meal> {
+    private fun setupRecipes(): List<Meal> {
         return CsvDataSource(CsvParser(), assets.open(FILE_NAME)).getAllMealsData()
     }
 
@@ -49,7 +44,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     true
                 }
                 R.id.search -> {
-                    loadFragmentIntoContainer(SearchFragment())
+                    loadFragmentIntoContainer(
+                        SearchFragment.newInstance(RecipesManager.indianFoodSearch))
                     true
                 }
                 R.id.categories -> {
@@ -70,14 +66,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun changeAppBarTitle(resourceString: Int) {
         if (supportActionBar?.isShowing != true) supportActionBar?.show()
-        supportActionBar?.title =
-            getString(resourceString)
+        supportActionBar?.title = getString(resourceString)
     }
 
     private fun loadFragmentIntoContainer(baseFragment: BaseFragment<*>) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container, baseFragment)
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, baseFragment)
             .commit()
     }
 

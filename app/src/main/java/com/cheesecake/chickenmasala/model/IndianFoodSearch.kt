@@ -1,7 +1,13 @@
 package com.cheesecake.chickenmasala.model
 
-class IndianFoodSearch(private val meals: List<Meal>) {
+import android.os.Parcelable
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
+class IndianFoodSearch(private val meals: List<Meal>) : Parcelable {
+
+    @IgnoredOnParcel
     private var searchedMeals = meals
 
     fun searchByName(name: String) = IndianFoodSearch(searchedMeals).apply {
@@ -26,4 +32,9 @@ class IndianFoodSearch(private val meals: List<Meal>) {
     }
 
     fun getSearchedMeals(): List<Meal> = searchedMeals
+
+
+    @IgnoredOnParcel
+    var isSearchByName = true
+
 }
