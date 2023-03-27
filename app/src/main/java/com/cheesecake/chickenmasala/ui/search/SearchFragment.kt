@@ -37,10 +37,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         mealsAdapter = SearchAdapter(MealsListener { loadMealFragment(it) })
         binding.recyclerMeals.adapter = mealsAdapter
 
-        val allSuggestions = if (indianFoodSearch.isSearchByName)
-            RecipesManager.indianRecipesName
-        else
-            RecipesManager.indianIngredients
+        val allSuggestions = if (indianFoodSearch.isSearchByName) RecipesManager.indianRecipesName
+        else RecipesManager.indianIngredients
         adapter = StringArrayAdapter(allSuggestions, requireContext(), searchBarInputs)
         binding.searchAutoCompleteTextView.setAdapter(adapter)
     }
@@ -49,9 +47,17 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         binding.searchAutoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
             adapter.getItem(position)?.let { selectedItem ->
                 searchBarInputs.add(selectedItem)
-                if (!indianFoodSearch.isSearchByName)
+                if (!indianFoodSearch.isSearchByName) {
                     createChip(selectedItem)
-                updateList()
+                    mealsAdapter.submitList(
+                        indianFoodSearch.searchByIngredients(searchBarInputs).getSearchedMeals()
+                    )
+                } else {
+                    mealsAdapter.submitList(
+                        indianFoodSearch.searchByName(selectedItem).getSearchedMeals()
+                    )
+                }
+
                 binding.searchAutoCompleteTextView.setText("")
             }
         }
@@ -64,21 +70,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
                 searchBarInputs.remove(text)
                 adapter.notifyDataSetChanged()
                 binding.chipGroupHolder.removeView(root)
-                updateList()
+                mealsAdapter.submitList(
+                    indianFoodSearch.searchByIngredients(searchBarInputs).getSearchedMeals()
+                )
             }
             binding.chipGroupHolder.addView(root)
         }
     }
-
-    private fun updateList() {
-        var search = indianFoodSearch
-        search = if (indianFoodSearch.isSearchByName) search.searchByName("Masala")
-        else search.searchByIngredients(searchBarInputs)
-        mealsAdapter.submitList(
-            search.getSearchedMeals()
-        )
-    }
-
 
     private fun loadMealFragment(meal: Meal) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
