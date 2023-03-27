@@ -8,8 +8,8 @@
     <string name="no_result_found">No result found</string>
     <string name="result_hint">Your search did not match any results, try search for something else</string>
     <string name="_5_10_min">5-10 min</string>
-    <string name="fastest_recipes">Fastest_recipes</string>
-    <string name="recipes_of_the_day">Recipes_of_the_day</string>
+    <string name="fastest_recipes">Fastest Recipes</string>
+    <string name="recipes_of_the_day">Recipes Of The Day</string>
     <string name="_10_15_min">10-15 min</string>
     <string name="_15_30_min">15-30 min</string>
     <string name="_30_min_1_hour">30 min - 1 hour</string>
@@ -61,4 +61,19 @@
     <string name="limit_added_sugars">Limit Added Sugars</string>
     <string name="advice_txt">Too much added sugar in your diet can contribute to weight gain, obesity, type 2 diabetes, and heart disease.</string>
     <string name="low_ingredient_recipes">Low Ingredient Recipes</string>
+
+    <string name="eat_fruits_veggies_title">Eat a variety of fruits and vegetables</string>
+    <string name="eat_fruits_veggies_body">Eating a variety of fruits and vegetables can provide your body with essential vitamins and minerals that it needs to function properly.</string>
+    <string name="limit_processed_foods_title">Limit processed foods</string>
+    <string name="limit_processed_foods_body">Processed foods can be high in sugar, salt, and unhealthy fats. Try to limit your intake of these foods and opt for whole, unprocessed foods instead.</string>
+    <string name="choose_lean_protein_title">Choose lean protein sources</string>
+    <string name="choose_lean_protein_body">Lean protein sources like chicken, fish, and beans can help you maintain a healthy weight and build muscle.</string>
+    <string name="reduce_added_sugar_title">Reduce your intake of added sugars</string>
+    <string name="reduce_added_sugar_body">Eating too much added sugar can increase your risk of health problems like heart disease and diabetes. Try to limit your intake of sugary foods and drinks.</string>
+    <string name="stay_hydrated_title">Stay hydrated</string>
+    <string name="stay_hydrated_body">Drinking enough water can help you maintain a healthy weight, improve digestion, and keep your skin looking healthy.</string>
+    <string name="choose_healthy_fats_title">Choose healthy fats</string>
+    <string name="choose_healthy_fats_body">Healthy fats like those found in nuts, seeds, and avocados can help lower your risk of heart disease and improve brain function.</string>
+    <string name="eat_breakfast_title">Eat breakfast</string>
+    <string name="eat_breakfast_body">Eating a healthy breakfast can provide you with energy and help you maintain a healthy weight.</string>
 </resources>
