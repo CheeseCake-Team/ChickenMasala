@@ -56,16 +56,19 @@ class CsvParser {
         return when {
             mealName.contains("Soup") -> MealCourse.SOUPS
             mealName.contains("Spicy") -> MealCourse.SPICY
-            mealName.contains("North Indian") -> MealCourse.NORTH_INDIA
-            mealName.contains("South India") -> MealCourse.SOUTH_INDIA
+            mealName.contains("Salads") -> MealCourse.SALADS
+            mealName.contains("Vegetables") -> MealCourse.VEGETABLES
             mealName.contains("Desert") -> MealCourse.DESERT
             mealName.contains("Drinks") -> MealCourse.DRINKS
             mealName.contains("Side Dishes") -> MealCourse.SIDE_DISHES
+            mealName.contains("Breakfast") -> MealCourse.BREAKFAST
 
 
             else -> null
         }
     }
+
+
 
 
     object ColumnIndex {
