@@ -34,7 +34,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navBarButton"
+            android:id="@+id/bpttom_navigation_bar_main_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
