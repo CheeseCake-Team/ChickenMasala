@@ -56,4 +56,6 @@
     <string name="meal_count_number">10</string>
     <string name="ingredients_text">Ingredients</string>
     <string name="no_result_logo">No result logo</string>
+    <string name="instructions">instructions</string>
+    <string name="stepCode">Step %1$d</string>
 </resources>
