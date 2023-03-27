@@ -18,7 +18,7 @@ class MealsFragment(private val meals: List<Meal>) :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        installViews(meals, this, requireContext())
+        installViews()
     }
 
 

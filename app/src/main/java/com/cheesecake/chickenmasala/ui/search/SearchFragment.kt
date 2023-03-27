@@ -43,7 +43,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
                 searchBarInputs.add(x)
                 val chip = ChipsInjectBinding.inflate(layoutInflater)
                 chip.customChip.text = x
-                binding.result.addView(chip.root)
+                binding.chipGroupSelectedChips.addView(chip.root)
                 binding.searchAutoCompleteTextView.setText("")
                 return@setOnKeyListener true
             }
