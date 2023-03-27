@@ -1,69 +1,55 @@
 package com.cheesecake.chickenmasala.ui.meal
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import com.bumptech.glide.Glide
 import com.cheesecake.chickenmasala.databinding.FragmentMealBinding
-import com.cheesecake.chickenmasala.databinding.ItemRecipesBinding
-import com.cheesecake.chickenmasala.databinding.ItemTranslatedIngredientBinding
-import com.cheesecake.chickenmasala.databinding.ItemTranslatedInstructionBinding
+import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
+import com.cheesecake.chickenmasala.ui.categories.CategoriesFragment
 
-class MealFragment(private val meal: Meal) : BaseFragment<FragmentMealBinding>() {
+class MealFragment() : BaseFragment<FragmentMealBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentMealBinding =
         FragmentMealBinding::inflate
 
+    private val ingredientAdapter = IngredientAdapter()
+    private val instructionAdapter = InstructionAdapter()
+    private lateinit var meal: Meal
+
+
     override fun onStart() {
         super.onStart()
-        fillMealData()
-        addCallBack()
-    }
+        meal = arguments?.getParcelable(Constants.Keys.category)!!
+        ingredientAdapter.submitList(meal.translatedIngredients)
+        instructionAdapter.submitList(meal.translatedInstructions)
 
-    private fun addCallBack() {
-        binding.ingredientButton.setOnClickListener {
-            binding.itemRecipeHolder.removeAllViews()
-            fillTranslatedIngredients(meal.translatedIngredients)
+        binding.apply {
+            recyclerviewMeal.adapter = ingredientAdapter
+            Glide.with(this@MealFragment).load(meal.imageUrl).into(imageMeal)
+            textMealTime.text = meal.TotalTimeInMinutes.toString()
+            textMealCount.text = meal.ingredientCount.toString()
+            textMealName.text = meal.translatedRecipeName
         }
 
-        binding.ProcedureButton.setOnClickListener {
-            binding.itemRecipeHolder.removeAllViews()
-            fillTranslatedInstructions(meal.translatedInstructions)
+        addCallBacks()
+    }
+
+    private fun addCallBacks() {
+        binding.buttonIngredient.setOnClickListener {
+            binding.recyclerviewMeal.adapter = ingredientAdapter
         }
-    }
 
-    private fun fillMealData() {
-        Glide.with(this).load(meal.imageUrl).into(binding.mealImage)
-        binding.mealName.text = meal.translatedRecipeName
-        binding.mealCount.text = meal.ingredientCount.toString()
-        binding.mealTime.text = meal.TotalTimeInMinutes.toString()
-        fillTranslatedIngredients(meal.translatedIngredients)
-    }
-
-    private fun fillTranslatedIngredients(translatedIngredients: List<String>) {
-        translatedIngredients.forEach {
-            val itemRecipeMealBinding = ItemTranslatedIngredientBinding.inflate(layoutInflater)
-            itemRecipeMealBinding.textMeal.text = it
-            binding.itemRecipeHolder.addView(itemRecipeMealBinding.root)
+        binding.buttonProcedure.setOnClickListener {
+            binding.recyclerviewMeal.adapter = instructionAdapter
         }
     }
 
-    private fun fillTranslatedInstructions(translatedInstructions: List<String>) {
-        translatedInstructions.first().drop(1)
-        translatedInstructions.last().dropLast(1)
-        for (i in translatedInstructions.indices) {
-            val itemRecipeMealBinding = ItemTranslatedInstructionBinding.inflate(layoutInflater)
-            val instructionNumber = "Step ${i + 1}"
-            itemRecipeMealBinding.instructionNumber.text = instructionNumber
-            itemRecipeMealBinding.instruction.text = translatedInstructions[i]
-            binding.itemRecipeHolder.addView(itemRecipeMealBinding.root)
-        }
-        fillLinearLayoutWithCard()
-    }
-
-    private fun fillLinearLayoutWithCard() {
-        for (recipe in 0..20) {
-            val itemCuisineBinding = ItemRecipesBinding.inflate(layoutInflater)
-            binding.itemRecipeHolder.addView(itemCuisineBinding.root)
+    companion object {
+        fun createFragment(meal: Meal) = MealFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable(Constants.Keys.category, meal)
+            }
         }
     }
 }

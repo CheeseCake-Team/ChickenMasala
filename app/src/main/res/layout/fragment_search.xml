@@ -7,6 +7,14 @@
     android:padding="@dimen/_16sdp"
     tools:context=".ui.search.SearchFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMeals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/result"
+        tools:ignore="MissingConstraints,NotSibling" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_text_input_layout"
@@ -35,12 +43,13 @@
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/result"
-        android:layout_margin="@dimen/_16sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_text_input_layout">
+
     </com.google.android.material.chip.ChipGroup>
 
     <!--<com.google.android.material.search.SearchBar
@@ -92,7 +101,7 @@
         android:layout_marginTop="@dimen/_4sdp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/no_result_found"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndO f="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image" />
 
