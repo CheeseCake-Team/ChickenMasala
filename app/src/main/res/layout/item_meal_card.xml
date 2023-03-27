@@ -1,90 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_meal_holder"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_view_meal_holder"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/margin_medium_16"
-        android:padding="@dimen/margin_small_8"
-        app:cardBackgroundColor="#FAFDFB"
-        app:cardCornerRadius="@dimen/margin_medium_12"
-        app:layout_constraintHeight_percent=".2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints,NotSibling" />
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/image_meal_on_meal_card"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="@string/card_pic"
-        android:foreground="@drawable/gradient"
-        android:src="@drawable/foodimg"
-        app:layout_constraintBottom_toBottomOf="@id/card_view_meal_holder"
-        app:layout_constraintEnd_toEndOf="@id/card_view_meal_holder"
-        app:layout_constraintHeight_percent=".2"
-        app:layout_constraintTop_toTopOf="@id/card_view_meal_holder"
-        app:layout_constraintWidth_percent=".3" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginVertical="@dimen/margin_medium_16"
-        android:layout_marginStart="@dimen/margin_medium_16"
-        android:layout_marginEnd="@dimen/margin_small_8"
-        android:orientation="vertical"
-        android:padding="@dimen/margin_small_8"
-        app:layout_constraintBottom_toBottomOf="@id/image_meal_on_meal_card"
-        app:layout_constraintEnd_toStartOf="@id/image_meal_on_meal_card"
-        app:layout_constraintHeight_percent=".2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/image_meal_on_meal_card"
-        app:layout_constraintWidth_percent=".6">
+        <ImageView
+            android:id="@+id/image_meal_on_meal_card"
+            android:layout_width="@dimen/margin_image_width"
+            android:layout_height="@dimen/margin_image_height"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/food_image_four" />
 
         <TextView
             android:id="@+id/text_view_meal_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/margin_small_8"
             android:layout_marginTop="@dimen/margin_medium_16"
-            android:fontFamily="@font/roboto_bold"
-            android:gravity="top"
-            android:text="@string/card_text"
-            android:textColor="#191C1B"
-            android:textSize="16sp" />
+            android:layout_marginEnd="@dimen/margin_small_8"
+            android:text="@string/steak_with_tomato_sauce_and_bulgur_rice"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            app:layout_constraintBottom_toTopOf="@id/text_view_meal_time"
+            app:layout_constraintEnd_toStartOf="@id/image_meal_on_meal_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/tvTimeToMakeMeal"
+            android:id="@+id/text_view_meal_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium_16"
-            android:drawablePadding="@dimen/margin_small_8"
-            android:fontFamily="@font/roboto_medium"
-            android:text="@string/_20_mins"
-            android:textColor="#3F4946"
-            android:textSize="12sp"
-            app:drawableStartCompat="@drawable/outline_timer_24" />
+            android:layout_marginBottom="@dimen/margin_small_8"
+            android:text="@string/time"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?android:attr/textColorSecondary"
+            app:drawableStartCompat="@drawable/timer_icon"
+            app:layout_constraintBottom_toTopOf="@id/text_view_meal_location"
+            app:layout_constraintEnd_toEndOf="@id/text_view_meal_name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/text_view_meal_name" />
 
         <TextView
-            android:id="@+id/tvLocationOfMeal"
+            android:id="@+id/text_view_meal_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small_8"
-            android:drawableStart="@drawable/outline_outlined_flag_24"
-            android:drawablePadding="@dimen/margin_small_8"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="bottom"
+            android:layout_marginBottom="@dimen/margin_medium_16"
             android:text="@string/northern_india"
-            android:textColor="#3F4946"
-            android:textSize="12sp" />
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?android:attr/textColorSecondary"
+            app:drawableStartCompat="@drawable/outline_outlined_flag_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image_meal_on_meal_card"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/text_view_meal_time" />
 
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
+
+
+    <!--
+
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/card_pic"
+            android:foreground="@drawable/gradient"
+            android:src="@drawable/foodimg"
+            app:layout_constraintBottom_toBottomOf="@id/card_view_meal_holder"
+            app:layout_constraintEnd_toEndOf="@id/card_view_meal_holder"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintTop_toTopOf="@id/card_view_meal_holder"
+            app:layout_constraintWidth_percent=".3" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/margin_medium_16"
+            android:layout_marginStart="@dimen/margin_medium_16"
+            android:layout_marginEnd="@dimen/margin_small_8"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_small_8"
+            app:layout_constraintBottom_toBottomOf="@id/image_meal_on_meal_card"
+            app:layout_constraintEnd_toStartOf="@id/image_meal_on_meal_card"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/image_meal_on_meal_card"
+            app:layout_constraintWidth_percent=".6">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_16"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="top"
+                android:text="@string/card_text"
+                android:textColor="#191C1B"
+                android:textSize="@dimen/font_size_16" />
+
+            <TextView
+                android:id="@+id/text_view_meal_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_16"
+                android:drawablePadding="@dimen/margin_small_8"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/_20_mins"
+                android:textColor="#3F4946"
+                android:textSize="@dimen/font_size_12"
+                app:drawableStartCompat="@drawable/outline_timer_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small_8"
+                android:drawableStart="@drawable/outline_outlined_flag_24"
+                android:drawablePadding="@dimen/margin_small_8"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="bottom"
+                android:text="@string/northern_india"
+                android:textColor="#3F4946"
+                android:textSize="@dimen/font_size_12" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    -->
+
+
+
+
+
 
