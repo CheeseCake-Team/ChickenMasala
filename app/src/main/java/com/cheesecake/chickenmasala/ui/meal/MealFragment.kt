@@ -1,47 +1,60 @@
 package com.cheesecake.chickenmasala.ui.meal
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import com.bumptech.glide.Glide
+import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealBinding
 import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
-import com.cheesecake.chickenmasala.ui.categories.CategoriesFragment
 
 class MealFragment() : BaseFragment<FragmentMealBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentMealBinding =
         FragmentMealBinding::inflate
 
     private val ingredientAdapter = IngredientAdapter()
-    private val instructionAdapter = InstructionAdapter()
+    private val instructionAdapter = InstructionsAdapter()
     private lateinit var meal: Meal
 
-
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         meal = arguments?.getParcelable(Constants.Keys.category)!!
+        initViews()
+        setUpAdapters()
+        addCallBacks()
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun setUpAdapters() {
         ingredientAdapter.submitList(meal.translatedIngredients)
         instructionAdapter.submitList(meal.translatedInstructions)
+    }
 
+    @SuppressLint("SetTextI18n")
+    private fun initViews() {
         binding.apply {
             recyclerviewMeal.adapter = ingredientAdapter
-            Glide.with(this@MealFragment).load(meal.imageUrl).into(imageMeal)
-            textMealTime.text = meal.TotalTimeInMinutes.toString()
-            textMealCount.text = meal.ingredientCount.toString()
+            textMealTime.text = "${meal.TotalTimeInMinutes} m"
+            textMealCount.text = "${meal.ingredientCount} ingredients"
             textMealName.text = meal.translatedRecipeName
-        }
+            Glide.with(requireContext()).load(meal.imageUrl)
+                .error(R.drawable.ic_baseline_error_outline_24).into(imageMeal)
 
-        addCallBacks()
+            buttonIngredient.performClick()
+        }
     }
 
     private fun addCallBacks() {
-        binding.buttonIngredient.setOnClickListener {
-            binding.recyclerviewMeal.adapter = ingredientAdapter
-        }
+        binding.apply {
+            buttonIngredient.setOnClickListener {
+                recyclerviewMeal.adapter = ingredientAdapter
+            }
+            buttonInstructions.setOnClickListener {
+                recyclerviewMeal.adapter = instructionAdapter
+            }
 
-        binding.buttonProcedure.setOnClickListener {
-            binding.recyclerviewMeal.adapter = instructionAdapter
         }
     }
 
