@@ -57,5 +57,8 @@
     <string name="ingredients_text">Ingredients</string>
     <string name="no_result_logo">No result logo</string>
     <string name="instructions">instructions</string>
-    <string name="stepCode">Step %1$d</string>
+    <string name="step_code">Step %1$d</string>
+    <string name="name">Name</string>
+    <string name="clear_all">Clear All</string>
+    <string name="drink">Drink</string>
 </resources>

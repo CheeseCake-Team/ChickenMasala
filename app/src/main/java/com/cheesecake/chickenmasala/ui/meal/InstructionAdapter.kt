@@ -27,7 +27,7 @@ class InstructionAdapter() :
         fun bind(item: String, position: Int) {
             val numberOfInstruction ="Step ${ position + 1 }"
             binding.apply {
-                textStep.text = numberOfInstruction
+                textStepContent.text = numberOfInstruction
                 textStepContent.text = item
             }
         }
