@@ -31,7 +31,7 @@ class HomeRecipeAdapter(private val clickListener: HomeRecipeListener) :
             binding.apply {
                 Glide.with(itemView.context).load(item.imageUrl).into(recipeImage)
                 cuisine.text = item.cuisine
-                time.text = item.TotalTimeInMinutes.toString()
+                time.text = "${item.TotalTimeInMinutes.toString()} m"
                 recipeName.text = item.translatedRecipeName
             }.root.setOnClickListener { listener.onClick(item) }
         }
