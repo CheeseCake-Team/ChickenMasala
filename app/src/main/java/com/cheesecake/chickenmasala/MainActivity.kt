@@ -3,6 +3,7 @@ package com.cheesecake.chickenmasala
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.LayoutInflater
+import androidx.core.view.WindowCompat
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
 import com.cheesecake.chickenmasala.datasource.CsvDataSource
 import com.cheesecake.chickenmasala.datasource.CsvParser
@@ -21,10 +22,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private lateinit var recipes: RecipesManager
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
 
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        super.onCreate(savedInstanceState, persistentState)
+        changeTopAppbarTitle(R.string.home)
         loadFragmentIntoContainer(HomeFragment(recipes))
+        val toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
     }
 
     override fun onStart() {
@@ -45,33 +50,34 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.navBarButton.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
+                    changeTopAppbarTitle(R.string.home)
                     loadFragmentIntoContainer(HomeFragment(recipes))
                     true
                 }
                 R.id.search -> {
-                    loadFragmentIntoContainer(SearchFragment())
+                    supportActionBar?.hide()
+                    loadFragmentIntoContainer(SearchFragment.createFragment(recipes))
                     true
                 }
                 R.id.categories -> {
-                    loadFragmentIntoContainer(CategoriesFragment())
+                    changeTopAppbarTitle(R.string.category)
+                    loadFragmentIntoContainer(CategoriesFragment(recipes.getFastMeals()))
                     true
                 }
                 R.id.history -> {
-                    changeAppBarTitle(R.string.history_of_indian_cuisine)
+                    changeTopAppbarTitle(R.string.history)
                     loadFragmentIntoContainer(HistoryFragment())
                     true
                 }
                 else -> false
             }
-
         }
     }
 
 
-    private fun changeAppBarTitle(resourceString: Int) {
-        if (supportActionBar?.isShowing != true) supportActionBar?.show()
-        supportActionBar?.title =
-            getString(resourceString)
+    private fun changeTopAppbarTitle(resourceString: Int) {
+        if (supportActionBar?.isShowing == false) supportActionBar!!.show()
+        supportActionBar!!.title = getString(resourceString)
     }
 
     private fun loadFragmentIntoContainer(baseFragment: BaseFragment<*>) {

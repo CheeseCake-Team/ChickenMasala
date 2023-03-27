@@ -1,6 +1,10 @@
 package com.cheesecake.chickenmasala.model
 
-class RecipesManager(private val meals: List<Meal>) {
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+class RecipesManager(private val meals: List<Meal>): Parcelable {
     private val indianMeals = meals.filter { it.cuisine == "Indian" }
     private val indianMealsForToday = indianMeals.shuffled().take(10)
 

@@ -4,19 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/space_large"
+    android:padding="@dimen/_16sdp"
     tools:context=".ui.search.SearchFragment">
 
-    <com.google.android.material.search.SearchBar
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMeals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/result"
+        tools:ignore="MissingConstraints,NotSibling" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/search_text_input_layout"
+        style="@style/Widget.Material3.SearchView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/search_auto_complete_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/search_bar_background"
+            android:drawableStart="@drawable/ic_search"
+            android:drawableEnd="@drawable/filter_icon"
+            android:drawablePadding="@dimen/_16sdp"
+            android:hint="@string/search"
+            android:imeOptions="actionGo"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingEnd="@dimen/_16sdp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_text_input_layout">
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!--<com.google.android.material.search.SearchBar
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <!--<androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/filter_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,24 +71,24 @@
         android:src="@drawable/filter1"
         app:layout_constraintBottom_toBottomOf="@id/search_bar"
         app:layout_constraintEnd_toEndOf="@id/search_bar"
-        app:layout_constraintTop_toTopOf="@id/search_bar" />
+        app:layout_constraintTop_toTopOf="@id/search_bar" />-->
 
-    <com.google.android.material.chip.ChipGroup
+    <!--<com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar">
+    </com.google.android.material.chip.ChipGroup>-->
 
-    </com.google.android.material.chip.ChipGroup>
-
-    <ImageView
+    <!--<ImageView
         android:id="@+id/image"
         style="@style/Widget.Material3.Chip.Assist.Elevated"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="100dp"
+        android:contentDescription="@string/no_result_found"
         android:src="@drawable/hat"
         app:layout_constraintEnd_toEndOf="@+id/chipGroup"
         app:layout_constraintStart_toStartOf="@+id/chipGroup"
@@ -53,10 +98,10 @@
         android:id="@+id/no_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_small"
+        android:layout_marginTop="@dimen/_4sdp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/no_result_found"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndO f="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image" />
 
@@ -64,13 +109,13 @@
         android:id="@+id/hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_small"
+        android:layout_marginTop="@dimen/_4sdp"
         android:fontFamily="@font/roboto_light"
         android:gravity="center"
         android:text="@string/result_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/no_result" />
+        app:layout_constraintTop_toBottomOf="@id/no_result" />-->
 
     <!--<GridLayout
         android:layout_width="match_parent"

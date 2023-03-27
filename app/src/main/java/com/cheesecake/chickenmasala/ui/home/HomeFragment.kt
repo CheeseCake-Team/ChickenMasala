@@ -36,7 +36,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun loadMealFragment(meal: Meal) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, MealFragment(meal))
+        transaction.replace(R.id.fragment_container, MealFragment.createFragment(meal))
         transaction.addToBackStack(null)
         transaction.commit()
     }

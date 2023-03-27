@@ -21,6 +21,7 @@
     <color name="md_theme_light_outline">#6F7976</color>
     <color name="md_theme_light_background">#FAFDFB</color>
     <color name="md_theme_light_onBackground">#191C1B</color>
+    <color name="md_theme_light_onshadow_of_image">#40000000</color>
     <color name="md_theme_light_surface">#FAFDFB</color>
     <color name="md_theme_light_onSurface">#191C1B</color>
     <color name="md_theme_light_surfaceVariant">#DAE5E1</color>
@@ -32,6 +33,7 @@
     <color name="md_theme_light_surfaceTint">#006B5F</color>
     <color name="md_theme_light_outlineVariant">#BEC9C5</color>
     <color name="md_theme_light_scrim">#000000</color>
+    <color name="md_theme_light_shadow_card_meal">#40000000</color>
     <color name="md_theme_dark_primary">#55DBC7</color>
     <color name="md_theme_dark_primaryContainer">#005047</color>
     <color name="md_theme_dark_onPrimary">#003731</color>
@@ -64,8 +66,10 @@
     <color name="md_theme_dark_scrim">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#FF000000</color>
+    <color name="ic_launcher_background">@color/md_theme_light_background</color>
 
     <color name="midnight_forest">#5C000000</color>
-
+    <color name="title_light_mode">#DB000000</color>
+    <color name="title_dark_mode">@color/md_theme_dark_onSurface</color>
 
 </resources>
