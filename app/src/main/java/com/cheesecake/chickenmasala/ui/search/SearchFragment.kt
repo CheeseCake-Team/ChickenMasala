@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.Filter
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ChipsInjectBinding
 import com.cheesecake.chickenmasala.databinding.FragmentSearchBinding
@@ -23,8 +22,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         suggestions = RecipesManager.indianIngredients.toMutableList()
+        searchBarInputs = mutableListOf()
         setupAutoCompleteTextView()
-        searchBarInputs = mutableListOf<String>()
         installViews()
     }
 
@@ -37,42 +36,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
     private fun setupAutoCompleteTextView() {
         val allSuggestions: List<String> = RecipesManager.indianIngredients
-        val suggestions = allSuggestions.toMutableList()
-        adapter = object : ArrayAdapter<String>(
-            requireContext(),
-            android.R.layout.simple_dropdown_item_1line,
-            suggestions
-        ) {
-            override fun getFilter(): Filter {
-                return object : Filter() {
-                    override fun performFiltering(constraint: CharSequence?): FilterResults {
-                        val filterResults = FilterResults()
-                        if (constraint != null) {
-                            val filteredSuggestions = allSuggestions.filter {
-                                it.contains(
-                                    constraint,
-                                    ignoreCase = true
-                                ) && !searchBarInputs.contains(it)
-                            }
-                            filterResults.values = filteredSuggestions
-                            filterResults.count = filteredSuggestions.size
-                        }
-                        return filterResults
-                    }
 
-                    override fun publishResults(
-                        constraint: CharSequence?,
-                        results: FilterResults?
-                    ) {
-                        if (results != null && results.count > 0) {
-                            clear()
-                            addAll(results.values as Collection<String>)
-                            notifyDataSetChanged()
-                        }
-                    }
-                }
-            }
-        }
+        adapter = StringArrayAdapter(allSuggestions, requireContext(), searchBarInputs)
+
         binding.searchAutoCompleteTextView.setAdapter(adapter)
         setupListeners()
     }
@@ -109,3 +75,4 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         transaction.add(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
     }
 }
+
