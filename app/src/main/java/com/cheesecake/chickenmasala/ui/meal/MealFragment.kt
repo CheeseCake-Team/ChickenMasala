@@ -26,7 +26,7 @@ class MealFragment() : BaseFragment<FragmentMealBinding>() {
 
         binding.apply {
             recyclerviewMeal.adapter = ingredientAdapter
-            Glide.with(this@MealFragment).load(meal.imageUrl).into(imageMeal)
+            Glide.with(this@MealFragment).load(meal.imageUrl).into(imageMealHolder)
             textMealTime.text = meal.TotalTimeInMinutes.toString()
             textMealCount.text = meal.ingredientCount.toString()
             textMealName.text = meal.translatedRecipeName

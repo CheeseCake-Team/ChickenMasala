@@ -39,7 +39,7 @@ class HomeFragment(private val recipes: RecipesManager) : BaseFragment<FragmentH
     private fun loadRecipeItems(meal: Meal, linearCard: LinearLayout) {
         val itemRecipesBinding = ItemRecipesBinding.inflate(layoutInflater)
 
-        Glide.with(this).load(meal.imageUrl).into(itemRecipesBinding.recipeImage)
+        Glide.with(this).load(meal.imageUrl).into(itemRecipesBinding.imageSmallCardRecipe)
 
         itemRecipesBinding.cuisine.text = meal.cuisine
         itemRecipesBinding.time.text = meal.TotalTimeInMinutes.toString()
