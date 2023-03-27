@@ -10,6 +10,7 @@ import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ItemMealCardBinding
 import com.cheesecake.chickenmasala.model.Meal
 
+
 class MealsAdapter(
     private val mealsList: List<Meal>,
     private val mealListener: MealListener,
@@ -49,5 +50,3 @@ class MealsAdapter(
     }
 
 }
-
-
