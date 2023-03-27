@@ -23,7 +23,7 @@ class MealsFragment(private val meals: List<Meal>) :
 
 
     private fun installViews() {
-        mealsAdapter = MealsAdapter()
+        //mealsAdapter = MealsAdapter()
         binding.recyclerMeals.adapter = mealsAdapter
     }
 
