@@ -55,9 +55,8 @@ class CsvParser {
     private fun getMealCourse(mealName: String): MealCourse? {
         return when {
             mealName.contains("Soup") -> MealCourse.SOUPS
-            mealName.contains("Appetizer") -> MealCourse.APPETIZER
             mealName.contains("Spicy") -> MealCourse.SPICY
-            mealName.contains("North Indian") -> MealCourse.NORTH_INDIAN
+            mealName.contains("North Indian") -> MealCourse.NORTH_INDIA
             mealName.contains("South India") -> MealCourse.SOUTH_INDIA
             mealName.contains("Desert") -> MealCourse.DESERT
             mealName.contains("Drinks") -> MealCourse.DRINKS
