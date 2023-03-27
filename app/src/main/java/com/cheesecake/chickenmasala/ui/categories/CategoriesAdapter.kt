@@ -5,8 +5,6 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
@@ -14,52 +12,56 @@ import com.bumptech.glide.request.transition.Transition
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ItemCategoryBinding
 import com.cheesecake.chickenmasala.model.Meal
-import com.cheesecake.chickenmasala.model.MealCourse
+
+class CategoriesAdapter(
+    private val categoriesList: List<Meal>,
+    private val categoriesListener: CategoriesListener,
+    private val context: Context
+) : RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
 
 
-class CategoriesAdapter(private val clickListener: CategoriesListener) :
-    ListAdapter<MealCourse, CategoriesAdapter.CategoriesViewHolder>(CategoriesItemCallback) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_category, parent, false)
+        )
+    }
 
-    companion object CategoriesItemCallback :
-        DiffUtil.ItemCallback<MealCourse>() {
-        override fun areItemsTheSame(oldItem: MealCourse, newItem: MealCourse): Boolean {
-            return oldItem === newItem
-        }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        override fun areContentsTheSame(oldItem: MealCourse, newItem: MealCourse): Boolean {
-            return oldItem == newItem
+        val currentCategory = categoriesList[position]
+        holder.apply {
+            binding.textViewTextAddress.text = currentCategory.cuisine
+            Glide.with(context).load(currentCategory.imageUrl).centerCrop()
+                .into(object : CustomTarget<Drawable>() {
+                    override fun onResourceReady(
+                        resource: Drawable,
+                        transition: Transition<in Drawable>?
+                    ) {
+                        // Set the loaded image as the background of the CardView
+                        binding.cardImgHolder.background = resource
+                    }
+
+                    override fun onLoadCleared(placeholder: Drawable?) {
+
+                    }
+                })
+            binding.root.setOnClickListener { categoriesListener.onClick(currentCategory) }
         }
     }
 
-
-    class CategoriesViewHolder private constructor(private var binding: ItemCategoryBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(listener: CategoriesListener, item: MealCourse) {
-            binding.apply {
-                textCardAddress.text = item.name
-                cardImgHolder.setImageResource(item.imageResourceId)
-            }.root.setOnClickListener { listener.onClick(item) }
-        }
-
-        companion object {
-            fun from(parent: ViewGroup): CategoriesViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemCategoryBinding.inflate(layoutInflater, parent, false)
-                return CategoriesViewHolder(binding)
-            }
-        }
+    override fun getItemCount(): Int {
+        return categoriesList.size
     }
 
+    class ViewHolder(
+        itemView: View
+    ) : RecyclerView.ViewHolder(itemView) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder =
-        CategoriesViewHolder.from(parent)
+        var binding = ItemCategoryBinding.bind(itemView)
+    }
 
-    override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) =
-        holder.bind(clickListener, getItem(position))
-}
+    interface CategoriesListener {
+        fun onClick(Category: Meal)
+    }
 
-
-class CategoriesListener(val clickListener: (item: MealCourse) -> Unit) {
-    fun onClick(item: MealCourse) = clickListener(item)
 }
