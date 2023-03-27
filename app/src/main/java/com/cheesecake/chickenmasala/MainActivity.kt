@@ -35,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onStart() {
         super.onStart()
         setupRecipes()
-        binding.navBarButton.selectedItemId = R.id.home
+        binding.bottomNavigationMenu.selectedItemId = R.id.home
         addCallBacks()
     }
 
@@ -47,7 +47,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
 
     private fun addCallBacks() {
-        binding.navBarButton.setOnItemSelectedListener { item ->
+        binding.bottomNavigationMenu.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
                     changeTopAppbarTitle(R.string.home)
