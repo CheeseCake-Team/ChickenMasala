@@ -19,21 +19,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        tools:ignore="MissingConstraints,NotSibling" />
 
     <ImageView
-        android:id="@+id/image_meal"
+        android:id="@+id/image_meal_on_meal_card"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/card_pic"
         android:foreground="@drawable/gradient"
         android:src="@drawable/foodimg"
-        app:layout_constraintBottom_toBottomOf="@id/card_meal"
-        app:layout_constraintEnd_toEndOf="@id/card_meal"
+        app:layout_constraintBottom_toBottomOf="@id/card_view_meal_holder"
+        app:layout_constraintEnd_toEndOf="@id/card_view_meal_holder"
         app:layout_constraintHeight_percent=".2"
-        app:layout_constraintTop_toTopOf="@id/card_meal"
-        app:layout_constraintWidth_percent=".3"
-        android:elevation="@dimen/_8sdp"/>
+        app:layout_constraintTop_toTopOf="@id/card_view_meal_holder"
+        app:layout_constraintWidth_percent=".3" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -43,19 +42,18 @@
         android:layout_marginEnd="@dimen/margin_small_8"
         android:orientation="vertical"
         android:padding="@dimen/margin_small_8"
-        app:layout_constraintBottom_toBottomOf="@id/imageCardOfMeal"
-        app:layout_constraintEnd_toStartOf="@id/imageCardOfMeal"
+        app:layout_constraintBottom_toBottomOf="@id/image_meal_on_meal_card"
+        app:layout_constraintEnd_toStartOf="@id/image_meal_on_meal_card"
         app:layout_constraintHeight_percent=".2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/image_meal"
-        app:layout_constraintWidth_percent=".6"
-        android:elevation="@dimen/_8sdp">
+        app:layout_constraintTop_toTopOf="@id/image_meal_on_meal_card"
+        app:layout_constraintWidth_percent=".6">
 
         <TextView
-            android:id="@+id/text_meal_name"
+            android:id="@+id/text_view_meal_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_medium_16"
             android:fontFamily="@font/roboto_bold"
             android:gravity="top"
             android:text="@string/card_text"
@@ -66,8 +64,8 @@
             android:id="@+id/tvTimeToMakeMeal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:drawablePadding="8dp"
+            android:layout_marginTop="@dimen/margin_medium_16"
+            android:drawablePadding="@dimen/margin_small_8"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/_20_mins"
             android:textColor="#3F4946"
@@ -78,9 +76,9 @@
             android:id="@+id/tvLocationOfMeal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_small_8"
             android:drawableStart="@drawable/outline_outlined_flag_24"
-            android:drawablePadding="8dp"
+            android:drawablePadding="@dimen/margin_small_8"
             android:fontFamily="@font/roboto_medium"
             android:gravity="bottom"
             android:text="@string/northern_india"
