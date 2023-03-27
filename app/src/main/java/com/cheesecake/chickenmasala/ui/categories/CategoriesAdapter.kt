@@ -30,7 +30,7 @@ class CategoriesAdapter(
 
         val currentCategory = categoriesList[position]
         holder.apply {
-            binding.textCardAddress.text = currentCategory.cuisine
+            binding.textViewTextAddress.text = currentCategory.cuisine
             Glide.with(context).load(currentCategory.imageUrl).centerCrop()
                 .into(object : CustomTarget<Drawable>() {
                     override fun onResourceReady(

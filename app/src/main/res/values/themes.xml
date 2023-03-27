@@ -32,7 +32,7 @@
     </style>
 
     <style name="HistoryImageStyle">
-        <item name="cornerSize">@dimen/_8sdp</item>
+        <item name="cornerSize">@dimen/margin_small_8</item>
     </style>
 
     <style name="Theme.App.ChickenMasala.SplashScreen" parent="Theme.SplashScreen">
@@ -60,9 +60,9 @@
     </style>
 
     <style name="margin_activity" parent="">
-        <item name="android:layout_marginStart">@dimen/_16sdp</item>
-        <item name="android:layout_marginTop">@dimen/_16sdp</item>
-        <item name="android:layout_marginEnd">@dimen/_16sdp</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium_16</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium_16</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium_16</item>
     </style>
 <!--
     <style name="margin_activity.title_style" parent="margin_activity">
@@ -73,12 +73,12 @@
 
     <style name="BodyMediumTextStyle">
         <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
-        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:textSize">@dimen/font_size_14</item>
     </style>
 
     <style name="TitleMediumTextStyle">
         <item name="android:textColor">@color/md_theme_light_onSurface</item>
-        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:textSize">@dimen/font_size_14</item>
     </style>
 
 </resources>

@@ -10,8 +10,8 @@ import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
-class CategoriesFragment(private val category: List<Meal>)  :
-    BaseFragment<FragmentCategoriesBinding>() , CategoriesAdapter.CategoriesListener{
+class CategoriesFragment(private val category: List<Meal>) :
+    BaseFragment<FragmentCategoriesBinding>(), CategoriesAdapter.CategoriesListener {
     override val bindingInflater: (LayoutInflater) -> FragmentCategoriesBinding =
         FragmentCategoriesBinding::inflate
 
@@ -28,7 +28,7 @@ class CategoriesFragment(private val category: List<Meal>)  :
         context: Context
     ) {
         categoryAdapter = CategoriesAdapter(categories, categoryListener, context)
-        binding.recyclerCategories .adapter = categoryAdapter
+        binding.recyclerCategoriesHolder.adapter = categoryAdapter
     }
 
 
