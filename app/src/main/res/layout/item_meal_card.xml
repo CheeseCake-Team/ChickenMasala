@@ -22,7 +22,7 @@
         tools:ignore="MissingConstraints,NotSibling" />
 
     <ImageView
-        android:id="@+id/imageCardOfMeal"
+        android:id="@+id/image_meal_on_meal_card"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/card_pic"
@@ -42,15 +42,15 @@
         android:layout_marginEnd="@dimen/margin_small_8"
         android:orientation="vertical"
         android:padding="@dimen/margin_small_8"
-        app:layout_constraintBottom_toBottomOf="@id/imageCardOfMeal"
-        app:layout_constraintEnd_toStartOf="@id/imageCardOfMeal"
+        app:layout_constraintBottom_toBottomOf="@id/image_meal_on_meal_card"
+        app:layout_constraintEnd_toStartOf="@id/image_meal_on_meal_card"
         app:layout_constraintHeight_percent=".2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/imageCardOfMeal"
+        app:layout_constraintTop_toTopOf="@id/image_meal_on_meal_card"
         app:layout_constraintWidth_percent=".6">
 
         <TextView
-            android:id="@+id/tvNameOfMeal"
+            android:id="@+id/text_view_meal_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium_16"
@@ -58,10 +58,10 @@
             android:gravity="top"
             android:text="@string/card_text"
             android:textColor="#191C1B"
-            android:textSize="16sp" />
+            android:textSize="@dimen/font_size_16" />
 
         <TextView
-            android:id="@+id/tvTimeToMakeMeal"
+            android:id="@+id/text_view_meal_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium_16"
@@ -69,11 +69,11 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/_20_mins"
             android:textColor="#3F4946"
-            android:textSize="12sp"
+            android:textSize="@dimen/font_size_12"
             app:drawableStartCompat="@drawable/outline_timer_24" />
 
         <TextView
-            android:id="@+id/tvLocationOfMeal"
+            android:id="@+id/text_view_meal_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small_8"
@@ -83,7 +83,7 @@
             android:gravity="bottom"
             android:text="@string/northern_india"
             android:textColor="#3F4946"
-            android:textSize="12sp" />
+            android:textSize="@dimen/font_size_12" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

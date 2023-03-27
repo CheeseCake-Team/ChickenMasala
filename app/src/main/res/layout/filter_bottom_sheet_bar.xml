@@ -23,7 +23,7 @@
             style="@style/TextAppearance.Material3.TitleLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/margin_medium_16"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:fontFamily="@font/roboto_medium"
