@@ -64,12 +64,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
 
     companion object {
-        fun createFragment(recipesManager: RecipesManager): SearchFragment {
-            val bundle = Bundle()
-            bundle.putParcelable(Constants.MAIN_ACTIVITY_RECIPES, recipesManager)
-            val fragment = SearchFragment()
-            fragment.arguments = bundle
-            return fragment
+        fun createFragment(recipesManager: RecipesManager) = SearchFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable(Constants.MAIN_ACTIVITY_RECIPES, recipesManager)
+            }
         }
     }
 }

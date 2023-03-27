@@ -18,11 +18,11 @@
             android:layout_height="@dimen/_108sdp"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:src="@drawable/history_img3"
+            android:src="@drawable/food_image_four"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/cuisineImageStyle" />
+            app:shapeAppearanceOverlay="@style/HistoryImageStyle" />
 
         <TextView
             android:id="@+id/recipe_name"

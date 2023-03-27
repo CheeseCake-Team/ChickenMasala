@@ -1,172 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:paddingVertical="@dimen/_16sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text_title"
-            style="@style/TextAppearance.Material3.ActionBar.Title"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:gravity="center_vertical"
-            android:paddingStart="@dimen/_16sdp"
-            android:text="@string/history_text"
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/historyImageOne"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_250sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:background="@drawable/history_img3"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/main_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_112sdp"
+            android:layout_height="@dimen/_122sdp"
             android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/historyImageThree"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_250sdp"
-            android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:scaleType="centerCrop"
-            android:src="@drawable/history_img2"
-            app:layout_constraintEnd_toStartOf="@+id/historyImageOne"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_title"
-            app:srcCompat="@drawable/spice_" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/HistoryImageStyle"
+            app:srcCompat="@drawable/spices_and_herbs_first_image" />
 
         <TextView
             android:id="@+id/text_details"
-            style="@style/TextAppearance.Material3.ActionBar.Subtitle"
+            style="@style/BodyMediumTextStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:text="@string/indian_food"
-            app:layout_constraintEnd_toEndOf="@+id/main_image"
-            app:layout_constraintStart_toStartOf="@+id/main_image"
-            app:layout_constraintTop_toBottomOf="@+id/main_image" />
-            android:id="@+id/detailsText"
-            style="@style/TextAppearance.Material3.TitleSmall"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp"
             android:justificationMode="inter_word"
-            android:maxLines="10"
             android:text="@string/food"
-            android:textAlignment="viewStart"
-            app:layout_constraintEnd_toEndOf="@+id/imageHistoryHeader"
-            app:layout_constraintStart_toStartOf="@+id/imageHistoryHeader"
-            app:layout_constraintTop_toBottomOf="@+id/imageHistoryHeader" />
-            
+            app:layout_constraintTop_toBottomOf="@+id/main_image" />
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/author_image"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_99sdp"
             android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            app:layout_constraintEnd_toEndOf="@+id/text_details"
-            app:layout_constraintStart_toStartOf="@+id/text_details"
+            android:scaleType="centerCrop"
             app:layout_constraintTop_toBottomOf="@+id/text_details"
-            app:srcCompat="@drawable/shantanu" />
+            app:shapeAppearanceOverlay="@style/HistoryImageStyle"
+            app:srcCompat="@drawable/spices_and_herbs_second_image" />
 
-        <LinearLayout
-            android:id="@+id/linear_for_image"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_155sdp"
-            android:orientation="horizontal"
-            android:layout_height="@dimen/_250sdp"
-            android:layout_marginTop="@dimen/_8sdp"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/related_spice_image2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_145sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:scaleType="centerCrop"
-            android:src="@drawable/history_img1"
+            app:layout_constraintBottom_toBottomOf="@+id/related_spice_image1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/related_spice_image1"
+            app:layout_constraintTop_toTopOf="@+id/related_spice_image1"
+            app:shapeAppearanceOverlay="@style/HistoryImageStyle"
+            app:srcCompat="@drawable/spices_and_herbs_third_image" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/related_spice_image1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_145sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@+id/related_spice_image2"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/author_image">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/related_spice_image1"
-                android:layout_width="@dimen/_126sdp"
-                android:layout_height="@dimen/_145sdp"
-                android:layout_marginStart="@dimen/_16sdp"
-                app:srcCompat="@drawable/more_spice1" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/related_spice_image2"
-                android:layout_width="@dimen/_126sdp"
-                android:layout_height="@dimen/_145sdp"
-                android:layout_marginStart="@dimen/_16sdp"
-                app:srcCompat="@drawable/food" />
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/author_image"
+            app:shapeAppearanceOverlay="@style/HistoryImageStyle"
+            app:srcCompat="@drawable/food_image_eleven" />
 
         <TextView
             android:id="@+id/text_related_spices"
-            style="@style/TextAppearance.Material3.ActionBar.Subtitle"
+            style="@style/BodyMediumTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:text="@string/more_food"
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/historyImageTwo"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_250sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/history_img2"
-            app:layout_constraintEnd_toStartOf="@+id/imageHistoryFour"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageHistoryFour"
-            app:roundPercent="0.3" />
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/imageHistoryFour"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_250sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:background="@drawable/history_img3"
-            android:scaleType="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/historyImageTwo"
-            app:layout_constraintTop_toBottomOf="@+id/detailsText"
-            app:roundPercent="0.3" />
-
-        <TextView
-            android:id="@+id/detailsHistoryTwo"
-            style="@style/TextAppearance.Material3.TitleSmall"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_16sdp"
-            android:layout_marginVertical="@dimen/_8sdp"
             android:justificationMode="inter_word"
-            android:maxLines="11"
-            android:text="@string/food"
-            android:textAlignment="viewStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linear_for_image" />
+            android:text="@string/history_second_text"
+            app:layout_constraintTop_toBottomOf="@+id/related_spice_image1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>
-

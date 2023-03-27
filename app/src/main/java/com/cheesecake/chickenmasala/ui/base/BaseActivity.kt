@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.viewbinding.ViewBinding
+import com.cheesecake.chickenmasala.R
+import com.google.android.material.appbar.MaterialToolbar
 
 abstract class BaseActivity<VB:ViewBinding>:AppCompatActivity() {
 
@@ -19,6 +21,8 @@ abstract class BaseActivity<VB:ViewBinding>:AppCompatActivity() {
         installSplashScreen()
         _binding = bindingInflater(layoutInflater)
         setContentView(binding.root)
+        val toolbar = binding.root.findViewById<MaterialToolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
     }
 
     override fun onDestroy() {
