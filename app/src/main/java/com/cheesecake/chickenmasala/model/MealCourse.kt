@@ -6,12 +6,11 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 enum class MealCourse( val CourseName: String, val imageResourceId: Int) : Parcelable {
-    SOUPS("Soups", R.drawable.image),
-    SPICY("Spicy", R.drawable.spice_),
-    SALADS("Salads", R.drawable.),
-    VEGETABLES("Vegetables", R.drawable.),
-    SIDE_DISHES("Side Dishes", R.drawable.side_dishes),
-    BREAKFAST("Breakfast", R.drawable.),
-    DRINKS("Drinks", R.drawable.drinks),
-    DESERT("Desert", R.drawable.desert),
-}
+    SOUPS("Soups", R.drawable.food_image_fourteen),
+    SPICY("Spicy", R.drawable.food_image_fourteen),
+    SALADS("Salads", R.drawable.food_image_fourteen),
+    VEGETABLES("Vegetables", R.drawable.food_image_fourteen),
+    SIDE_DISHES("Side Dishes", R.drawable.food_image_eight),
+    BREAKFAST("Breakfast", R.drawable.food_image_nine),
+    DRINKS("Drinks", R.drawable.food_image_fourteen),
+    DESERT("Desert", R.drawable.food_image_fourteen),}
