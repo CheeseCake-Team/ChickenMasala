@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
-    android:paddingVertical="@dimen/_16sdp"
     android:orientation="vertical"
-    tools:context=".ui.home.HomeFragment">
+    android:paddingVertical="@dimen/margin_medium_16">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,90 +16,84 @@
             android:id="@+id/advice_image_slider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/_8sdp"
             android:clipToPadding="false"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:paddingHorizontal="@dimen/margin_small_8"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/fastest_recipes_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_marginHorizontal="@dimen/_16sdp"
-        android:textSize="@dimen/_16ssp"
-        android:text="@string/fastest_recipes"
-        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/advice_image_slider"
-        app:layout_constraintTop_toBottomOf="@+id/advice_image_slider" />
+        <TextView
+            android:id="@+id/fastest_recipes_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium_16"
+            android:layout_marginTop="@dimen/margin_medium_16"
+            android:text="@string/fastest_recipes"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintTop_toBottomOf="@+id/advice_image_slider" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_fast_recipes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:paddingHorizontal="@dimen/_12sdp"
-        android:clipToPadding="false"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/fastest_recipes_text"
-        tools:itemCount="10"
-        android:nestedScrollingEnabled="false"
-        tools:listitem="@layout/item_recipes" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_fast_recipes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small_8"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/margin_medium_12"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/fastest_recipes_text"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_recipes" />
 
-    <TextView
-        android:id="@+id/recipes_of_today_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_16sdp"
-        android:textSize="@dimen/_16ssp"
-        android:text="@string/recipes_of_the_day"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_view_fast_recipes" />
+        <TextView
+            android:id="@+id/recipes_of_today_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium_16"
+            android:layout_marginTop="@dimen/margin_small_8"
+            android:text="@string/recipes_of_the_day"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_fast_recipes" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_recipes_of_today"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_12sdp"
-        android:clipToPadding="false"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/recipes_of_today_text"
-        tools:itemCount="10"
-        android:layout_marginTop="@dimen/_8sdp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:listitem="@layout/item_recipes" />
-    <TextView
-        android:id="@+id/low_ingredient_recipes_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/_16ssp"
-        android:text="@string/low_ingredient_recipes"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginHorizontal="@dimen/_16sdp"
-        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_view_recipes_of_today" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_recipes_of_today"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small_8"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/margin_medium_12"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/recipes_of_today_text"
+            tools:itemCount="10"
+            tools:layout_editor_absoluteX="1dp"
+            tools:listitem="@layout/item_recipes" />
+
+        <TextView
+            android:id="@+id/low_ingredient_recipes_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium_16"
+            android:layout_marginTop="@dimen/margin_small_8"
+            android:text="@string/low_ingredient_recipes"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_recipes_of_today" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_low_ingredients_food"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small_8"
             android:clipToPadding="false"
             android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingHorizontal="@dimen/margin_medium_12"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/low_ingredient_recipes_text"
             tools:itemCount="10"
-            android:layout_marginTop="@dimen/_8sdp"
             tools:layout_editor_absoluteX="1dp"
             tools:listitem="@layout/item_recipes" />
 
