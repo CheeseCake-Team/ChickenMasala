@@ -1,8 +1,6 @@
 <resources>
     <!-- Primary brand color. -->
     <style name="Theme.ChickenMasala" parent="Theme.Material3.Light.NoActionBar">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
@@ -31,9 +29,11 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
     </style>
 
-    <style name="HistoryImageStyle">
-        <item name="cornerSize">@dimen/margin_small_8</item>
+    <style name="cuisineImageStyle">
+        <item name="cornerSize">@dimen/_8sdp</item>
+        <item name="cornerFamily">rounded</item>
     </style>
+
 
     <style name="Theme.App.ChickenMasala.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_light_mode</item>
@@ -60,9 +60,9 @@
     </style>
 
     <style name="margin_activity" parent="">
-        <item name="android:layout_marginStart">@dimen/margin_medium_16</item>
-        <item name="android:layout_marginTop">@dimen/margin_medium_16</item>
-        <item name="android:layout_marginEnd">@dimen/margin_medium_16</item>
+        <item name="android:layout_marginStart">@dimen/_16sdp</item>
+        <item name="android:layout_marginTop">@dimen/_16sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_16sdp</item>
     </style>
 <!--
     <style name="margin_activity.title_style" parent="margin_activity">
@@ -71,14 +71,12 @@
         <item name="android:textColor">@color/color_black_86</item>
     </style>-->
 
-    <style name="BodyMediumTextStyle">
+    <style name="BodyMediumTextStyle" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
-        <item name="android:textSize">@dimen/font_size_14</item>
     </style>
 
-    <style name="TitleMediumTextStyle">
+    <style name="TitleMediumTextStyle" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textColor">@color/md_theme_light_onSurface</item>
-        <item name="android:textSize">@dimen/font_size_14</item>
     </style>
 
 </resources>
