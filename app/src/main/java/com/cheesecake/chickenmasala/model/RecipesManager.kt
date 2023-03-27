@@ -11,6 +11,8 @@ object RecipesManager {
         this.indianMealsForToday = indianMeals.shuffled().take(10)
     }
 
+    val indianRecipesName: List<String>
+        get() = indianMeals.map { it.translatedRecipeName }
 
     val indianIngredients: List<String>
         get() = indianMeals.map { it.cleanedIngredients }.flatten().distinct().sorted()
@@ -21,4 +23,5 @@ object RecipesManager {
     fun getRandomMeals(): List<Meal> = indianMealsForToday
 
     fun getFastMeals(): List<Meal> = indianMeals.sortedBy { it.TotalTimeInMinutes }.take(10)
+
 }
