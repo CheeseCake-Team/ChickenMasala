@@ -30,8 +30,10 @@
     </style>
 
     <style name="cuisineImageStyle">
-        <item name="cornerSize">@dimen/_16sdp</item>
+        <item name="cornerSize">@dimen/_8sdp</item>
+        <item name="cornerFamily">rounded</item>
     </style>
+
 
     <style name="Theme.App.ChickenMasala.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_light_mode</item>

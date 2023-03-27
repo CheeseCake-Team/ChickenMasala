@@ -11,10 +11,8 @@
         android:id="@+id/recyclerMeals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/result"
-        tools:ignore="MissingConstraints,NotSibling" />
+        app:layout_constraintTop_toBottomOf="@id/chips_holder" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_text_input_layout"
@@ -41,16 +39,24 @@
             android:paddingEnd="@dimen/_16sdp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/result"
+    <HorizontalScrollView
+        android:id="@+id/chips_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_16sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        android:scrollIndicators="none"
         app:layout_constraintTop_toBottomOf="@id/search_text_input_layout">
 
-    </com.google.android.material.chip.ChipGroup>
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:isScrollContainer="true"
+            app:layout_constraintTop_toBottomOf="@id/search_text_input_layout"
+            app:singleLine="true" />
+    </HorizontalScrollView>
+
 
     <!--<com.google.android.material.search.SearchBar
         android:id="@+id/search_bar"

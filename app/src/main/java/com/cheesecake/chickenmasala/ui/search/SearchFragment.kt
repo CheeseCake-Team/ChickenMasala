@@ -1,87 +1,111 @@
 package com.cheesecake.chickenmasala.ui.search
 
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Filter
+import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ChipsInjectBinding
 import com.cheesecake.chickenmasala.databinding.FragmentSearchBinding
-import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding =
         FragmentSearchBinding::inflate
-
-    private var recipesManager: RecipesManager? = null
     private lateinit var searchBarInputs: MutableList<String>
-
+    private lateinit var mealsAdapter: SearchAdapter
+    private lateinit var suggestions: MutableList<String>
+    private lateinit var adapter: ArrayAdapter<String>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recipesManager = arguments?.getParcelable(Constants.MAIN_ACTIVITY_RECIPES)
+        suggestions = RecipesManager.indianIngredients.toMutableList()
         setupAutoCompleteTextView()
+        searchBarInputs = mutableListOf<String>()
+        installViews()
     }
 
-    private fun setupAutoCompleteTextView() {
-        val suggestions: List<String> = recipesManager?.indianIngredients?.distinct()?.sorted() ?: emptyList<String>()
+    private fun installViews() {
+        mealsAdapter = SearchAdapter(MealsListener { loadMealFragment(it) })
+        mealsAdapter.submitList(RecipesManager.indianFoodSearch.getSearchedMeals())
+        binding.recyclerMeals.adapter = mealsAdapter
+    }
 
-        val adapter = ArrayAdapter(
+
+    private fun setupAutoCompleteTextView() {
+        val allSuggestions: List<String> = RecipesManager.indianIngredients
+        val suggestions = allSuggestions.toMutableList()
+        adapter = object : ArrayAdapter<String>(
             requireContext(),
             android.R.layout.simple_dropdown_item_1line,
             suggestions
-        )
-        binding.searchAutoCompleteTextView.setAdapter(adapter)
-    }
+        ) {
+            override fun getFilter(): Filter {
+                return object : Filter() {
+                    override fun performFiltering(constraint: CharSequence?): FilterResults {
+                        val filterResults = FilterResults()
+                        if (constraint != null) {
+                            val filteredSuggestions = allSuggestions.filter {
+                                it.contains(
+                                    constraint,
+                                    ignoreCase = true
+                                ) && !searchBarInputs.contains(it)
+                            }
+                            filterResults.values = filteredSuggestions
+                            filterResults.count = filteredSuggestions.size
+                        }
+                        return filterResults
+                    }
 
-
-    override fun onStart() {
-        super.onStart()
-        collectAllIngredients()
-    }
-
-    private fun collectAllIngredients(): MutableList<String> {
-        searchBarInputs = mutableListOf<String>()
-        binding.searchAutoCompleteTextView.setOnKeyListener { _, keyCode, event ->
-            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                val inputText = binding.searchAutoCompleteTextView.text.toString().trim()
-                if (inputText.isNotEmpty()) {
-                    searchBarInputs.add(inputText)
-                    createChip(inputText)
-                    binding.searchAutoCompleteTextView.setText("")
-                    return@setOnKeyListener true
+                    override fun publishResults(
+                        constraint: CharSequence?,
+                        results: FilterResults?
+                    ) {
+                        if (results != null && results.count > 0) {
+                            clear()
+                            addAll(results.values as Collection<String>)
+                            notifyDataSetChanged()
+                        }
+                    }
                 }
             }
-            return@setOnKeyListener false
         }
-        return searchBarInputs
+        binding.searchAutoCompleteTextView.setAdapter(adapter)
+        setupListeners()
+    }
+
+    private fun setupListeners() {
+        binding.searchAutoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
+            val selectedItem = adapter.getItem(position) ?: return@setOnItemClickListener
+            searchBarInputs.add(selectedItem)
+            createChip(selectedItem)
+            mealsAdapter.submitList(searchAllMealsByIngredients(searchBarInputs))
+            binding.searchAutoCompleteTextView.setText("")
+        }
     }
 
     private fun createChip(text: String) {
-        val chip = ChipsInjectBinding.inflate(layoutInflater)
-        chip.customChip.text = text
-        binding.result.addView(chip.root)
-
-
-        chip.customChip.setOnCloseIconClickListener {
+        val chipLayout = ChipsInjectBinding.inflate(layoutInflater)
+        chipLayout.customChip.text = text
+        binding.chipGroupHolder.addView(chipLayout.root)
+        chipLayout.customChip.setOnClickListener {
             searchBarInputs.remove(text)
-            binding.result.removeView(chip.root)
+            adapter.notifyDataSetChanged()
+            binding.chipGroupHolder.removeView(chipLayout.root)
+            mealsAdapter.submitList(searchAllMealsByIngredients(searchBarInputs))
         }
     }
 
-    private fun searchAllMealsByIngredients(): List<Meal>? {
-        return recipesManager?.getIndianFoodSearch?.searchByIngredients(searchBarInputs)
-            ?.getSearchedMeals()
+    private fun searchAllMealsByIngredients(ingredients: List<String>): List<Meal> {
+        return RecipesManager.indianFoodSearch.searchByIngredients(ingredients).getSearchedMeals()
     }
 
-    companion object {
-        fun createFragment(recipesManager: RecipesManager) = SearchFragment().apply {
-            arguments = Bundle().apply {
-                putParcelable(Constants.MAIN_ACTIVITY_RECIPES, recipesManager)
-            }
-        }
+    private fun loadMealFragment(meal: Meal) {
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.addToBackStack(null)
+        transaction.add(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
     }
 }

@@ -1,25 +1,24 @@
 package com.cheesecake.chickenmasala.model
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+object RecipesManager {
+    private lateinit var meals: List<Meal>
+    private lateinit var indianMeals: List<Meal>
+    private lateinit var indianMealsForToday: List<Meal>
 
-@Parcelize
-class RecipesManager(private val meals: List<Meal>): Parcelable {
-    private val indianMeals = meals.filter { it.cuisine == "Indian" }
-    private val indianMealsForToday = indianMeals.shuffled().take(10)
-
-
-    val indianIngredients = indianMeals.map { it.cleanedIngredients }.flatten().distinct()
-
-    val getIndianFoodSearch = IndianFoodSearch(indianMeals)
-
-    fun getCuisines() = meals.map { it.cuisine }.distinct()
-
-    fun getCuisineRecipes(cuisine: String): List<Meal> {
-        return meals.filter { it.cuisine == cuisine }
+    fun initialize(meals: List<Meal>) {
+        this.meals = meals
+        this.indianMeals = meals.filter { it.cuisine == "Indian" }
+        this.indianMealsForToday = indianMeals.shuffled().take(10)
     }
 
-    fun getRandomMeals() = indianMealsForToday
 
-    fun getFastMeals() = indianMeals.sortedBy { it.TotalTimeInMinutes }.take(10)
+    val indianIngredients: List<String>
+        get() = indianMeals.map { it.cleanedIngredients }.flatten().distinct().sorted()
+
+    val indianFoodSearch: IndianFoodSearch
+        get() = IndianFoodSearch(indianMeals)
+
+    fun getRandomMeals(): List<Meal> = indianMealsForToday
+
+    fun getFastMeals(): List<Meal> = indianMeals.sortedBy { it.TotalTimeInMinutes }.take(10)
 }

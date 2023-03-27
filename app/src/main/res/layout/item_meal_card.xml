@@ -1,91 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardOfMeal"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="16dp"
+        android:layout_height="wrap_content">
 
-        android:padding="8dp"
-        app:cardBackgroundColor="#FAFDFB"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintHeight_percent=".2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints,NotSibling" />
-
-    <ImageView
-        android:id="@+id/imageCardOfMeal"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="@string/card_pic"
-        android:foreground="@drawable/gradient"
-        android:src="@drawable/foodimg"
-        app:layout_constraintBottom_toBottomOf="@id/cardOfMeal"
-        app:layout_constraintEnd_toEndOf="@id/cardOfMeal"
-        app:layout_constraintHeight_percent=".2"
-        app:layout_constraintTop_toTopOf="@id/cardOfMeal"
-        app:layout_constraintWidth_percent=".3" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginVertical="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="vertical"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/imageCardOfMeal"
-        app:layout_constraintEnd_toStartOf="@id/imageCardOfMeal"
-        app:layout_constraintHeight_percent=".2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/imageCardOfMeal"
-        app:layout_constraintWidth_percent=".6">
+        <ImageView
+            android:id="@+id/imageCardOfMeal"
+            android:layout_width="@dimen/_113sdp"
+            android:layout_height="@dimen/_127sdp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/image" />
 
         <TextView
             android:id="@+id/tvNameOfMeal"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/roboto_bold"
-            android:gravity="top"
-            android:text="@string/card_text"
-            android:textColor="#191C1B"
-            android:textSize="16sp" />
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:text="Steak with tomato sauce and bulgur rice."
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageCardOfMeal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tvTimeToMakeMeal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:drawablePadding="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:text="@string/_20_mins"
-            android:textColor="#3F4946"
-            android:textSize="12sp"
-            app:drawableStartCompat="@drawable/outline_timer_24" />
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/time"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?android:attr/textColorSecondary"
+            app:drawableStartCompat="@drawable/timer_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvNameOfMeal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvNameOfMeal"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameOfMeal"
+            app:layout_constraintVertical_bias="0.0" />
+
 
         <TextView
             android:id="@+id/tvLocationOfMeal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawableStart="@drawable/outline_outlined_flag_24"
-            android:drawablePadding="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="bottom"
+            android:layout_marginTop="@dimen/_8sdp"
             android:text="@string/northern_india"
-            android:textColor="#3F4946"
-            android:textSize="12sp" />
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?android:attr/textColorSecondary"
+            app:drawableStartCompat="@drawable/outline_outlined_flag_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageCardOfMeal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvTimeToMakeMeal"
+            app:layout_constraintTop_toBottomOf="@+id/tvTimeToMakeMeal"
+            app:layout_constraintVertical_bias="0.0" />
 
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+</com.google.android.material.card.MaterialCardView>

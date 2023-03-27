@@ -21,7 +21,7 @@ class IndianFoodSearch(private val meals: List<Meal>) {
 
     fun searchByIngredients(ingredients: List<String>) = IndianFoodSearch(searchedMeals).apply {
         searchedMeals =
-            searchedMeals.filter { it.translatedIngredients.containsAll(ingredients) }
+            searchedMeals.filter { it.cleanedIngredients.containsAll(ingredients) }
     }
 
     fun getSearchedMeals(): List<Meal> = searchedMeals
