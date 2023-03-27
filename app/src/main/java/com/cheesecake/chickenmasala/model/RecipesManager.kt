@@ -22,4 +22,6 @@ class RecipesManager(private val meals: List<Meal>): Parcelable {
     fun getRandomMeals() = indianMealsForToday
 
     fun getFastMeals() = indianMeals.sortedBy { it.TotalTimeInMinutes }.take(10)
+
+    fun getLessIngredientMeals() = indianMeals.sortedBy { it.ingredientCount }.take(10)
 }

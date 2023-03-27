@@ -27,7 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState, persistentState)
         changeTopAppbarTitle(R.string.home)
-        loadFragmentIntoContainer(HomeFragment(recipes))
+        loadFragmentIntoContainer(HomeFragment.createFragment(recipes))
         val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
     }
@@ -45,13 +45,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         recipes = RecipesManager(dataSource.getAllMealsData())
     }
 
-
     private fun addCallBacks() {
         binding.navBarButton.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
                     changeTopAppbarTitle(R.string.home)
-                    loadFragmentIntoContainer(HomeFragment(recipes))
+                    loadFragmentIntoContainer(HomeFragment.createFragment(recipes))
                     true
                 }
                 R.id.search -> {
