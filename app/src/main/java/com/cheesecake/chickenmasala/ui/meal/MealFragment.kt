@@ -36,8 +36,8 @@ class MealFragment() : BaseFragment<FragmentMealBinding>() {
     private fun initViews() {
         binding.apply {
             recyclerviewMeal.adapter = ingredientAdapter
-            textMealTime.text = textMealTime.context.getString(meal.TotalTimeInMinutes,R.string.text_meal_m)
-            textMealCount.text = textMealCount.context.getString(meal.ingredientCount,R.string.text_meal_ingredients)
+            textMealTime.text = "${meal.TotalTimeInMinutes} m"
+            textMealCount.text = "${meal.ingredientCount} ingredients"
             textMealName.text = meal.translatedRecipeName
             Glide.with(requireContext()).load(meal.imageUrl)
                 .error(R.drawable.ic_baseline_error_outline_24).into(imageMeal)
