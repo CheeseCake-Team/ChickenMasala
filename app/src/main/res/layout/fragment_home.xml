@@ -66,21 +66,17 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/recipes_of_today_text"
             tools:itemCount="10"
-            tools:layout_editor_absoluteX="1dp"
             tools:listitem="@layout/item_recipes" />
 
         <TextView
             android:id="@+id/low_ingredient_recipes_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_medium_16"
             android:layout_marginTop="@dimen/margin_small_8"
             android:text="@string/low_ingredient_recipes"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textSize="@dimen/font_size_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_recipes_of_today" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -94,7 +90,6 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/low_ingredient_recipes_text"
             tools:itemCount="10"
-            tools:layout_editor_absoluteX="1dp"
             tools:listitem="@layout/item_recipes" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
