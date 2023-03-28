@@ -13,7 +13,7 @@
         android:paddingBottom="@dimen/margin_small_8">
 
         <ImageView
-            android:id="@+id/recipe_image"
+            android:id="@+id/image_view_recipe_image"
             android:layout_width="@dimen/recipe_image_width"
             android:layout_height="@dimen/recipe_image_height"
             android:scaleType="centerCrop"
@@ -25,7 +25,7 @@
             app:srcCompat="@drawable/food_image_seven" />
 
         <TextView
-            android:id="@+id/recipe_name"
+            android:id="@+id/text_view_recipe_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:maxLines="1"
@@ -37,10 +37,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recipe_image" />
+            app:layout_constraintTop_toBottomOf="@+id/image_view_recipe_image" />
 
         <TextView
-            android:id="@+id/cuisine"
+            android:id="@+id/text_view_cuisine"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small_8"
@@ -48,14 +48,14 @@
             android:text="@string/northern_india"
             android:textAppearance="?attr/textAppearanceBodyMedium"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/time"
+            app:layout_constraintEnd_toStartOf="@+id/text_view_time"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recipe_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_recipe_name"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/text_view_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small_8"
@@ -63,11 +63,11 @@
             android:drawablePadding="@dimen/margin_small_4"
             android:text="@string/_20_minutes"
             app:drawableStartCompat="@drawable/timer_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/cuisine"
+            app:layout_constraintBottom_toBottomOf="@+id/text_view_cuisine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cuisine"
-            app:layout_constraintTop_toTopOf="@+id/cuisine" />
+            app:layout_constraintStart_toEndOf="@+id/text_view_cuisine"
+            app:layout_constraintTop_toTopOf="@+id/text_view_cuisine" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
