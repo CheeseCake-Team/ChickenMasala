@@ -10,7 +10,7 @@ enum class MealCourse(val courseName: String, val imageResourceId: Int) : Parcel
     SPICY("Spicy", R.drawable.spicy_category),
     SALADS("Salads", R.drawable.salad_category),
     VEGETABLES("Vegetables", R.drawable.vegetables_category),
-    SIDE_DISHES("Side Dishes", R.drawable.side_dish_category),
+    APPETIZER("Appetizer", R.drawable.side_dish_category),
     BREAKFAST("Breakfast", R.drawable.breakfast_category),
     DRINKS("Drinks", R.drawable.drinks),
-    DESERT("Desert", R.drawable.desert),}
+}

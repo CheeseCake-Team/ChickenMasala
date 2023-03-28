@@ -14,7 +14,7 @@
     <string name="_15_30_min">15-30 min</string>
     <string name="_30_min_1_hour">30 min - 1 hour</string>
     <string name="category">Category</string>
-    <string name="side_dishes">Side dishes</string>
+    <string name="side_dishes">Appetizer</string>
     <string name="vegetables">Vegetables</string>
     <string name="north_india">North india</string>
     <string name="salads">Salads</string>
@@ -51,7 +51,7 @@
     <string name="lorem_text">Lorem ipsum tempor incididunt ut labore letjhdolore,in voluptate velit esse cillum dolore eu fugiat nulla pariatur?</string>
     <string name="step">step 1</string>
     <string name="step_1">1</string>
-    <string name="ingredients">3 Tomato\'s</string>
+    <string name="ingredients">ingredients</string>
     <string name="minute">minute</string>
     <string name="meal_count_number">10</string>
     <string name="ingredients_text">Ingredients</string>
@@ -85,5 +85,6 @@
     <string name="text_meal_m">%1$s m</string>
     <string name="drink">Drink</string>
     <string name="text_meal_ingredients">%1$s ingredients</string>
-    <string name="horizontal_scroll_view">Horizontal Scroll View</string>‏
+    <string name="horizontal_scroll_view">Horizontal Scroll View</string>
+    <string name="desert">Desert</string>‏
 </resources>

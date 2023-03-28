@@ -58,9 +58,8 @@ class CsvParser {
             mealName.contains("Spicy") -> MealCourse.SPICY
             mealName.contains("Salads") -> MealCourse.SALADS
             mealName.contains("Vegetables") -> MealCourse.VEGETABLES
-            mealName.contains("Desert") -> MealCourse.DESERT
             mealName.contains("Drinks") -> MealCourse.DRINKS
-            mealName.contains("Side Dishes") -> MealCourse.SIDE_DISHES
+            mealName.contains("APPETIZER") -> MealCourse.APPETIZER
             mealName.contains("Breakfast") -> MealCourse.BREAKFAST
 
 

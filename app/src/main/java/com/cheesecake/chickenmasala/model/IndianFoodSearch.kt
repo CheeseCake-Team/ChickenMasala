@@ -6,35 +6,27 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class IndianFoodSearch(private val meals: List<Meal>) : Parcelable {
-
     @IgnoredOnParcel
     private var searchedMeals = meals
 
-    fun searchByName(name: String) = IndianFoodSearch(searchedMeals).apply {
-        searchedMeals = searchedMeals.filter { it.translatedRecipeName.contains(name) }
-    }
-
-    fun filterMealsByCourse(course: MealCourse) = IndianFoodSearch(searchedMeals).apply {
-        searchedMeals = searchedMeals.filter { it.course == course }
-    }
-
-    fun filterMealsByRangeTime(range: IntRange) = IndianFoodSearch(searchedMeals).apply {
-        searchedMeals = searchedMeals.filter { it.TotalTimeInMinutes in range }
-    }
-
-    fun searchByIngredients(ingredients: List<String>) = IndianFoodSearch(searchedMeals).apply {
-        searchedMeals = if (ingredients.isNotEmpty()) {
-            searchedMeals.filter { it.cleanedIngredients.containsAll(ingredients) }
-        } else {
-            emptyList()
-        }
-
-    }
-
-    fun getSearchedMeals(): List<Meal> = searchedMeals
-
+    @IgnoredOnParcel
+    var selectedTimeRange:IntRange? = null
 
     @IgnoredOnParcel
+    var selectedMealCourse:MealCourse? = null
+    fun searchAndFilter(
+        name: String = "",
+        course: MealCourse? = null,
+        timeRange: IntRange? = null,
+        ingredients: List<String> = emptyList()
+    ) = IndianFoodSearch(meals).apply {
+        searchedMeals = meals
+            .let { if (name.isNotEmpty()) it.filter { it.translatedRecipeName.contains(name) } else it }
+            .let { if (course != null) it.filter { it.course == course } else it }
+            .let { if (timeRange != null) it.filter { it.TotalTimeInMinutes in timeRange } else it }
+            .let { if (ingredients.isNotEmpty()) it.filter { it.cleanedIngredients.containsAll(ingredients) } else it }
+    }
+    fun getSearchedMeals(): List<Meal> = searchedMeals
+    @IgnoredOnParcel
     var isSearchByName = false
-
 }

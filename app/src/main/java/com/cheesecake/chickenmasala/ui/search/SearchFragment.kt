@@ -12,32 +12,37 @@ import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
+import com.cheesecake.chickenmasala.ui.meals.MealsAdapter
+import com.cheesecake.chickenmasala.ui.meals.MealsListener
 
 private const val ARG_INDIAN_FOOD_SEARCH = "indian_food"
 
-class SearchFragment : BaseFragment<FragmentSearchBinding>() {
+class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListener {
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding =
         FragmentSearchBinding::inflate
 
     private val searchBarInputs = mutableListOf<String>()
 
-    private lateinit var mealsAdapter: SearchAdapter
-    private lateinit var indianFoodSearch: IndianFoodSearch
+    private lateinit var mealsAdapter: MealsAdapter
+    private lateinit var foodSearch: IndianFoodSearch
+    private lateinit var searchNameIngredient: IndianFoodSearch
     private lateinit var adapter: ArrayAdapter<String>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        indianFoodSearch = arguments?.getParcelable(ARG_INDIAN_FOOD_SEARCH)!!
-
+        foodSearch = arguments?.getParcelable(ARG_INDIAN_FOOD_SEARCH)!!
         installViews()
         addCallBacks()
     }
 
     private fun installViews() {
-        mealsAdapter = SearchAdapter(MealsListener { loadMealFragment(it) })
+        mealsAdapter = MealsAdapter(MealsListener { loadMealFragment(it) })
         binding.recyclerMeals.adapter = mealsAdapter
+        setupAutoComplete()
+    }
 
-        val allSuggestions = if (indianFoodSearch.isSearchByName) RecipesManager.indianRecipesName
+    private fun setupAutoComplete() {
+        val allSuggestions = if (foodSearch.isSearchByName) RecipesManager.indianRecipesName
         else RecipesManager.indianIngredients
         adapter = StringArrayAdapter(allSuggestions, requireContext(), searchBarInputs)
         binding.searchAutoCompleteTextView.setAdapter(adapter)
@@ -46,20 +51,20 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     private fun addCallBacks() {
         binding.searchAutoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
             adapter.getItem(position)?.let { selectedItem ->
-                searchBarInputs.add(selectedItem)
-                if (!indianFoodSearch.isSearchByName) {
+                searchNameIngredient = if (!foodSearch.isSearchByName) {
+                    searchBarInputs.add(selectedItem)
                     createChip(selectedItem)
-                    mealsAdapter.submitList(
-                        indianFoodSearch.searchByIngredients(searchBarInputs).getSearchedMeals()
-                    )
+                    foodSearch.searchAndFilter(ingredients = searchBarInputs)
                 } else {
-                    mealsAdapter.submitList(
-                        indianFoodSearch.searchByName(selectedItem).getSearchedMeals()
-                    )
+                    foodSearch.searchAndFilter(name = selectedItem)
                 }
-
+                mealsAdapter.submitList(searchNameIngredient.getSearchedMeals())
                 binding.searchAutoCompleteTextView.setText("")
             }
+        }
+
+        binding.filterButton.setOnClickListener {
+            showBottomSheet()
         }
     }
 
@@ -70,8 +75,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
                 searchBarInputs.remove(text)
                 adapter.notifyDataSetChanged()
                 binding.chipGroupHolder.removeView(root)
+                foodSearch = foodSearch.searchAndFilter(ingredients = searchBarInputs)
                 mealsAdapter.submitList(
-                    indianFoodSearch.searchByIngredients(searchBarInputs).getSearchedMeals()
+                    foodSearch.getSearchedMeals()
                 )
             }
             binding.chipGroupHolder.addView(root)
@@ -81,7 +87,14 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     private fun loadMealFragment(meal: Meal) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.addToBackStack(null)
-        transaction.replace(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
+        transaction.add(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
+    }
+
+    private fun showBottomSheet() {
+        if(!::searchNameIngredient.isInitialized )
+            searchNameIngredient  = foodSearch
+        val bottomSheetFragment = FilterBottomSheet.newInstance(searchNameIngredient)
+        bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)
     }
 
     companion object {
@@ -92,5 +105,17 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
             }
         }
     }
+
+    override fun onBottomSheetDataSelected(searchIndianFood: IndianFoodSearch) {
+        foodSearch = searchIndianFood
+        setupAutoComplete()
+        mealsAdapter.submitList(
+            foodSearch.getSearchedMeals()
+        )
+    }
+}
+
+interface BottomSheetListener {
+    fun onBottomSheetDataSelected(searchIndianFood: IndianFoodSearch)
 }
 

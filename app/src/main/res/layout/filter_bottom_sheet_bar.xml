@@ -61,16 +61,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/chip_group_search" />
 
-        <TextView
-            android:id="@+id/text_clear_all"
-            android:layout_width="wrap_content"
-            android:layout_height="?attr/minTouchTargetSize"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="@string/clear_all"
-            android:textColor="@color/md_theme_light_primary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/drag_handle" />
+
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chip_group_time"
@@ -120,10 +111,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small_8"
             app:layout_constraintBottom_toTopOf="@+id/button_filter"
-            app:layout_constraintTop_toBottomOf="@id/text_category">
+            app:layout_constraintTop_toBottomOf="@id/text_category"
+            app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip_side_dishes"
+                android:id="@+id/chip_appetizer"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -170,6 +162,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/soups" />
+
 
         </com.google.android.material.chip.ChipGroup>
 
