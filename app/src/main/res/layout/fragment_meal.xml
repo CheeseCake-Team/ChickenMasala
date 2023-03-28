@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/fragment_meal_scene"
     tools:context=".ui.meal.MealFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/image_meal"
@@ -13,8 +16,8 @@
         android:layout_height="@dimen/margin_large_170"
         android:layout_marginHorizontal="@dimen/margin_medium_16"
         android:layout_marginTop="@dimen/margin_medium_16"
-        android:scaleType="fitXY"
-        android:src="@drawable/meals_images"
+        android:scaleType="centerCrop"
+        android:src="@drawable/side_dish_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_medium_16"
         android:layout_marginTop="@dimen/margin_medium_16"
+        app:selectionRequired="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_meal_name"
@@ -97,7 +101,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_meal"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margin_small_8"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -105,5 +109,5 @@
         tools:itemCount="12"
         tools:listitem="@layout/item_translated_ingredient" />
 
-
-</androidx.constraintlayout.motion.widget.MotionLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
