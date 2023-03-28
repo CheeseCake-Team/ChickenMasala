@@ -17,7 +17,7 @@ class InstructionsAdapter :
 
         fun bind(item: String, position: Int) {
             binding.apply {
-                textStep.text = textStep.context.getString(R.string.step_code, position + 1)
+                textStepCount.text = textStepCount.context.getString(R.string.step_code, position + 1)
                 textStepContent.text = item
             }
         }
