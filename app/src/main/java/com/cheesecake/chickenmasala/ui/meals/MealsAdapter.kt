@@ -17,12 +17,14 @@ class MealsAdapter(
     override fun onBindViewHolder(holder: MealsCategoryViewHolder, position: Int) =
         holder.bind(mealsListener, getItem(position))
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealsCategoryViewHolder =
-        MealsCategoryViewHolder.from(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealsCategoryViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = ItemMealCardBinding.inflate(layoutInflater, parent, false)
+        return MealsCategoryViewHolder(binding)
+    }
 
     class MealsCategoryViewHolder(private var binding: ItemMealCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(listener: MealsListener, item: Meal) {
             binding.apply {
                 textViewMealLocation.text = item.cuisine
@@ -30,14 +32,6 @@ class MealsAdapter(
                 textViewMealTime.text = item.TotalTimeInMinutes.toString()
                 Glide.with(itemView.context).load(item.imageUrl).into(imageMealOnMealCard)
                 binding.root.setOnClickListener { listener.onClick(item) }
-            }
-        }
-
-        companion object {
-            fun from(parent: ViewGroup): MealsCategoryViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemMealCardBinding.inflate(layoutInflater, parent, false)
-                return MealsCategoryViewHolder(binding)
             }
         }
     }

@@ -16,24 +16,23 @@ class CategoriesFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val category = MealCourse.values()
-        installViews(category)
+        setupViews()
     }
 
-    private fun installViews(categories: Array<MealCourse>) {
-        val categoryAdapter = CategoriesAdapter(CategoriesListener { loadMealFragment(it) })
-        categoryAdapter.submitList(categories.toList())
+    private fun setupViews() {
+        val categories = MealCourse.values().toList()
+        val categoryAdapter = CategoriesAdapter(CategoriesListener(::loadMealFragment))
+        categoryAdapter.submitList(categories)
         binding.recyclerCategoriesHolder.adapter = categoryAdapter
     }
 
-    private fun loadMealFragment(mealCourse: com.cheesecake.chickenmasala.model.MealCourse) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, MealsFragment.createFragment(mealCourse))
-        transaction.addToBackStack(null)
-        transaction.commit()
+    private fun loadMealFragment(mealCourse: MealCourse) {
+        requireActivity().supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, MealsFragment.newInstance(mealCourse))
+            addToBackStack(null)
+            commit()
+        }
     }
-
-
 
 
 }

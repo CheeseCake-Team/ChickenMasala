@@ -17,38 +17,35 @@ class MealsFragment :
 
     override val bindingInflater: (LayoutInflater) -> FragmentMealsBinding =
         FragmentMealsBinding::inflate
-    private lateinit var mealCourse: MealCourse
 
-    private lateinit var mealsAdapter: MealsAdapter
+    private lateinit var mealCourse: MealCourse
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mealCourse = arguments?.getParcelable(Constants.Keys.category)!!
-        val meals =
-            RecipesManager.indianFoodSearch.searchAndFilter(course = mealCourse)
-                .getSearchedMeals()
-        installViews(meals)
+        setupViews()
     }
 
-    private fun installViews(
-        meals: List<Meal>,
-    ) {
-        mealsAdapter = MealsAdapter(MealsListener {
-            loadMealFragment(it)
-        }).apply {
+    private fun setupViews() {
+        val meals =
+            RecipesManager.indianFoodSearch.searchAndFilter(course = mealCourse).getSearchedMeals()
+        val mealsAdapter = MealsAdapter(MealsListener(::loadMealFragment)).apply {
             submitList(meals)
         }
         binding.recyclerMeals.adapter = mealsAdapter
     }
 
     private fun loadMealFragment(meal: Meal) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.addToBackStack(null)
-        transaction.replace(R.id.fragment_container, MealFragment.newInstance(meal)).commit()
+        requireActivity().supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, MealFragment.newInstance(meal))
+            addToBackStack(null)
+            commit()
+        }
     }
 
     companion object {
-        fun createFragment(mealCourse: MealCourse) = MealsFragment().apply {
+        @JvmStatic
+        fun newInstance(mealCourse: MealCourse) = MealsFragment().apply {
             arguments = Bundle().apply {
                 putParcelable(Constants.Keys.category, mealCourse)
             }

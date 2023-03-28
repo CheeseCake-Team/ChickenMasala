@@ -10,21 +10,9 @@ import com.cheesecake.chickenmasala.model.MealCourse
 
 
 class CategoriesAdapter(private val clickListener: CategoriesListener) :
-    ListAdapter<MealCourse, CategoriesAdapter.CategoriesViewHolder>(CategoriesItemCallback) {
+    ListAdapter<MealCourse, CategoriesAdapter.CategoriesViewHolder>(CategoriesItemCallback()) {
 
-    companion object CategoriesItemCallback :
-        DiffUtil.ItemCallback<MealCourse>() {
-        override fun areItemsTheSame(oldItem: MealCourse, newItem: MealCourse): Boolean {
-            return oldItem === newItem
-        }
-
-        override fun areContentsTheSame(oldItem: MealCourse, newItem: MealCourse): Boolean {
-            return oldItem == newItem
-        }
-    }
-
-
-    class CategoriesViewHolder private constructor(private var binding: ItemCategoryBinding) :
+    class CategoriesViewHolder(private var binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(listener: CategoriesListener, item: MealCourse) {
             binding.apply {
@@ -33,18 +21,12 @@ class CategoriesAdapter(private val clickListener: CategoriesListener) :
             }.root.setOnClickListener { listener.onClick(item) }
         }
 
-        companion object {
-            fun from(parent: ViewGroup): CategoriesViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemCategoryBinding.inflate(layoutInflater, parent, false)
-                return CategoriesViewHolder(binding)
-            }
-        }
     }
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder =
-        CategoriesViewHolder.from(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = ItemCategoryBinding.inflate(layoutInflater, parent, false)
+        return CategoriesViewHolder(binding)
+    }
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) =
         holder.bind(clickListener, getItem(position))
@@ -53,4 +35,15 @@ class CategoriesAdapter(private val clickListener: CategoriesListener) :
 
 class CategoriesListener(val clickListener: (item: MealCourse) -> Unit) {
     fun onClick(item: MealCourse) = clickListener(item)
+}
+
+class CategoriesItemCallback :
+    DiffUtil.ItemCallback<MealCourse>() {
+    override fun areItemsTheSame(oldItem: MealCourse, newItem: MealCourse): Boolean {
+        return oldItem === newItem
+    }
+
+    override fun areContentsTheSame(oldItem: MealCourse, newItem: MealCourse): Boolean {
+        return oldItem == newItem
+    }
 }
