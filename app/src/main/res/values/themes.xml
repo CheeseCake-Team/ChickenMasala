@@ -45,25 +45,6 @@
     </style>
 
 
-    <style name="ModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
-        <!-- Apply attributes here -->
-    </style>
-
-    <style name="ModalBottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
-    </style>
-
-    <style name="AppTheme" parent="Theme.ChickenMasala">
-        <item name="bottomSheetDialogTheme">@style/ModalBottomSheetDialog</item>
-    </style>
-
-    <style name="margin_activity" parent="">
-        <item name="android:layout_marginStart">@dimen/margin_medium_16</item>
-        <item name="android:layout_marginTop">@dimen/margin_medium_16</item>
-        <item name="android:layout_marginEnd">@dimen/margin_medium_16</item>
-    </style>
-
-
     <style name="BodyMediumTextStyle" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
     </style>
