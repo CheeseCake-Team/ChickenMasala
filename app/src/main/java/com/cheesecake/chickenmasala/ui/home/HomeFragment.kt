@@ -41,8 +41,8 @@ class HomeFragment(private val recipes: RecipesManager) : BaseFragment<FragmentH
 
         Glide.with(this).load(meal.imageUrl).into(itemRecipesBinding.imageSmallCardRecipe)
 
-        itemRecipesBinding.cuisine.text = meal.cuisine
-        itemRecipesBinding.time.text = meal.TotalTimeInMinutes.toString()
+        itemRecipesBinding.textViewCuisineName.text = meal.cuisine
+        itemRecipesBinding.textViewMaelTime.text = meal.TotalTimeInMinutes.toString()
         itemRecipesBinding.recipeName.text = meal.translatedRecipeName
 
         itemRecipesBinding.root.setOnClickListener {

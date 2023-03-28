@@ -26,10 +26,10 @@ class MealsAdapter(
 
         val currentMeal = mealsList[position]
         holder.apply {
-            binding.tvLocationOfMeal.text = currentMeal.cuisine
-            binding.tvNameOfMeal.text = currentMeal.translatedRecipeName
-            binding.tvTimeToMakeMeal.text = currentMeal.TotalTimeInMinutes.toString()
-            Glide.with(context).load(currentMeal.imageUrl).into(binding.imageCardOfMeal)
+            binding.textViewMealLocation.text = currentMeal.cuisine
+            binding.textViewMealName.text = currentMeal.translatedRecipeName
+            binding.textViewMealTime.text = currentMeal.TotalTimeInMinutes.toString()
+            Glide.with(context).load(currentMeal.imageUrl).into(binding.imageMealOnMealCard)
             binding.root.setOnClickListener{mealListener.onClick(currentMeal)}
         }
     }
