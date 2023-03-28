@@ -5,17 +5,17 @@
     style="@style/Widget.Material3.CardView.Filled"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/_4sdp">
+    android:layout_marginHorizontal="@dimen/margin_small_4">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/_8sdp">
+        android:paddingBottom="@dimen/margin_small_8">
 
         <ImageView
             android:id="@+id/recipe_image"
-            android:layout_width="@dimen/_160sdp"
-            android:layout_height="@dimen/_108sdp"
+            android:layout_width="@dimen/recipe_image_width"
+            android:layout_height="@dimen/recipe_image_height"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,12 +26,12 @@
 
         <TextView
             android:id="@+id/recipe_name"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:ellipsize="end"
-            android:layout_marginHorizontal="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginHorizontal="@dimen/margin_small_8"
+            android:layout_marginTop="@dimen/margin_small_8"
             android:text="@string/classic_greek_salad"
             android:textAppearance="?attr/textAppearanceTitleMedium"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +43,8 @@
             android:id="@+id/cuisine"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/margin_small_8"
+            android:layout_marginTop="@dimen/margin_small_8"
             android:text="@string/northern_india"
             android:textAppearance="?attr/textAppearanceBodyMedium"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -58,10 +58,10 @@
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:drawablePadding="@dimen/_4sdp"
-            android:text="@string/_20_mins"
+            android:layout_marginStart="@dimen/margin_small_8"
+            android:layout_marginEnd="@dimen/margin_small_8"
+            android:drawablePadding="@dimen/margin_small_4"
+            android:text="@string/_20_minutes"
             app:drawableStartCompat="@drawable/outline_timer_24"
             app:layout_constraintBottom_toBottomOf="@+id/cuisine"
             app:layout_constraintEnd_toEndOf="parent"
