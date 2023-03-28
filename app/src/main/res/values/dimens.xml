@@ -2,6 +2,7 @@
 <resources>
     <dimen name="margin_large_56">56dp</dimen>
     <dimen name="margin_large_32">32dp</dimen>
+
     <dimen name="margin_large_24">24dp</dimen>
     <dimen name="margin_medium_16">16dp</dimen>
     <dimen name="margin_medium_12">12dp</dimen>
@@ -27,4 +28,8 @@
     <dimen name="margin_large_99">99dp</dimen>
     <dimen name="margin_large_145">145dp</dimen>
     <dimen name="margin_large_122">122dp</dimen>
+    <dimen name="margin_large_28">28dp</dimen>
+    <dimen name="elevation_1">1dp</dimen>
+    <dimen name="recipe_image_width">160dp</dimen>
+    <dimen name="recipe_image_height">108dp</dimen>
 </resources>

@@ -71,5 +71,7 @@
     <color name="midnight_forest">#5C000000</color>
     <color name="title_light_mode">#DB000000</color>
     <color name="title_dark_mode">@color/md_theme_dark_onSurface</color>
+    <color name="md_theme_light_onBackground_opacity">#8A000000</color>
+    <color name="md_theme_dark_onBackground_opacity">#B3FFFFFF</color>
 
 </resources>
