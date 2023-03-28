@@ -29,10 +29,10 @@ class SearchAdapter(private val clickListener: MealsListener) :
 
         fun bind(listener: MealsListener, item: Meal) {
             binding.apply {
-                tvLocationOfMeal.text = item.cuisine
-                tvNameOfMeal.text = item.translatedRecipeName
-                tvTimeToMakeMeal.text = item.TotalTimeInMinutes.toString()
-                Glide.with(itemView.context).load(item.imageUrl).into(imageCardOfMeal)
+                textViewMealLocation.text = item.cuisine
+                textViewMealName.text = item.translatedRecipeName
+                textViewMealTime.text = item.TotalTimeInMinutes.toString()
+                Glide.with(itemView.context).load(item.imageUrl).into(imageMealOnMealCard)
                 binding.root.setOnClickListener { listener.onClick(item) }
             }
         }

@@ -10,7 +10,10 @@ import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseActivity
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
+import com.cheesecake.chickenmasala.ui.categories.CategoriesFragment
 import com.cheesecake.chickenmasala.ui.history.HistoryFragment
+import com.cheesecake.chickenmasala.ui.home.HomeFragment
+import com.cheesecake.chickenmasala.ui.meal.MealFragment
 import com.cheesecake.chickenmasala.ui.search.SearchFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -27,29 +30,38 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onStart() {
         super.onStart()
         RecipesManager.initialize(setupRecipes())
-        binding.navBarButton.selectedItemId = R.id.home
+        binding.bottomNavigationMenu.selectedItemId = R.id.home
         addCallBacks()
+        initializeHomeScreenAtStart()
     }
 
     private fun setupRecipes(): List<Meal> {
         return CsvDataSource(CsvParser(), assets.open(FILE_NAME)).getAllMealsData()
     }
 
+    private fun initializeHomeScreenAtStart(){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(binding.fragmentContainer.id, HomeFragment()).commit()
+    }
+
 
     private fun addCallBacks() {
-        binding.navBarButton.setOnItemSelectedListener { item ->
+        binding.bottomNavigationMenu.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    //loadFragmentIntoContainer(HomeFragment(recipes))
+                    changeAppBarTitle(R.string.home)
+                    loadFragmentIntoContainer(HomeFragment())
                     true
                 }
                 R.id.search -> {
+                    changeAppBarTitle(R.string.search)
                     loadFragmentIntoContainer(
                         SearchFragment.newInstance(RecipesManager.indianFoodSearch))
                     true
                 }
                 R.id.categories -> {
-                    //loadFragmentIntoContainer(CategoriesFragment(recipes.getFastMeals()))
+                    changeAppBarTitle(R.string.category)
+                    loadFragmentIntoContainer(CategoriesFragment(RecipesManager.indianFoodSearch.getSearchedMeals()))
                     true
                 }
                 R.id.history -> {

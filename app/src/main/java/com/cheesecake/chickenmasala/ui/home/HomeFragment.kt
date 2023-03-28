@@ -11,7 +11,7 @@ import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
-class HomeFragment(private val recipes: RecipesManager) : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment() : BaseFragment<FragmentHomeBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentHomeBinding =
         FragmentHomeBinding::inflate
 
@@ -22,7 +22,7 @@ class HomeFragment(private val recipes: RecipesManager) : BaseFragment<FragmentH
     }
 
     private fun fillFastRecipes() {
-        val fastRecipes = recipes.getFastMeals()
+        val fastRecipes = RecipesManager.getFastMeals()
         fastRecipes.forEach {
             loadRecipeItems(it, binding.linearCardFast)
         }
@@ -30,7 +30,7 @@ class HomeFragment(private val recipes: RecipesManager) : BaseFragment<FragmentH
 
 
     private fun fillRecipesOfToday() {
-        val recipesOfToday = recipes.getRandomMeals()
+        val recipesOfToday = RecipesManager.getRandomMeals()
         recipesOfToday.forEach {
             loadRecipeItems(it, binding.recipesOfToday)
         }
