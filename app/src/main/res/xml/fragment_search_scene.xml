@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <KeyFrameSet>
+
+        </KeyFrameSet>
+        <OnSwipe
+            motion:autoCompleteMode="spring"
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@id/recyclerMeals"
+            motion:touchAnchorSide="middle"
+            motion:onTouchUp="decelerateAndComplete"
+            />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/recyclerMeals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            motion:layout_constraintTop_toBottomOf="@id/chips_holder" />
+        <Constraint
+            android:id="@+id/search_text_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_large_56"
+            android:alpha="1"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/filter_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:alpha="1"
+            android:elevation="8dp"
+            motion:layout_constraintBottom_toBottomOf="@id/search_text_input_layout"
+            motion:layout_constraintEnd_toEndOf="@id/search_text_input_layout"
+            motion:layout_constraintTop_toTopOf="@id/search_text_input_layout" />
+        <Constraint
+            android:id="@+id/chips_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            motion:layout_constraintTop_toBottomOf="@id/search_text_input_layout" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/recyclerMeals"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            motion:layout_constraintTop_toBottomOf="@id/chips_holder" />
+        <Constraint
+            android:id="@+id/search_text_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_large_56"
+            android:alpha="0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/filter_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:alpha="0"
+            android:elevation="8dp"
+            motion:layout_constraintBottom_toBottomOf="@id/search_text_input_layout"
+            motion:layout_constraintEnd_toEndOf="@id/search_text_input_layout"
+            motion:layout_constraintTop_toTopOf="@id/search_text_input_layout" />
+        <Constraint
+            android:id="@+id/chips_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            motion:layout_constraintTop_toBottomOf="@id/search_text_input_layout" />
+    </ConstraintSet>
+</MotionScene>
