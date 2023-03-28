@@ -1,7 +1,6 @@
 package com.cheesecake.chickenmasala.ui.categories
 
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import com.cheesecake.chickenmasala.R
@@ -9,7 +8,6 @@ import com.cheesecake.chickenmasala.databinding.FragmentCategoriesBinding
 import com.cheesecake.chickenmasala.model.MealCourse
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meals.MealsFragment
-import kotlinx.android.parcel.Parcelize
 
 class CategoriesFragment :
     BaseFragment<FragmentCategoriesBinding>() {
@@ -18,16 +16,14 @@ class CategoriesFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val category = MealCourse.values()
-
         installViews(category)
     }
 
     private fun installViews(categories: Array<MealCourse>) {
         val categoryAdapter = CategoriesAdapter(CategoriesListener { loadMealFragment(it) })
         categoryAdapter.submitList(categories.toList())
-        binding.recyclerCategories.adapter = categoryAdapter
+        binding.recyclerCategoriesHolder.adapter = categoryAdapter
     }
 
     private fun loadMealFragment(mealCourse: com.cheesecake.chickenmasala.model.MealCourse) {
@@ -36,5 +32,8 @@ class CategoriesFragment :
         transaction.addToBackStack(null)
         transaction.commit()
     }
+
+
+
 
 }

@@ -61,7 +61,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
                 R.id.categories -> {
                     changeAppBarTitle(R.string.category)
-                    loadFragmentIntoContainer(CategoriesFragment(RecipesManager.indianFoodSearch.getSearchedMeals()))
+                    loadFragmentIntoContainer(CategoriesFragment())
                     true
                 }
                 R.id.history -> {

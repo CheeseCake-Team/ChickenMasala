@@ -69,12 +69,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
             customChip.setOnClickListener {
                 searchBarInputs.remove(text)
                 adapter.notifyDataSetChanged()
-                binding.chipGroupSelectedChips.removeView(root)
+                binding.chipGroupHolder.removeView(root)
                 mealsAdapter.submitList(
                     indianFoodSearch.searchByIngredients(searchBarInputs).getSearchedMeals()
                 )
             }
-            binding.chipGroupSelectedChips.addView(root)
+            binding.chipGroupHolder.addView(root)
         }
     }
 

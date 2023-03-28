@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_item"
+    android:id="@+id/card_view_card_item"
     android:layout_width="match_parent"
     android:layout_height="@dimen/margin_large_150"
     android:layout_marginHorizontal="@dimen/margin_medium_16"
@@ -23,7 +23,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:foreground="@drawable/gradient">
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/card_img_holder"
             android:layout_width="match_parent"
@@ -42,4 +41,3 @@
         tools:text="name of category" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

@@ -2,51 +2,97 @@ package com.cheesecake.chickenmasala.ui.meals
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ItemMealCardBinding
 import com.cheesecake.chickenmasala.model.Meal
+import com.cheesecake.chickenmasala.ui.search.MealsListener
+import com.cheesecake.chickenmasala.ui.search.SearchAdapter
 
 
 class MealsAdapter(
-    private val mealsList: List<Meal>,
     private val mealListener: MealListener,
     private val context: Context
-) : RecyclerView.Adapter<MealsAdapter.ViewHolder>() {
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_meal_card,parent,false))
-    }
+) :     ListAdapter<Meal, SearchAdapter.MealsViewHolder>(SearchAdapter) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        val currentMeal = mealsList[position]
         holder.apply {
             binding.textViewMealLocation.text = currentMeal.cuisine
             binding.textViewMealName.text = currentMeal.translatedRecipeName
             binding.textViewMealTime.text = currentMeal.TotalTimeInMinutes.toString()
             Glide.with(context).load(currentMeal.imageUrl).into(binding.imageMealOnMealCard)
-            binding.root.setOnClickListener{mealListener.onClick(currentMeal)}
+            binding.root.setOnClickListener { mealListener.onClick(currentMeal) }
         }
     }
 
-    override fun getItemCount(): Int {
-        return mealsList.size
+    class MealsViewHolder(private var binding: ItemMealCardBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(listener: MealsListener, item: Meal) {
+            binding.apply {
+                textViewMealLocation.text = item.cuisine
+                textViewMealName.text = item.translatedRecipeName
+                textViewMealTime.text = item.TotalTimeInMinutes.toString()
+                Glide.with(itemView.context).load(item.imageUrl).into(imageMealOnMealCard)
+                binding.root.setOnClickListener { listener.onClick(item) }
+            }
+        }
+
+        companion object {
+            fun from(parent: ViewGroup): MealsViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = ItemMealCardBinding.inflate(layoutInflater, parent, false)
+                return MealsViewHolder(binding)
+            }
+        }
     }
 
-    class ViewHolder(
-        itemView: View
-    ) : RecyclerView.ViewHolder(itemView) {
 
-        var binding = ItemMealCardBinding.bind(itemView)
+    companion object MealsItemCallback :
+        DiffUtil.ItemCallback<Meal>() {
+        override fun areItemsTheSame(oldItem: Meal, newItem: Meal): Boolean {
+            return oldItem === newItem
+        }
+
+        override fun areContentsTheSame(oldItem: Meal, newItem: Meal): Boolean {
+            return oldItem == newItem
+        }
     }
 
-    interface  MealListener{
-        fun onClick(meal : Meal)
+    class MealsCategoryViewHolder(private var binding: ItemMealCardBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(listener: MealsListener, item: Meal) {
+            binding.apply {
+                textViewMealLocation.text = item.cuisine
+                textViewMealName.text = item.translatedRecipeName
+                textViewMealTime.text = item.TotalTimeInMinutes.toString()
+                Glide.with(itemView.context).load(item.imageUrl).into(imageMealOnMealCard)
+                binding.root.setOnClickListener { listener.onClick(item) }
+            }
+        }
+
+        companion object {
+            fun from(parent: ViewGroup): MealsCategoryViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = ItemMealCardBinding.inflate(layoutInflater, parent, false)
+                return MealsViewHolder(binding)
+            }
+        }
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        MealsAdapter.MealsCategoryViewHolder.from(parent)
+
+    override fun onBindViewHolder(holder: SearchAdapter.MealsViewHolder, position: Int) =
+        holder.bind(clickListener, getItem(position))
+}
+
+
+class MealsListener(val clickListener: (item: Meal) -> Unit) {
+    fun onClick(item: Meal) = clickListener(item)
+}
 }
