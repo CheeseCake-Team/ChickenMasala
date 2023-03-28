@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.chip.Chip
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/custom_chip"
-    android:backgroundTint="@color/md_theme_dark_onSurface"
+    style="@style/Widget.Material3.Chip.Filter"
+    android:checked="true"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-</com.google.android.material.chip.Chip>
+    android:layout_height="wrap_content"/>

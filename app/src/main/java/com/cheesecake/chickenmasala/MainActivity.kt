@@ -71,6 +71,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
                 else -> false
             }
+
         }
     }
 
