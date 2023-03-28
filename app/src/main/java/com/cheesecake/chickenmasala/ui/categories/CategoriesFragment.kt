@@ -7,8 +7,10 @@ import android.view.View
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentCategoriesBinding
 import com.cheesecake.chickenmasala.model.Meal
+import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
+import com.cheesecake.chickenmasala.ui.meals.MealsFragment
 
 class CategoriesFragment(private val category: List<Meal>) :
     BaseFragment<FragmentCategoriesBinding>(), CategoriesAdapter.CategoriesListener {
@@ -32,10 +34,11 @@ class CategoriesFragment(private val category: List<Meal>) :
     }
 
 
-    override fun onClick(category: Meal) {
+    fun loadMealsFragment(category: Meal) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.addToBackStack(null)
-        transaction.add(R.id.fragment_container, MealFragment()).commit()
+        transaction.replace(R.id.fragment_container,
+            //MealsFragment(RecipesManager.indianFoodSearch.filterMealsByCourse(category))).commit()
     }
 
 

@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import com.cheesecake.chickenmasala.databinding.FragmentMealsBinding
-import com.cheesecake.chickenmasala.model.Meal
+import com.cheesecake.chickenmasala.model.MealCourse
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
-class MealsFragment(private val meals: List<Meal>) :
-    BaseFragment<FragmentMealsBinding>() {
+import com.cheesecake.chickenmasala.ui.search.SearchFragment
+
+private const val ARG_FOOD_COURSE = "meal_course"
+
+class MealsFragment() : BaseFragment<FragmentMealsBinding>() {
 
 
     override val bindingInflater: (LayoutInflater) -> FragmentMealsBinding =
@@ -25,6 +28,15 @@ class MealsFragment(private val meals: List<Meal>) :
     private fun installViews() {
         //mealsAdapter = MealsAdapter()
         binding.recyclerMeals.adapter = mealsAdapter
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(mealCource: MealCourse) = SearchFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable(ARG_FOOD_COURSE, mealCource)
+            }
+        }
     }
 
 }
