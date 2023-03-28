@@ -30,9 +30,9 @@ class MealsFragment :
     private fun setupViews() {
         val meals =
             RecipesManager.indianFoodSearch.searchAndFilter(course = mealCourse).getSearchedMeals()
-        val mealsAdapter = MealsAdapter(MealsListener(::loadMealFragment)).apply {
-            submitList(meals)
-        }
+
+        val mealsAdapter = MealsAdapter { loadMealFragment(it) }
+        mealsAdapter.submitList(meals)
         binding.recyclerMeals.adapter = mealsAdapter
     }
 
