@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealsBinding
-import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.MealCourse
 import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
+private const val ARG_MEAL_COURSE = "meal_course"
 class MealsFragment :
     BaseFragment<FragmentMealsBinding>() {
 
@@ -22,7 +22,7 @@ class MealsFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mealCourse = arguments?.getParcelable(Constants.Keys.category)!!
+        mealCourse = arguments?.getParcelable(ARG_MEAL_COURSE)!!
         setupViews()
     }
 
@@ -47,7 +47,7 @@ class MealsFragment :
         @JvmStatic
         fun newInstance(mealCourse: MealCourse) = MealsFragment().apply {
             arguments = Bundle().apply {
-                putParcelable(Constants.Keys.category, mealCourse)
+                putParcelable(ARG_MEAL_COURSE, mealCourse)
             }
         }
     }
