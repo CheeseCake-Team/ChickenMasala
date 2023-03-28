@@ -8,6 +8,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.viewbinding.ViewBinding
 import com.cheesecake.chickenmasala.R
 import com.google.android.material.appbar.MaterialToolbar
+import java.util.*
 
 abstract class BaseActivity<VB:ViewBinding>:AppCompatActivity() {
 
@@ -16,8 +17,10 @@ abstract class BaseActivity<VB:ViewBinding>:AppCompatActivity() {
     protected val binding: VB get() = _binding ?: throw IllegalStateException("ViewBinding must not be null")
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        resources.configuration.setLocale(Locale.ENGLISH)
         installSplashScreen()
         _binding = bindingInflater(layoutInflater)
         setContentView(binding.root)
