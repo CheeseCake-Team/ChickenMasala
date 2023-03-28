@@ -1,17 +1,17 @@
 package com.cheesecake.chickenmasala.ui.meal
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import com.bumptech.glide.Glide
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealBinding
-import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 
-class MealFragment() : BaseFragment<FragmentMealBinding>() {
+private const val ARG_MEAL = "meal"
+
+class MealFragment : BaseFragment<FragmentMealBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentMealBinding =
         FragmentMealBinding::inflate
 
@@ -20,24 +20,21 @@ class MealFragment() : BaseFragment<FragmentMealBinding>() {
     private lateinit var meal: Meal
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        meal = arguments?.getParcelable(Constants.Keys.category)!!
+        meal = arguments?.getParcelable(ARG_MEAL)!!
         initViews()
         setUpAdapters()
         addCallBacks()
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun setUpAdapters() {
-        ingredientAdapter.submitList(meal.translatedIngredients)
-        instructionAdapter.submitList(meal.translatedInstructions)
-    }
-
-    @SuppressLint("SetTextI18n")
     private fun initViews() {
+
         binding.apply {
             recyclerviewMeal.adapter = ingredientAdapter
-            textMealTime.text = "${meal.TotalTimeInMinutes} m"
-            textMealCount.text = "${meal.ingredientCount} ingredients"
+            textMealTime.text =
+                requireContext().getString(R.string.meal_time, meal.TotalTimeInMinutes)
+            textMealCount.text =
+                requireContext().getString(R.string.meal_ingredient_count, meal.ingredientCount)
             textMealName.text = meal.translatedRecipeName
             Glide.with(requireContext()).load(meal.imageUrl)
                 .error(R.drawable.ic_baseline_error_outline_24).into(imageMeal)
@@ -45,6 +42,12 @@ class MealFragment() : BaseFragment<FragmentMealBinding>() {
             buttonIngredient.performClick()
         }
     }
+
+    private fun setUpAdapters() {
+        ingredientAdapter.submitList(meal.translatedIngredients)
+        instructionAdapter.submitList(meal.translatedInstructions)
+    }
+
 
     private fun addCallBacks() {
         binding.apply {
@@ -59,9 +62,10 @@ class MealFragment() : BaseFragment<FragmentMealBinding>() {
     }
 
     companion object {
-        fun createFragment(meal: Meal) = MealFragment().apply {
+        @JvmStatic
+        fun newInstance(meal: Meal) = MealFragment().apply {
             arguments = Bundle().apply {
-                putParcelable(Constants.Keys.category, meal)
+                putParcelable(ARG_MEAL, meal)
             }
         }
     }

@@ -2,13 +2,12 @@ package com.cheesecake.chickenmasala.ui.meal
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cheesecake.chickenmasala.databinding.ItemTranslatedIngredientBinding
 
-class IngredientAdapter() :
-    ListAdapter<String, IngredientAdapter.IngredientViewHolder>(IngredientDiffUtil()) {
+class IngredientAdapter :
+    ListAdapter<String, IngredientAdapter.IngredientViewHolder>(StringDiffUtil()) {
 
     class IngredientViewHolder(private val binding: ItemTranslatedIngredientBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -30,17 +29,5 @@ class IngredientAdapter() :
         holder.bind(getItem(position))
 
 }
-
-class IngredientDiffUtil : DiffUtil.ItemCallback<String>() {
-
-    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
-        return oldItem === newItem
-    }
-
-    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
-        return oldItem == newItem
-    }
-}
-
 
 

@@ -1,6 +1,5 @@
 package com.cheesecake.chickenmasala.ui.meals
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -13,9 +12,9 @@ import com.cheesecake.chickenmasala.model.Meal
 
 class MealsAdapter(
     private val mealsListener: MealsListener,
-) : ListAdapter<Meal, MealsAdapter.MealsCategoryViewHolder>(MealsItemCallback()) {
+) : ListAdapter<Meal, MealsAdapter.MealsCategoryViewHolder>(MealItemCallback()) {
 
-    override fun onBindViewHolder(holder: MealsAdapter.MealsCategoryViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: MealsCategoryViewHolder, position: Int) =
         holder.bind(mealsListener, getItem(position))
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealsCategoryViewHolder =
@@ -38,7 +37,7 @@ class MealsAdapter(
             fun from(parent: ViewGroup): MealsCategoryViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemMealCardBinding.inflate(layoutInflater, parent, false)
-                return MealsAdapter.MealsCategoryViewHolder(binding)
+                return MealsCategoryViewHolder(binding)
             }
         }
     }
@@ -49,7 +48,7 @@ class MealsListener(val clickListener: (item: Meal) -> Unit) {
     fun onClick(item: Meal) = clickListener(item)
 }
 
-class MealsItemCallback : DiffUtil.ItemCallback<Meal>() {
+class MealItemCallback : DiffUtil.ItemCallback<Meal>() {
     override fun areItemsTheSame(oldItem: Meal, newItem: Meal): Boolean {
         return oldItem === newItem
     }

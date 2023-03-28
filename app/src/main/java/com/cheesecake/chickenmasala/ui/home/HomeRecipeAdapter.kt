@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ItemRecipesBinding
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.meals.MealItemCallback
@@ -12,31 +13,27 @@ import com.cheesecake.chickenmasala.ui.meals.MealItemCallback
 class HomeRecipeAdapter(private val clickListener: HomeRecipeListener) :
     ListAdapter<Meal, HomeRecipeAdapter.RecipeViewHolder>(MealItemCallback()) {
 
-    class RecipeViewHolder private constructor(private var binding: ItemRecipesBinding) :
+    class RecipeViewHolder(private var binding: ItemRecipesBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(listener: HomeRecipeListener, item: Meal) {
-            val timeMinutes = "${item.TotalTimeInMinutes} m"
             binding.apply {
                 Glide.with(itemView.context).load(item.imageUrl).into(recipeImage)
                 cuisine.text = item.cuisine
-                time.text = timeMinutes
+                time.text = time.context.getString(
+                    R.string.meal_time,
+                    item.TotalTimeInMinutes
+                )
                 recipeName.text = item.translatedRecipeName
             }.root.setOnClickListener { listener.onClick(item) }
         }
-
-        companion object {
-            fun from(parent: ViewGroup): RecipeViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemRecipesBinding.inflate(layoutInflater, parent, false)
-                return RecipeViewHolder(binding)
-            }
-        }
     }
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder =
-        RecipeViewHolder.from(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = ItemRecipesBinding.inflate(layoutInflater, parent, false)
+        return RecipeViewHolder(binding)
+    }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) =
         holder.bind(clickListener, getItem(position))

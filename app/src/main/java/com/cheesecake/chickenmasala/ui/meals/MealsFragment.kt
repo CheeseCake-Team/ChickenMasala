@@ -1,12 +1,14 @@
 package com.cheesecake.chickenmasala.ui.meals
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealsBinding
-import com.cheesecake.chickenmasala.model.*
+import com.cheesecake.chickenmasala.model.Constants
+import com.cheesecake.chickenmasala.model.Meal
+import com.cheesecake.chickenmasala.model.MealCourse
+import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
@@ -23,7 +25,7 @@ class MealsFragment :
         super.onViewCreated(view, savedInstanceState)
         mealCourse = arguments?.getParcelable(Constants.Keys.category)!!
         val meals =
-            RecipesManager.indianFoodSearch.filterMealsByCourse(mealCourse)
+            RecipesManager.indianFoodSearch.searchAndFilter(course = mealCourse)
                 .getSearchedMeals()
         installViews(meals)
     }
@@ -42,7 +44,7 @@ class MealsFragment :
     private fun loadMealFragment(meal: Meal) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.addToBackStack(null)
-        transaction.replace(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
+        transaction.replace(R.id.fragment_container, MealFragment.newInstance(meal)).commit()
     }
 
     companion object {

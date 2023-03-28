@@ -79,6 +79,8 @@
     <string name="image_contain_advice">image contain advice</string>
     <string name="instructions">instructions</string>
     <string name="step_code">Step %1$d</string>
+    <string name="meal_time">%1$d m</string>
+    <string name="meal_ingredient_count">%1$d ingredients</string>
     <string name="name">Name</string>
     <string name="steak_with_tomato_sauce_and_bulgur_rice">Steak with tomato sauce and bulgur rice.</string>
     <string name="clear_all">Clear All</string>
@@ -86,5 +88,5 @@
     <string name="drink">Drink</string>
     <string name="text_meal_ingredients">%1$s ingredients</string>
     <string name="horizontal_scroll_view">Horizontal Scroll View</string>
-    <string name="desert">Desert</string>‏
+    <string name="desert">Desert</string>
 </resources>

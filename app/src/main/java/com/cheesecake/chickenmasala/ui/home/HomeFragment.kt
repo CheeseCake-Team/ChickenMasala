@@ -44,7 +44,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun loadMealFragment(meal: Meal) {
         requireActivity().supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment_container, MealFragment.createFragment(meal))
+            replace(R.id.fragment_container, MealFragment.newInstance(meal))
             addToBackStack(null)
             commit()
         }

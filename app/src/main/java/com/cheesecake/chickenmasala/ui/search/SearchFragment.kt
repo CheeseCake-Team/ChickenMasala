@@ -85,14 +85,16 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     }
 
     private fun loadMealFragment(meal: Meal) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.addToBackStack(null)
-        transaction.add(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
+        requireActivity().supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, MealFragment.newInstance(meal))
+            addToBackStack(null)
+            commit()
+        }
     }
 
     private fun showBottomSheet() {
-        if(!::searchNameIngredient.isInitialized )
-            searchNameIngredient  = foodSearch
+        if (!::searchNameIngredient.isInitialized)
+            searchNameIngredient = foodSearch
         val bottomSheetFragment = FilterBottomSheet.newInstance(searchNameIngredient)
         bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)
     }

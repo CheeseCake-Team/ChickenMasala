@@ -9,12 +9,10 @@ import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ItemTranslatedInstructionBinding
 
 class InstructionsAdapter :
-    ListAdapter<String, InstructionsAdapter.InstructionsViewHolder>(InstructionDiffUtil()) {
+    ListAdapter<String, InstructionsAdapter.InstructionsViewHolder>(StringDiffUtil()) {
 
     class InstructionsViewHolder(private val binding: ItemTranslatedInstructionBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
-
         fun bind(item: String, position: Int) {
             binding.apply {
                 textStepCount.text = textStepCount.context.getString(R.string.step_code, position + 1)
@@ -34,7 +32,7 @@ class InstructionsAdapter :
     }
 }
 
-class InstructionDiffUtil : DiffUtil.ItemCallback<String>() {
+class StringDiffUtil : DiffUtil.ItemCallback<String>() {
 
     override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
         return oldItem === newItem
