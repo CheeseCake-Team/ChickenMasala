@@ -3,16 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/margin_medium_16"
     app:layoutDescription="@xml/fragment_search_scene"
     tools:context=".ui.search.SearchFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMeals"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:padding="@dimen/margin_medium_12"
+        android:paddingVertical="@dimen/margin_medium_12"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/chips_holder" />
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_meal_card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chips_holder"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="16dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_text_input_layout"
@@ -31,6 +37,8 @@
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="@dimen/margin_medium_16"
             android:hint="@string/search"
+            android:layout_marginHorizontal="@dimen/margin_medium_16"
+            android:layout_marginTop="@dimen/margin_medium_16"
             android:imeOptions="actionGo"
             android:inputType="text"
             android:maxLines="1"
@@ -57,6 +65,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:scrollIndicators="none"
+        android:layout_marginHorizontal="@dimen/margin_medium_16"
         app:layout_constraintTop_toBottomOf="@id/search_text_input_layout">
 
         <com.google.android.material.chip.ChipGroup

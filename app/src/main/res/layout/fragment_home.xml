@@ -25,11 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_medium_16"
-            android:layout_marginTop="@dimen/margin_small_8"
+            android:layout_marginTop="@dimen/margin_medium_16"
             android:text="@string/fastest_recipes"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textSize="@dimen/font_size_16"
-            app:layout_constraintTop_toBottomOf="@+id/advice_image_slider" />
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_recipes_of_today" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_fast_recipes"
@@ -53,7 +53,7 @@
             android:text="@string/recipes_of_the_day"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textSize="@dimen/font_size_16"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_fast_recipes" />
+            app:layout_constraintTop_toBottomOf="@+id/advice_image_slider" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_recipes_of_today"
@@ -77,7 +77,7 @@
             android:text="@string/low_ingredient_recipes"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textSize="@dimen/font_size_16"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_recipes_of_today" />
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_fast_recipes" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_low_ingredients_food"
