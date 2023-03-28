@@ -13,7 +13,7 @@ import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
-private const val ARG_PARAM1 = "param1"
+private const val ARG_INDIAN_FOOD_SEARCH = "indian_food"
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding =
@@ -27,7 +27,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        indianFoodSearch = arguments?.getParcelable(ARG_PARAM1)!!
+        indianFoodSearch = arguments?.getParcelable(ARG_INDIAN_FOOD_SEARCH)!!
 
         installViews()
         addCallBacks()
@@ -88,7 +88,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         @JvmStatic
         fun newInstance(indianFoodSearch: IndianFoodSearch) = SearchFragment().apply {
             arguments = Bundle().apply {
-                putParcelable(ARG_PARAM1, indianFoodSearch)
+                putParcelable(ARG_INDIAN_FOOD_SEARCH, indianFoodSearch)
             }
         }
     }
