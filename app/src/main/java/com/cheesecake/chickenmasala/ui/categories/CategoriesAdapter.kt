@@ -1,19 +1,11 @@
 package com.cheesecake.chickenmasala.ui.categories
 
-import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.CustomTarget
-import com.bumptech.glide.request.transition.Transition
-import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ItemCategoryBinding
-import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.MealCourse
 
 
@@ -36,7 +28,7 @@ class CategoriesAdapter(private val clickListener: CategoriesListener) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(listener: CategoriesListener, item: MealCourse) {
             binding.apply {
-                textViewTextAddress.text = item.name
+                textViewTextAddress.text = item.courseName
                 cardImgHolder.setImageResource(item.imageResourceId)
             }.root.setOnClickListener { listener.onClick(item) }
         }
