@@ -13,7 +13,6 @@ import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 import com.cheesecake.chickenmasala.ui.meals.MealsAdapter
-import com.cheesecake.chickenmasala.ui.meals.MealsListener
 
 private const val ARG_INDIAN_FOOD_SEARCH = "indian_food"
 
@@ -36,7 +35,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     }
 
     private fun installViews() {
-        mealsAdapter = MealsAdapter(MealsListener { loadMealFragment(it) })
+        mealsAdapter = MealsAdapter{ loadMealFragment(it) }
         binding.recyclerMeals.adapter = mealsAdapter
         setupAutoComplete()
     }

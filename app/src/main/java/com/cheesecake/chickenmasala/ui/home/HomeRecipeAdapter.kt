@@ -18,13 +18,13 @@ class HomeRecipeAdapter(private val clickListener: HomeRecipeListener) :
 
         fun bind(listener: HomeRecipeListener, item: Meal) {
             binding.apply {
-                Glide.with(itemView.context).load(item.imageUrl).into(recipeImage)
-                cuisine.text = item.cuisine
-                time.text = time.context.getString(
+                Glide.with(itemView.context).load(item.imageUrl).into(imageViewRecipeImage)
+                textViewCuisine.text = item.cuisine
+                textViewTime.text = textViewTime.context.getString(
                     R.string.meal_time,
                     item.TotalTimeInMinutes
                 )
-                recipeName.text = item.translatedRecipeName
+                textViewRecipeName.text = item.translatedRecipeName
             }.root.setOnClickListener { listener.onClick(item) }
         }
     }
