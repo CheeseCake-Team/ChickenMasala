@@ -62,5 +62,6 @@
     <string name="clear_all">Clear All</string>
     <string name="drink">Drink</string>
     <string name="text_meal_m">%1$s m</string>
+    <string name="drink">Drink</string>
     <string name="text_meal_ingredients">%1$s ingredients</string>‏
 </resources>
