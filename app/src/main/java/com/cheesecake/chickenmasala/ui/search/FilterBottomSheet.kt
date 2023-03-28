@@ -46,19 +46,19 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
             when (searchIndianFood.selectedMealCourse) {
                 MealCourse.SOUPS -> chipSoups.isChecked = true
                 MealCourse.SPICY -> chipSpicy.isChecked = true
-                MealCourse.SALADS -> chipSalads.isChecked = true
+                MealCourse.CHICKEN -> chipChicken.isChecked = true
                 MealCourse.VEGETABLES -> chipVegetables.isChecked = true
-                MealCourse.APPETIZER -> chipAppetizer.isChecked = true
+                MealCourse.MASALA -> chipMasala.isChecked = true
                 MealCourse.BREAKFAST -> chipBreakfast.isChecked = true
-                MealCourse.DRINKS -> chipDrink.isChecked = true
+                MealCourse.CAKES -> chipCake.isChecked = true
                 else -> {
                     chipSoups.isChecked = false
                     chipSpicy.isChecked = false
-                    chipSalads.isChecked = false
+                    chipChicken.isChecked = false
                     chipVegetables.isChecked = false
-                    chipAppetizer.isChecked = false
+                    chipMasala.isChecked = false
                     chipBreakfast.isChecked = false
-                    chipDrink.isChecked = false
+                    chipCake.isChecked = false
                 }
             }
 
@@ -93,9 +93,9 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
                 }
 
                 val course: MealCourse? = when (chipGroupCategory.checkedChipId) {
-                    R.id.chip_salads -> {
-                        searchIndianFood.selectedMealCourse = MealCourse.SALADS
-                        MealCourse.SALADS
+                    R.id.chip_chicken -> {
+                        searchIndianFood.selectedMealCourse = MealCourse.CHICKEN
+                        MealCourse.CHICKEN
                     }
                     R.id.chip_breakfast -> {
                         searchIndianFood.selectedMealCourse = MealCourse.BREAKFAST
@@ -105,24 +105,22 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
                         searchIndianFood.selectedMealCourse = MealCourse.SOUPS
                         MealCourse.SOUPS
                     }
-                    R.id.chip_appetizer -> {
-                        searchIndianFood.selectedMealCourse = MealCourse.APPETIZER
-                        MealCourse.APPETIZER
+                    R.id.chip_masala -> {
+                        searchIndianFood.selectedMealCourse = MealCourse.MASALA
+                        MealCourse.MASALA
                     }
                     R.id.chip_vegetables -> {
                         searchIndianFood.selectedMealCourse = MealCourse.VEGETABLES
                         MealCourse.VEGETABLES
                     }
-                    R.id.chip_drink -> {
-                        searchIndianFood.selectedMealCourse = MealCourse.DRINKS
-                        MealCourse.DRINKS
+                    R.id.chip_cake -> {
+                        searchIndianFood.selectedMealCourse = MealCourse.CAKES
+                        MealCourse.CAKES
                     }
                     R.id.chip_spicy -> {
                         searchIndianFood.selectedMealCourse = MealCourse.SPICY
                         MealCourse.SPICY
                     }
-
-
                     else -> null
                 }
                 searchIndianFood =

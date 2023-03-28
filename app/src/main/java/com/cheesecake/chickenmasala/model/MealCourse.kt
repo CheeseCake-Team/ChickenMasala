@@ -8,9 +8,9 @@ import kotlinx.parcelize.Parcelize
 enum class MealCourse(val courseName: String, val imageResourceId: Int) : Parcelable {
     SOUPS("Soups", R.drawable.soup_category),
     SPICY("Spicy", R.drawable.spicy_category),
-    SALADS("Salads", R.drawable.salad_category),
+    CHICKEN("chicken", R.drawable.food_image_six),
     VEGETABLES("Vegetables", R.drawable.vegetables_category),
-    APPETIZER("Appetizer", R.drawable.side_dish_category),
+    MASALA("Masala", R.drawable.masala_category),
     BREAKFAST("Breakfast", R.drawable.breakfast_category),
-    DRINKS("Drinks", R.drawable.drinks),
+    CAKES("Cake", R.drawable.cake_category),
 }

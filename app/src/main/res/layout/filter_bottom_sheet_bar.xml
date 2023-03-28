@@ -115,11 +115,11 @@
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip_appetizer"
+                android:id="@+id/chip_masala"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/side_dishes" />
+                android:text="@string/masala" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_vegetables"
@@ -129,18 +129,18 @@
                 android:text="@string/vegetables" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip_drink"
+                android:id="@+id/chip_cake"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/drink" />
+                android:text="@string/Cake" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip_salads"
+                android:id="@+id/chip_chicken"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/salads" />
+                android:text="@string/chicken" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_spicy"

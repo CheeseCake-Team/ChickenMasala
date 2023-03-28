@@ -56,10 +56,10 @@ class CsvParser {
         return when {
             mealName.contains("Soup") -> MealCourse.SOUPS
             mealName.contains("Spicy") -> MealCourse.SPICY
-            mealName.contains("Salads") -> MealCourse.SALADS
+            mealName.contains("Chicken") -> MealCourse.CHICKEN
             mealName.contains("Vegetables") -> MealCourse.VEGETABLES
-            mealName.contains("Drinks") -> MealCourse.DRINKS
-            mealName.contains("APPETIZER") -> MealCourse.APPETIZER
+            mealName.contains("Masala") -> MealCourse.MASALA
+            mealName.contains("Cake") -> MealCourse.CAKES
             mealName.contains("Breakfast") -> MealCourse.BREAKFAST
 
 
