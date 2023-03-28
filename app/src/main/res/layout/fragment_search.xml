@@ -53,7 +53,7 @@
         android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
         android:elevation="8dp"
-        android:src="@drawable/filter_icon"
+        android:src="@drawable/ic_filter"
         app:layout_constraintBottom_toBottomOf="@id/search_text_input_layout"
         app:layout_constraintEnd_toEndOf="@id/search_text_input_layout"
         app:layout_constraintTop_toTopOf="@id/search_text_input_layout" />
