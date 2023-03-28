@@ -29,7 +29,7 @@ class MealsAdapter(
             binding.apply {
                 textViewMealLocation.text = item.cuisine
                 textViewMealName.text = item.translatedRecipeName
-                textViewMealTime.text = item.TotalTimeInMinutes.toString()
+                textViewMealTime.text = "${item.TotalTimeInMinutes.toString()} m"
                 Glide.with(itemView.context).load(item.imageUrl).into(imageMealOnMealCard)
                 binding.root.setOnClickListener { listener.onClick(item) }
             }
