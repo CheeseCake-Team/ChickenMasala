@@ -9,4 +9,5 @@
     android:paddingEnd="@dimen/margin_large_24"
     android:text="@string/item_translated_ingredient_placeholder"
     android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-    android:textColor="@color/material_on_surface_emphasis_high_type" />
+    android:textColor="@color/material_on_surface_emphasis_high_type"
+    />
