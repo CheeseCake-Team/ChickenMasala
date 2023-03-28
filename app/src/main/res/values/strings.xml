@@ -10,9 +10,7 @@
     <string name="_10_15_min">10-15 min</string>
     <string name="_15_30_min">15-30 min</string>
     <string name="category">Category</string>
-    <string name="side_dishes">Appetizer</string>
     <string name="vegetables">Vegetables</string>
-    <string name="salads">Salads</string>
     <string name="spicy">Spicy</string>
     <string name="breakfast">Breakfast</string>
     <string name="soups">Soups</string>
@@ -57,5 +55,7 @@
     <string name="meal_ingredient_count">%1$d ingredients</string>
     <string name="name">Name</string>
     <string name="steak_with_tomato_sauce_and_bulgur_rice">Steak with tomato sauce and bulgur rice.</string>
-    <string name="drink">Drink</string>
+    <string name="masala">Masala</string>
+    <string name="Cake">Cake</string>
+    <string name="chicken">Chicken</string>
 </resources>
