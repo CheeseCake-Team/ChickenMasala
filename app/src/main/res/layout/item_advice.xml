@@ -45,6 +45,7 @@
             android:autoSizeTextType="uniform"
             android:text="@string/advice_txt"
             android:textAlignment="center"
+            android:justificationMode="inter_word"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textColor="@color/md_theme_dark_onBackground"
             app:layout_constraintBottom_toBottomOf="@+id/advice_image"

@@ -5,7 +5,7 @@
     style="@style/Widget.Material3.CardView.Filled"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="@dimen/margin_small_4">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,46 +26,49 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:maxLines="1"
+            android:ellipsize="marquee"
             android:layout_marginStart="@dimen/margin_small_8"
             android:layout_marginTop="@dimen/margin_medium_16"
             android:layout_marginEnd="@dimen/margin_small_8"
             android:text="@string/steak_with_tomato_sauce_and_bulgur_rice"
             android:textAppearance="?attr/textAppearanceTitleMedium"
-            app:layout_constraintBottom_toTopOf="@id/text_view_meal_time"
             app:layout_constraintEnd_toStartOf="@id/image_meal_on_meal_card"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_view_meal_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_small_8"
-            android:text="@string/time"
+            android:layout_marginTop="@dimen/margin_small_8"
             android:drawablePadding="@dimen/margin_small_4"
+            android:text="@string/time"
             android:textAppearance="?attr/textAppearanceBodyMedium"
             android:textColor="?android:attr/textColorSecondary"
             app:drawableStartCompat="@drawable/timer_icon"
-            app:layout_constraintBottom_toTopOf="@id/text_view_meal_location"
             app:layout_constraintEnd_toEndOf="@id/text_view_meal_name"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/text_view_meal_name" />
+            app:layout_constraintStart_toStartOf="@id/text_view_meal_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_meal_name" />
 
         <TextView
             android:id="@+id/text_view_meal_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="@dimen/margin_medium_16"
-            android:text="@string/northern_india"
             android:drawablePadding="@dimen/margin_small_4"
+            android:text="@string/northern_india"
             android:textAppearance="?attr/textAppearanceBodyMedium"
             android:textColor="?android:attr/textColorSecondary"
             app:drawableStartCompat="@drawable/ic_flag"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/image_meal_on_meal_card"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_view_meal_time" />
+            app:layout_constraintStart_toStartOf="@+id/text_view_meal_time"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_meal_time"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
