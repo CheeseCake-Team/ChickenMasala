@@ -9,12 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cheesecake.chickenmasala.databinding.ItemAdviceBinding
 import com.cheesecake.chickenmasala.model.Advice
 
-class AdviceImageSliderAdapter() :
-    ListAdapter<Advice, AdviceImageSliderAdapter.AdviceViewHolder>(AdviceItemCallback())
-{
+class AdviceImageSliderAdapter :
+    ListAdapter<Advice, AdviceImageSliderAdapter.AdviceViewHolder>(AdviceItemCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdviceViewHolder =
-        AdviceImageSliderAdapter.AdviceViewHolder.from(parent)
+        AdviceViewHolder.from(parent)
 
     override fun onBindViewHolder(holder: AdviceViewHolder, position: Int) =
         holder.bind(getItem(position))
@@ -33,15 +32,15 @@ class AdviceImageSliderAdapter() :
         }
 
         companion object {
-            fun from(parent: ViewGroup): AdviceImageSliderAdapter.AdviceViewHolder {
+            fun from(parent: ViewGroup): AdviceViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding =
-                    ItemAdviceBinding.inflate(layoutInflater, parent, false)
-                return AdviceImageSliderAdapter.AdviceViewHolder(binding)
+                val binding = ItemAdviceBinding.inflate(layoutInflater, parent, false)
+                return AdviceViewHolder(binding)
             }
         }
     }
 }
+
 class AdviceItemCallback : DiffUtil.ItemCallback<Advice>() {
     override fun areItemsTheSame(oldItem: Advice, newItem: Advice): Boolean {
         return oldItem === newItem

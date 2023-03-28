@@ -1,12 +1,9 @@
 package com.cheesecake.chickenmasala
 
-import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.LayoutInflater
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
 import com.cheesecake.chickenmasala.datasource.CsvDataSource
 import com.cheesecake.chickenmasala.datasource.CsvParser
-import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseActivity
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
@@ -20,29 +17,23 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-
-    }
-
     override fun onStart() {
         super.onStart()
-        starts(setupRecipes())
-        binding.bottomNavigationMenu.selectedItemId = R.id.home
+        setupRecipes()
+        initializeHomeScreen()
         addCallBacks()
-        initializeHomeScreenAtStart()
     }
 
-    private fun starts(setupRecipes: List<Meal>) {
-        RecipesManager.initialize(setupRecipes)
+    private fun setupRecipes() {
+        val indianMeals = CsvDataSource(CsvParser(), assets.open(FILE_NAME))
+            .getAllMealsData().filter { it.cuisine == "Indian" }
+        RecipesManager.initialize(indianMeals)
+
     }
 
-    private fun setupRecipes(): List<Meal> {
-        return CsvDataSource(CsvParser(), assets.open(FILE_NAME)).getAllMealsData()
-    }
 
-
-    private fun initializeHomeScreenAtStart(){
+    private fun initializeHomeScreen() {
+        binding.bottomNavigationMenu.selectedItemId = R.id.home
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(binding.fragmentContainer.id, HomeFragment()).commit()
     }
@@ -53,14 +44,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             when (item.itemId) {
                 R.id.home -> {
                     changeAppBarTitle(R.string.home)
-                    loadFragmentIntoContainer(HomeFragment.createFragment(
-                        RecipesManager))
+                    loadFragmentIntoContainer(HomeFragment())
                     true
                 }
                 R.id.search -> {
                     changeAppBarTitle(R.string.search)
                     loadFragmentIntoContainer(
-                        SearchFragment.newInstance(RecipesManager.indianFoodSearch))
+                        SearchFragment.newInstance(RecipesManager.indianFoodSearch)
+                    )
                     true
                 }
                 R.id.categories -> {

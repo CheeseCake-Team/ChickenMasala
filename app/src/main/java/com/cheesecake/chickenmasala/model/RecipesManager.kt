@@ -1,32 +1,26 @@
 package com.cheesecake.chickenmasala.model
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
-@Parcelize
-object RecipesManager: Parcelable {
+object RecipesManager {
     private lateinit var meals: List<Meal>
-    private lateinit var indianMeals: List<Meal>
     private lateinit var indianMealsForToday: List<Meal>
 
     fun initialize(meals: List<Meal>) {
         this.meals = meals
-        this.indianMeals = meals.filter { it.cuisine == "Indian" }
-        this.indianMealsForToday = indianMeals.shuffled().take(10)
+        this.indianMealsForToday = meals.shuffled().take(10)
     }
 
     val indianRecipesName: List<String>
-        get() = indianMeals.map { it.translatedRecipeName }
+        get() = meals.map { it.translatedRecipeName }
 
     val indianIngredients: List<String>
-        get() = indianMeals.map { it.cleanedIngredients }.flatten().distinct().sorted()
+        get() = meals.map { it.cleanedIngredients }.flatten().distinct().sorted()
 
     val indianFoodSearch: IndianFoodSearch
-        get() = IndianFoodSearch(indianMeals)
+        get() = IndianFoodSearch(meals)
 
     fun getRandomMeals(): List<Meal> = indianMealsForToday
 
-    fun getFastMeals(): List<Meal> = indianMeals.sortedBy { it.TotalTimeInMinutes }.take(10)
+    fun getFastMeals(): List<Meal> = meals.sortedBy { it.TotalTimeInMinutes }.take(10)
 
-    fun getLessIngredientMeals() = indianMeals.sortedBy { it.ingredientCount }.take(10)
+    fun getLessIngredientMeals() = meals.sortedBy { it.ingredientCount }.take(10)
 }
