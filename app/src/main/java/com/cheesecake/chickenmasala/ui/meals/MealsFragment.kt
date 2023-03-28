@@ -11,7 +11,7 @@ import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
 class MealsFragment :
-    BaseFragment<FragmentMealsBinding>(), MealsAdapter.MealListener {
+    BaseFragment<FragmentMealsBinding>() {
 
     override val bindingInflater: (LayoutInflater) -> FragmentMealsBinding =
         FragmentMealsBinding::inflate
@@ -21,38 +21,36 @@ class MealsFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mealCourse = arguments?.getParcelable(Constants.MEALS)!!
+        mealCourse = arguments?.getParcelable(Constants.Keys.category)!!
         val meals =
             RecipesManager.indianFoodSearch.filterMealsByCourse(mealCourse)
                 .getSearchedMeals()
-        installViews(meals, this, requireContext())
+        installViews(meals)
     }
 
-
     private fun installViews(
-        meal: List<Meal>,
-        mealListener: MealsAdapter.MealListener,
-        context: Context
+        meals: List<Meal>,
     ) {
-        mealsAdapter = MealsAdapter(meal, mealListener, context)
+        mealsAdapter = MealsAdapter(MealsListener {
+            loadMealFragment(it)
+        }).apply {
+            submitList(meals)
+        }
         binding.recyclerMeals.adapter = mealsAdapter
     }
 
-
-    override fun onClick(meal: Meal) {
+    private fun loadMealFragment(meal: Meal) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.addToBackStack(null)
-        transaction.add(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
+        transaction.replace(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
     }
-    companion object{
-        fun createFragment(mealCourse: MealCourse)=MealsFragment().apply {
-            arguments=Bundle().apply {
-                putParcelable(Constants.,mealCourse)
+
+    companion object {
+        fun createFragment(mealCourse: MealCourse) = MealsFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable(Constants.Keys.category, mealCourse)
             }
         }
     }
 
 }
-
-
-
