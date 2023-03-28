@@ -1,6 +1,5 @@
 package com.cheesecake.chickenmasala.ui.meal
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -18,7 +17,7 @@ class InstructionsAdapter :
 
         fun bind(item: String, position: Int) {
             binding.apply {
-                textStep.text = textStep.context.getString(R.string.stepCode, position + 1)
+                textStepCount.text = textStepCount.context.getString(R.string.step_code, position + 1)
                 textStepContent.text = item
             }
         }
