@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cheesecake.chickenmasala.databinding.ItemTranslatedIngredientBinding
 
 class IngredientAdapter :
-    ListAdapter<String, IngredientAdapter.IngredientViewHolder>(StringDiffUtil()) {
+    ListAdapter<String, IngredientAdapter.IngredientViewHolder>(MealAdapterDiffUtil()) {
 
     class IngredientViewHolder(private val binding: ItemTranslatedIngredientBinding) :
         RecyclerView.ViewHolder(binding.root) {

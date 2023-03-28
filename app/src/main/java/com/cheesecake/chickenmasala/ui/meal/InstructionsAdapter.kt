@@ -9,7 +9,7 @@ import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ItemTranslatedInstructionBinding
 
 class InstructionsAdapter :
-    ListAdapter<String, InstructionsAdapter.InstructionsViewHolder>(StringDiffUtil()) {
+    ListAdapter<String, InstructionsAdapter.InstructionsViewHolder>(MealAdapterDiffUtil()) {
 
     class InstructionsViewHolder(private val binding: ItemTranslatedInstructionBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -32,14 +32,3 @@ class InstructionsAdapter :
     }
 }
 
-class StringDiffUtil : DiffUtil.ItemCallback<String>() {
-
-    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
-        return oldItem === newItem
-    }
-
-    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
-        return oldItem == newItem
-    }
-
-}
