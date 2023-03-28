@@ -24,4 +24,9 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
         _binding = bindingInflater(layoutInflater)
         return _binding!!.root
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }
