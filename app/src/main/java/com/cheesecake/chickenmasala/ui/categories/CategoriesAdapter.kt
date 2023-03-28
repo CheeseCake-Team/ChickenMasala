@@ -22,6 +22,7 @@ class CategoriesAdapter(private val clickListener: CategoriesListener) :
         }
 
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemCategoryBinding.inflate(layoutInflater, parent, false)

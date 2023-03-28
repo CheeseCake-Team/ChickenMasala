@@ -12,6 +12,7 @@ import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
 private const val ARG_MEAL_COURSE = "meal_course"
+
 class MealsFragment :
     BaseFragment<FragmentMealsBinding>() {
 

@@ -2,7 +2,6 @@ package com.cheesecake.chickenmasala.ui.meal
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cheesecake.chickenmasala.R
@@ -15,7 +14,8 @@ class InstructionsAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: String, position: Int) {
             binding.apply {
-                textStepCount.text = textStepCount.context.getString(R.string.step_code, position + 1)
+                textStepCount.text =
+                    textStepCount.context.getString(R.string.step_code, position + 1)
                 textStepContent.text = item
             }
         }

@@ -10,10 +10,10 @@ class IndianFoodSearch(private val meals: List<Meal>) : Parcelable {
     private var searchedMeals = meals
 
     @IgnoredOnParcel
-    var selectedTimeRange:IntRange? = null
+    var selectedTimeRange: IntRange? = null
 
     @IgnoredOnParcel
-    var selectedMealCourse:MealCourse? = null
+    var selectedMealCourse: MealCourse? = null
     fun searchAndFilter(
         name: String = "",
         course: MealCourse? = null,
@@ -24,9 +24,17 @@ class IndianFoodSearch(private val meals: List<Meal>) : Parcelable {
             .let { if (name.isNotEmpty()) it.filter { it.translatedRecipeName.contains(name) } else it }
             .let { if (course != null) it.filter { it.course == course } else it }
             .let { if (timeRange != null) it.filter { it.TotalTimeInMinutes in timeRange } else it }
-            .let { if (ingredients.isNotEmpty()) it.filter { it.cleanedIngredients.containsAll(ingredients) } else it }
+            .let {
+                if (ingredients.isNotEmpty()) it.filter {
+                    it.cleanedIngredients.containsAll(
+                        ingredients
+                    )
+                } else it
+            }
     }
+
     fun getSearchedMeals(): List<Meal> = searchedMeals
+
     @IgnoredOnParcel
     var isSearchByName = false
 }

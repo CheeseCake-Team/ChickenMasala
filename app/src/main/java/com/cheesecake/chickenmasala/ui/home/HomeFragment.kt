@@ -17,6 +17,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         super.onStart()
         setupViews()
     }
+
     private fun setupViews() {
         val adviceAdapter = AdviceImageSliderAdapter().apply {
             submitList(prepareFoodAdviceList())
