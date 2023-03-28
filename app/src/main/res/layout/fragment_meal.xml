@@ -23,20 +23,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:roundPercent="0.2" />
 
-    <TextView
-        android:id="@+id/text_meal_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium_16"
-        android:layout_marginTop="@dimen/margin_small_8"
-        android:text="@string/meal_name"
-        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
-        android:textColor="@color/material_on_background_emphasis_high_type"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_meal" />
 
+        <TextView
+            android:id="@+id/text_meal_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium_16"
+            android:layout_marginTop="@dimen/margin_small_8"
+            android:layout_marginEnd="@dimen/margin_medium_16"
+            android:text="@string/meal_name"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="@color/material_on_background_emphasis_high_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_meal" />
 
-    <com.google.android.material.button.MaterialButtonToggleGroup
+        <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/button_toggle_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
