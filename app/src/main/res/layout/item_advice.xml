@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/limit_added_sugars"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textColor="@color/md_theme_dark_onBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
             android:autoSizeTextType="uniform"
             android:text="@string/advice_txt"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textColor="@color/md_theme_dark_onBackground"
             app:layout_constraintBottom_toBottomOf="@+id/advice_image"
             app:layout_constraintTop_toBottomOf="@+id/advice_title_text" />
