@@ -69,19 +69,19 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
             customChip.setOnClickListener {
                 searchBarInputs.remove(text)
                 adapter.notifyDataSetChanged()
-                binding.chipGroupHolder.removeView(root)
+                binding.chipGroupSelectedChips.removeView(root)
                 mealsAdapter.submitList(
                     indianFoodSearch.searchByIngredients(searchBarInputs).getSearchedMeals()
                 )
             }
-            binding.chipGroupHolder.addView(root)
+            binding.chipGroupSelectedChips.addView(root)
         }
     }
 
     private fun loadMealFragment(meal: Meal) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.addToBackStack(null)
-        transaction.add(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
+        transaction.replace(R.id.fragment_container, MealFragment.createFragment(meal)).commit()
     }
 
     companion object {

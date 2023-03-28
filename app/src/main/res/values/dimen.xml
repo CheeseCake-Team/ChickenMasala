@@ -28,4 +28,5 @@
     <dimen name="margin_large_145">145dp</dimen>
     <dimen name="margin_large_122">122dp</dimen>
     <dimen name="margin_large_28">28dp</dimen>
+    <dimen name="elevation_1">1dp</dimen>
 </resources>
