@@ -11,7 +11,7 @@ import com.cheesecake.chickenmasala.model.Meal
 
 
 class MealsAdapter(
-    private val mealsListener: MealsListener,
+    private val mealsListener: (item: Meal) -> Unit,
 ) : ListAdapter<Meal, MealsAdapter.MealsCategoryViewHolder>(MealItemCallback()) {
 
     override fun onBindViewHolder(holder: MealsCategoryViewHolder, position: Int) =
@@ -25,21 +25,17 @@ class MealsAdapter(
 
     class MealsCategoryViewHolder(private var binding: ItemMealCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(listener: MealsListener, item: Meal) {
+        fun bind(listener: (item: Meal) -> Unit, item: Meal) {
             binding.apply {
                 textViewMealLocation.text = item.cuisine
                 textViewMealName.text = item.translatedRecipeName
                 textViewMealTime.text = "${item.TotalTimeInMinutes.toString()} m"
                 Glide.with(itemView.context).load(item.imageUrl).into(imageMealOnMealCard)
-                binding.root.setOnClickListener { listener.onClick(item) }
+                binding.root.setOnClickListener { listener(item) }
             }
         }
     }
 
-}
-
-class MealsListener(val clickListener: (item: Meal) -> Unit) {
-    fun onClick(item: Meal) = clickListener(item)
 }
 
 class MealItemCallback : DiffUtil.ItemCallback<Meal>() {

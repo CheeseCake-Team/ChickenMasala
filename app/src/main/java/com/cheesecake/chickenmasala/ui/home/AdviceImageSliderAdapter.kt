@@ -26,7 +26,7 @@ class AdviceImageSliderAdapter :
                 adviceTitleText.text = item.title
                 adviceBodyText.text = item.body
                 adviceImage.setImageDrawable(
-                    AppCompatResources.getDrawable(adviceImage.context, item.image)
+                    AppCompatResources.getDrawable(adviceImage.context, item.imageResourceId)
                 )
             }
         }

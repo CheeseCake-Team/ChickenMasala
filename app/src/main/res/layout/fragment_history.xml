@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_image"
+            android:id="@+id/image_header"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_large_122"
             android:layout_marginStart="@dimen/margin_medium_16"
@@ -30,10 +30,10 @@
             android:layout_marginTop="@dimen/margin_small_8"
             android:justificationMode="inter_word"
             android:text="@string/food"
-            app:layout_constraintTop_toBottomOf="@id/main_image" />
+            app:layout_constraintTop_toBottomOf="@id/image_header" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/author_image"
+            android:id="@+id/image_spice"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_large_99"
             android:layout_marginHorizontal="@dimen/margin_medium_16"
@@ -44,31 +44,31 @@
             app:srcCompat="@drawable/spices_and_herbs_second_image" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/related_spice_image_two"
+            android:id="@+id/image_related_spice_two"
             android:layout_width="0dp"
             android:layout_height="@dimen/margin_large_145"
             android:layout_marginEnd="@dimen/margin_medium_16"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="@+id/related_spice_image_one"
+            app:layout_constraintBottom_toBottomOf="@+id/image_related_spice_one"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/related_spice_image_one"
-            app:layout_constraintTop_toTopOf="@+id/related_spice_image_one"
+            app:layout_constraintStart_toEndOf="@+id/image_related_spice_one"
+            app:layout_constraintTop_toTopOf="@+id/image_related_spice_one"
             app:shapeAppearanceOverlay="@style/HistoryImageStyle"
             app:srcCompat="@drawable/spices_and_herbs_third_image" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/related_spice_image_one"
+            android:id="@+id/image_related_spice_one"
             android:layout_width="0dp"
             android:layout_height="@dimen/margin_large_145"
             android:layout_marginStart="@dimen/margin_medium_16"
             android:layout_marginTop="@dimen/margin_small_8"
             android:layout_marginEnd="@dimen/margin_small_8"
             android:scaleType="centerCrop"
-            app:layout_constraintEnd_toStartOf="@id/related_spice_image_two"
+            app:layout_constraintEnd_toStartOf="@id/image_related_spice_two"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/author_image"
+            app:layout_constraintTop_toBottomOf="@+id/image_spice"
             app:shapeAppearanceOverlay="@style/HistoryImageStyle"
             app:srcCompat="@drawable/food_image_eleven" />
 
@@ -81,7 +81,7 @@
             android:layout_marginTop="@dimen/margin_small_8"
             android:justificationMode="inter_word"
             android:text="@string/history_second_text"
-            app:layout_constraintTop_toBottomOf="@id/related_spice_image_one" />
+            app:layout_constraintTop_toBottomOf="@id/image_related_spice_one" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ChipsInjectBinding
 import com.cheesecake.chickenmasala.databinding.FragmentSearchBinding
@@ -13,7 +14,6 @@ import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 import com.cheesecake.chickenmasala.ui.meals.MealsAdapter
-import com.cheesecake.chickenmasala.ui.meals.MealsListener
 
 private const val ARG_INDIAN_FOOD_SEARCH = "indian_food"
 
@@ -33,10 +33,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
         foodSearch = arguments?.getParcelable(ARG_INDIAN_FOOD_SEARCH)!!
         installViews()
         addCallBacks()
+
+
     }
 
     private fun installViews() {
-        mealsAdapter = MealsAdapter(MealsListener { loadMealFragment(it) })
+        mealsAdapter = MealsAdapter { loadMealFragment(it) }
         binding.recyclerMeals.adapter = mealsAdapter
         setupAutoComplete()
     }
@@ -49,22 +51,34 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     }
 
     private fun addCallBacks() {
-        binding.searchAutoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
-            adapter.getItem(position)?.let { selectedItem ->
-                searchNameIngredient = if (!foodSearch.isSearchByName) {
-                    searchBarInputs.add(selectedItem)
-                    createChip(selectedItem)
-                    foodSearch.searchAndFilter(ingredients = searchBarInputs)
-                } else {
-                    foodSearch.searchAndFilter(name = selectedItem)
-                }
-                mealsAdapter.submitList(searchNameIngredient.getSearchedMeals())
-                binding.searchAutoCompleteTextView.setText("")
-            }
-        }
 
-        binding.filterButton.setOnClickListener {
-            showBottomSheet()
+        binding.apply {
+            searchAutoCompleteTextView.onFocusChangeListener =
+                View.OnFocusChangeListener { _, hasFocus ->
+                    if (hasFocus) {
+                        binding.searchAutoCompleteTextView.hint = ""
+                    } else {
+                        binding.searchAutoCompleteTextView.hint = getString(R.string.search)
+                    }
+                }
+
+            filterButton.setOnClickListener {
+                showBottomSheet()
+            }
+
+            searchAutoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
+                adapter.getItem(position)?.let { selectedItem ->
+                    searchNameIngredient = if (!foodSearch.isSearchByName) {
+                        searchBarInputs.add(selectedItem)
+                        createChip(selectedItem)
+                        foodSearch.searchAndFilter(ingredients = searchBarInputs)
+                    } else {
+                        foodSearch.searchAndFilter(name = selectedItem)
+                    }
+                    mealsAdapter.submitList(searchNameIngredient.getSearchedMeals())
+                    binding.searchAutoCompleteTextView.setText("")
+                }
+            }
         }
     }
 

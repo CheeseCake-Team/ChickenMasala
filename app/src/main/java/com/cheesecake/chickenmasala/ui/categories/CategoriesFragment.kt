@@ -21,7 +21,7 @@ class CategoriesFragment :
 
     private fun setupViews() {
         val categories = MealCourse.values().toList()
-        val categoryAdapter = CategoriesAdapter(CategoriesListener(::loadMealFragment))
+        val categoryAdapter = CategoriesAdapter { loadMealFragment(it) }
         categoryAdapter.submitList(categories)
         binding.recyclerCategoriesHolder.adapter = categoryAdapter
     }
@@ -33,6 +33,5 @@ class CategoriesFragment :
             commit()
         }
     }
-
 
 }

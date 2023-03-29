@@ -30,12 +30,21 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
         <item name="android:drawableTint">@color/md_theme_light_onBackground_opacity</item>
+
     </style>
 
     <style name="HistoryImageStyle">
         <item name="cornerSize">@dimen/margin_small_8</item>
         <item name="cornerFamily">rounded</item>
 
+    </style>
+
+    <style name="SearchBarStyle" parent="@style/Widget.Material3.SearchBar">
+        <item name="android:background">@drawable/search_bar_background_light</item>
+        <item name="shapeAppearanceOverlay">?attr/materialSearchBarStyle</item>
+        <item name="android:elevation">6dp</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+        <item name="hintTextColor">@color/md_theme_light_onSurfaceVariant</item>
     </style>
 
     <style name="Theme.App.ChickenMasala.SplashScreen" parent="Theme.SplashScreen">
@@ -51,6 +60,9 @@
 
     <style name="TitleMediumTextStyle" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+    <style name="NoOutlineChipStyle" parent="Widget.Material3.Chip.Filter">
+        <item name="chipStrokeWidth">0dp</item>
     </style>
 
 </resources>

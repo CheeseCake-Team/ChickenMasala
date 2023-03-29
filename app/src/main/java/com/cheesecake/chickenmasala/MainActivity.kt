@@ -25,7 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun setupRecipes() {
-        val indianMeals = CsvDataSource(CsvParser(), assets.open(FILE_NAME))
+        val indianMeals = CsvDataSource(CsvParser(), assets.open("indian_food_v3.csv"))
             .getAllMealsData().filter { it.cuisine == "Indian" }
         RecipesManager.initialize(indianMeals)
 
@@ -81,7 +81,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             .commit()
     }
 
-    companion object {
-        const val FILE_NAME = "indian_food_v3.csv"
-    }
+
 }
