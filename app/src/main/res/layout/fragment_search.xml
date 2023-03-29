@@ -26,6 +26,7 @@
         style="@style/Widget.Material3.SearchView"
         android:layout_width="0dp"
         android:layout_height="@dimen/margin_large_56"
+        android:elevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,15 +38,14 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/margin_medium_16"
             android:layout_marginTop="@dimen/margin_medium_16"
-            android:background="@drawable/search_bar_background"
+            android:paddingStart="@dimen/margin_medium_16"
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="@dimen/margin_medium_16"
             android:hint="@string/search"
             android:imeOptions="actionGo"
             android:inputType="text"
             android:maxLines="1"
-            android:paddingStart="@dimen/margin_medium_16"
-            android:paddingEnd="@dimen/large_padding_end"
+            style="@style/SearchBarStyle"
             android:focusableInTouchMode="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
