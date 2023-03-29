@@ -39,7 +39,7 @@ class CategoriesListener(val clickListener: (item: MealCourse) -> Unit) {
     fun onClick(item: MealCourse) = clickListener(item)
 }
 
-class CategoriesItemCallback :DiffUtil.ItemCallback<MealCourse>() {
+
 class CategoriesItemCallback :
     DiffUtil.ItemCallback<MealCourse>() {
     override fun areItemsTheSame(oldItem: MealCourse, newItem: MealCourse): Boolean {
@@ -50,3 +50,4 @@ class CategoriesItemCallback :
         return oldItem == newItem
     }
 }
+

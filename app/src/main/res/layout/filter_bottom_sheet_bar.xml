@@ -38,14 +38,14 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_ingredient"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ingredients" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_name"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name" />
@@ -75,21 +75,21 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_5_10min"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_5_10_min" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_10_15min"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_10_15_min" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_15_30min"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_15_30_min" />
@@ -116,49 +116,49 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_masala"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/masala" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_vegetables"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/vegetables" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_cake"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Cake" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_chicken"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/chicken" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_spicy"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/spicy" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_breakfast"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/breakfast" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_soups"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/soups" />
@@ -172,6 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small_8"
             android:text="@string/filter"
+
             app:layout_constraintTop_toBottomOf="@id/chip_group_category" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

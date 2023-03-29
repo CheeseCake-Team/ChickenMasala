@@ -24,4 +24,5 @@
     <dimen name="elevation_1">1dp</dimen>
     <dimen name="recipe_image_width">160dp</dimen>
     <dimen name="recipe_image_height">108dp</dimen>
+    <dimen name="large_padding_end">40dp</dimen>
 </resources>
