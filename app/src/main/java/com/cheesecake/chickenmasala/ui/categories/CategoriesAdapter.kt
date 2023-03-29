@@ -8,20 +8,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cheesecake.chickenmasala.databinding.ItemCategoryBinding
 import com.cheesecake.chickenmasala.model.MealCourse
 
-
-class CategoriesAdapter(private val clickListener: CategoriesListener) :
+class CategoriesAdapter(private val clickListener: (item: MealCourse) -> Unit) :
     ListAdapter<MealCourse, CategoriesAdapter.CategoriesViewHolder>(CategoriesItemCallback()) {
 
     class CategoriesViewHolder(private var binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(listener: CategoriesListener, item: MealCourse) {
+        fun bind(clickListener: (item: MealCourse) -> Unit, item: MealCourse) {
             binding.apply {
                 textViewTextAddress.text = item.courseName
                 cardImgHolder.setImageResource(item.imageResourceId)
-            }.root.setOnClickListener { listener.onClick(item) }
+                root.setOnClickListener { clickListener(item) }
+            }
         }
-
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -40,6 +40,8 @@ class CategoriesListener(val clickListener: (item: MealCourse) -> Unit) {
 }
 
 class CategoriesItemCallback :DiffUtil.ItemCallback<MealCourse>() {
+class CategoriesItemCallback :
+    DiffUtil.ItemCallback<MealCourse>() {
     override fun areItemsTheSame(oldItem: MealCourse, newItem: MealCourse): Boolean {
         return oldItem === newItem
     }
