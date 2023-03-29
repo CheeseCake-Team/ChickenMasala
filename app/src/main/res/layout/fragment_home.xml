@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_theme_light_background"
     android:clipToPadding="false"
     android:orientation="vertical"
     android:paddingVertical="@dimen/margin_medium_12">
