@@ -24,15 +24,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
 
         val fastRecipeAdapter =
-            HomeRecipeAdapter(HomeRecipeListener { loadMealFragment(it) }).apply {
+            HomeRecipeAdapter(::loadMealFragment).apply {
                 submitList(RecipesManager.getFastMeals())
             }
         val recipesOfTodayAdapter =
-            HomeRecipeAdapter(HomeRecipeListener { loadMealFragment(it) }).apply {
+            HomeRecipeAdapter(::loadMealFragment).apply {
                 submitList(RecipesManager.getRandomMeals())
             }
         val lowIngredientsFoodAdapter =
-            HomeRecipeAdapter(HomeRecipeListener(::loadMealFragment)).apply {
+            HomeRecipeAdapter(::loadMealFragment).apply {
                 submitList(RecipesManager.getLessIngredientMeals())
             }
         binding.apply {
