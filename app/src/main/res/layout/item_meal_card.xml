@@ -1,71 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardOfMeal"
+    android:id="@+id/card_view_meal_holder"
+    style="@style/Widget.Material3.CardView.Filled"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="11dp"
-    android:layout_marginEnd="16dp"
-    app:cardBackgroundColor="#F8F8F8"
-    app:cardCornerRadius="16dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/view">
+    android:layout_margin="@dimen/margin_small_4">
 
-    <ImageView
-        android:id="@+id/imageCardOfMeal"
-        android:layout_width="102dp"
-        android:layout_height="96dp"
-        android:layout_gravity="end"
-        android:layout_marginStart="210dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/foodimg"
-        android:contentDescription="@string/card_pic" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
+        <ImageView
+            android:id="@+id/image_meal_on_meal_card"
+            android:layout_width="@dimen/margin_image_width"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/food_image_four" />
 
-        android:id="@+id/tvNameOfMeal"
-        android:layout_width="186dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/card_text"
-        android:textColor="#484848"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        <TextView
+            android:id="@+id/text_view_meal_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/margin_small_8"
+            android:layout_marginTop="@dimen/margin_medium_16"
+            android:layout_marginEnd="@dimen/margin_small_8"
+            android:ellipsize="marquee"
+            android:maxLines="1"
+            android:text="@string/steak_with_tomato_sauce_and_bulgur_rice"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            app:layout_constraintEnd_toStartOf="@id/image_meal_on_meal_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTimeToMakeMeal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="59dp"
-        android:drawablePadding="5dp"
-        android:text="@string/_20_mins"
-        android:textColor="#A9A9A9"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2"
-        app:drawableStartCompat="@drawable/outline_timer_24" />
+        <TextView
+            android:id="@+id/text_view_meal_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small_8"
+            android:drawablePadding="@dimen/margin_small_4"
+            android:text="@string/time"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?android:attr/textColorSecondary"
+            app:drawableStartCompat="@drawable/timer_icon"
+            app:layout_constraintEnd_toEndOf="@id/text_view_meal_name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/text_view_meal_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_meal_name" />
 
-    <TextView
-        android:id="@+id/tvLocationOfMeal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="82dp"
-        android:drawableStart="@drawable/outline_outlined_flag_24"
-        android:drawablePadding="5dp"
-        android:text="Northern India"
-        android:textColor="#A9A9A9"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        <TextView
+            android:id="@+id/text_view_meal_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/margin_medium_16"
+            android:drawablePadding="@dimen/margin_small_4"
+            android:text="@string/northern_india"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?android:attr/textColorSecondary"
+            app:drawableStartCompat="@drawable/ic_flag"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image_meal_on_meal_card"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/text_view_meal_time"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_meal_time"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </com.google.android.material.card.MaterialCardView>

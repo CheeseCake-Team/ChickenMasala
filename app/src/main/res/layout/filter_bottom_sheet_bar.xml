@@ -5,151 +5,176 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/standard_bottom_sheet"
-        style="@style/Widget.Material3.BottomSheet"
+        android:id="@+id/bottom_sheet"
+        style="@style/Widget.Material3.BottomSheet.DragHandle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/margin_medium_16"
+        android:paddingBottom="@dimen/margin_medium_16"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <com.google.android.material.bottomsheet.BottomSheetDragHandleView
             android:id="@+id/drag_handle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/text_time"
-            style="@style/TextAppearance.Material3.TitleLarge"
-            android:layout_width="match_parent"
+            android:id="@+id/text_search"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:fontFamily="@font/roboto_medium"
-            android:text="@string/time"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/search"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/drag_handle" />
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup1"
+            android:id="@+id/chip_group_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_time">
+            android:layout_marginTop="@dimen/margin_small_8"
+            app:layout_constraintTop_toBottomOf="@id/text_search"
+            app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
+                android:id="@+id/chip_ingredient"
+                style="@style/NoOutlineChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ingredients" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_name"
+                style="@style/NoOutlineChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/text_time"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chip_group_search" />
+
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_time"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_5_10min"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_5_10_min" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
+                android:id="@+id/chip_10_15min"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_10_15_min" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
+                android:id="@+id/chip_15_30min"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_15_30_min" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_30_min_1_hour" />
-
         </com.google.android.material.chip.ChipGroup>
 
         <TextView
-            android:id="@+id/category"
-            android:layout_width="match_parent"
+            android:id="@+id/text_category"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:fontFamily="@font/roboto_medium"
             android:text="@string/category"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chipGroup1" />
+            app:layout_constraintTop_toBottomOf="@id/chip_group_time" />
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup2"
+            android:id="@+id/chip_group_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.666"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/category"
-            app:layout_constraintVertical_bias="0.0">
+            android:layout_marginTop="@dimen/margin_small_8"
+            app:layout_constraintBottom_toTopOf="@+id/button_filter"
+            app:layout_constraintTop_toBottomOf="@id/text_category"
+            app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
+                android:id="@+id/chip_masala"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/side_dishes" />
+                android:text="@string/masala" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
+                android:id="@+id/chip_vegetables"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/vegetables" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
+                android:id="@+id/chip_cake"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/north_india" />
+                android:text="@string/Cake" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
+                android:id="@+id/chip_chicken"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/salads" />
+                android:text="@string/chicken" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
+                android:id="@+id/chip_spicy"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/spicy" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
+                android:id="@+id/chip_breakfast"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/breakfast" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.Material3.Chip.Filter"
+                android:id="@+id/chip_soups"
+                style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/soups" />
 
+
         </com.google.android.material.chip.ChipGroup>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_filter"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_16sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small_8"
             android:text="@string/filter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+            app:layout_constraintTop_toBottomOf="@id/chip_group_category" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

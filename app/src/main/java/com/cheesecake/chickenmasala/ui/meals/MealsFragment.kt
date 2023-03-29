@@ -3,49 +3,54 @@ package com.cheesecake.chickenmasala.ui.meals
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import com.bumptech.glide.Glide
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealsBinding
-import com.cheesecake.chickenmasala.databinding.ItemMealCardBinding
 import com.cheesecake.chickenmasala.model.Meal
+import com.cheesecake.chickenmasala.model.MealCourse
+import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
-class MealsFragment(private val meals: List<Meal>) : BaseFragment<FragmentMealsBinding>() {
+private const val ARG_MEAL_COURSE = "meal_course"
+
+class MealsFragment :
+    BaseFragment<FragmentMealsBinding>() {
+
     override val bindingInflater: (LayoutInflater) -> FragmentMealsBinding =
         FragmentMealsBinding::inflate
 
+    private lateinit var mealCourse: MealCourse
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fillLinerLayoutWithCardItem()
+        mealCourse = arguments?.getParcelable(ARG_MEAL_COURSE)!!
+        setupViews()
     }
 
-    private fun fillLinerLayoutWithCardItem() {
-        val cardItemView = ItemMealCardBinding.inflate(layoutInflater)
+    private fun setupViews() {
+        val meals =
+            RecipesManager.indianFoodSearch.searchAndFilter(course = mealCourse).getSearchedMeals()
 
-        meals.forEach { meal ->
-            cardItemView.tvNameOfMeal.text = meal.translatedRecipeName
-            cardItemView.tvTimeToMakeMeal.text = meal.TotalTimeInMinutes.toString()
-            cardItemView.tvLocationOfMeal.text = meal.cuisine
-
-            Glide.with(this).load(meal.imageUrl).into(cardItemView.imageCardOfMeal)
-
-
-            for (i in 0 until 20) {
-                val cardItemView = ItemMealCardBinding.inflate(layoutInflater)
-                binding.linear.addView(cardItemView.cardOfMeal)
-            }
-
-
-        }
-
+        val mealsAdapter = MealsAdapter { loadMealFragment(it) }
+        mealsAdapter.submitList(meals)
+        binding.recyclerMeals.adapter = mealsAdapter
     }
+
     private fun loadMealFragment(meal: Meal) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, MealFragment(meal))
-        transaction.addToBackStack(null)
-        transaction.commit()
+        requireActivity().supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, MealFragment.newInstance(meal))
+            addToBackStack(null)
+            commit()
+        }
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(mealCourse: MealCourse) = MealsFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable(ARG_MEAL_COURSE, mealCourse)
+            }
+        }
     }
 
 }

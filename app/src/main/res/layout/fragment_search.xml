@@ -1,250 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/_16sdp"
+    app:layoutDescription="@xml/fragment_search_scene"
     tools:context=".ui.search.SearchFragment">
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMeals"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="@dimen/margin_medium_12"
+        android:paddingVertical="@dimen/margin_medium_12"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chips_holder"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="16dp"
+        tools:listitem="@layout/item_meal_card" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_text_input_layout"
         style="@style/Widget.Material3.SearchView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_56sdp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/margin_large_56"
+        android:elevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:hintEnabled="false">
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/search_auto_complete_text_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/search_bar_background"
+            android:layout_marginHorizontal="@dimen/margin_medium_16"
+            android:layout_marginTop="@dimen/margin_medium_16"
+            android:paddingStart="@dimen/margin_medium_16"
             android:drawableStart="@drawable/ic_search"
-            android:drawableEnd="@drawable/filter_icon"
-            android:drawablePadding="@dimen/_16sdp"
+            android:drawablePadding="@dimen/margin_medium_16"
             android:hint="@string/search"
-            android:imeOptions="actionDone"
+            android:imeOptions="actionGo"
             android:inputType="text"
             android:maxLines="1"
-            android:paddingStart="@dimen/_16sdp"
-            android:paddingEnd="@dimen/_16sdp" />
-
+            style="@style/SearchBarStyle"
+            android:focusableInTouchMode="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!--<com.google.android.material.search.SearchBar
-        android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--<androidx.appcompat.widget.AppCompatImageView
+    <ImageButton
         android:id="@+id/filter_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
+        android:layout_marginEnd="32dp"
+        android:background="@android:color/transparent"
         android:elevation="8dp"
-        android:src="@drawable/filter1"
-        app:layout_constraintBottom_toBottomOf="@id/search_bar"
-        app:layout_constraintEnd_toEndOf="@id/search_bar"
-        app:layout_constraintTop_toTopOf="@id/search_bar" />-->
+        android:src="@drawable/ic_filter"
+        app:layout_constraintBottom_toBottomOf="@id/search_text_input_layout"
+        app:layout_constraintEnd_toEndOf="@id/search_text_input_layout"
+        app:layout_constraintTop_toTopOf="@id/search_text_input_layout" />
 
-    <!--<com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_bar">
-    </com.google.android.material.chip.ChipGroup>-->
 
-    <!--<ImageView
-        android:id="@+id/image"
-        style="@style/Widget.Material3.Chip.Assist.Elevated"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="100dp"
-        android:contentDescription="@string/no_result_found"
-        android:src="@drawable/hat"
-        app:layout_constraintEnd_toEndOf="@+id/chipGroup"
-        app:layout_constraintStart_toStartOf="@+id/chipGroup"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
-
-    <TextView
-        android:id="@+id/no_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/no_result_found"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image" />
-
-    <TextView
-        android:id="@+id/hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:fontFamily="@font/roboto_light"
-        android:gravity="center"
-        android:text="@string/result_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/no_result" />-->
-
-    <!--<GridLayout
+    <HorizontalScrollView
+        android:id="@+id/chips_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:columnCount="2"
-        android:rowCount="6"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_bar"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_marginHorizontal="@dimen/margin_medium_16"
+        android:orientation="horizontal"
+        android:scrollIndicators="none"
+        app:layout_constraintTop_toBottomOf="@id/search_text_input_layout">
 
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_holder"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_rowSpan="1"
-            android:layout_column="0"
-            android:layout_columnSpan="1"
-            android:layout_margin="8dp" />
+            android:layout_margin="@dimen/margin_medium_16"
+            android:isScrollContainer="true"
+            app:layout_constraintTop_toBottomOf="@id/search_text_input_layout"
+            app:singleLine="true" />
+    </HorizontalScrollView>
 
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
-            android:layout_margin="8dp" />
-
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_rowSpan="1"
-            android:layout_column="0"
-            android:layout_columnSpan="1"
-            android:layout_margin="8dp" />
-
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_rowSpan="1"
-            android:layout_column="1"
-            android:layout_columnSpan="1"
-            android:layout_margin="8dp" />
-
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="2"
-            android:layout_rowSpan="1"
-            android:layout_column="0"
-            android:layout_columnSpan="1"
-            android:layout_margin="8dp" />
-
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="2"
-            android:layout_rowSpan="1"
-            android:layout_column="1"
-            android:layout_columnSpan="1"
-            android:layout_margin="8dp" />
-
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="3"
-            android:layout_rowSpan="1"
-            android:layout_column="0"
-            android:layout_columnSpan="1"
-            android:layout_margin="8dp" />
-
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="3"
-            android:layout_rowSpan="1"
-            android:layout_column="1"
-            android:layout_columnSpan="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp" />
-
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="3"
-            android:layout_column="0"
-            android:layout_columnWeight="1" />
-
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="3"
-            android:layout_rowSpan="1"
-            android:layout_column="1"
-            android:layout_columnSpan="1"
-            android:layout_margin="8dp" />
-
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="4"
-            android:layout_rowSpan="1"
-            android:layout_column="0"
-            android:layout_columnSpan="1"
-            android:layout_margin="8dp" />
-
-        <include
-            android:id="@+id/myIncludedLayout"
-            layout="@layout/item_meal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="4"
-            android:layout_rowSpan="1"
-            android:layout_column="1"
-            android:layout_columnSpan="1"
-            android:layout_margin="8dp" />
-    </GridLayout>-->
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

@@ -1,6 +1,8 @@
 <resources>
     <!-- Primary brand color. -->
     <style name="Theme.ChickenMasala" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
@@ -27,38 +29,40 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+        <item name="android:drawableTint">@color/md_theme_light_onBackground_opacity</item>
+
     </style>
 
-    <style name="cuisineImageStyle">
-        <item name="cornerSize">@dimen/_16sdp</item>
-    </style>
-<!--
-    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="labelVisibilityMode">selected</item>
-        <item name="android:color">@color/color_primary</item>
-    </style>
--->
-    <style name="ModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
-        <!-- Apply attributes here -->
+    <style name="HistoryImageStyle">
+        <item name="cornerSize">@dimen/margin_small_8</item>
+        <item name="cornerFamily">rounded</item>
+
     </style>
 
-    <style name="ModalBottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
+    <style name="SearchBarStyle" parent="@style/Widget.Material3.SearchBar">
+        <item name="android:background">@drawable/search_bar_background_light</item>
+        <item name="shapeAppearanceOverlay">?attr/materialSearchBarStyle</item>
+        <item name="android:elevation">6dp</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+        <item name="hintTextColor">@color/md_theme_light_onSurfaceVariant</item>
     </style>
 
-    <style name="AppTheme" parent="Theme.ChickenMasala">
-        <item name="bottomSheetDialogTheme">@style/ModalBottomSheetDialog</item>
+    <style name="Theme.App.ChickenMasala.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_light_mode</item>
+        <item name="windowSplashScreenBackground">@color/md_theme_light_primary</item>
+        <item name="postSplashScreenTheme">@style/Theme.ChickenMasala</item>
     </style>
 
-    <style name="margin_activity" parent="">
-        <item name="android:layout_marginStart">@dimen/_16sdp</item>
-        <item name="android:layout_marginTop">@dimen/_16sdp</item>
-        <item name="android:layout_marginEnd">@dimen/_16sdp</item>
+
+    <style name="BodyMediumTextStyle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
     </style>
-<!--
-    <style name="margin_activity.title_style" parent="margin_activity">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/font_size_title_secondary</item>
-        <item name="android:textColor">@color/color_black_86</item>
-    </style>-->
+
+    <style name="TitleMediumTextStyle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    </style>
+    <style name="NoOutlineChipStyle" parent="Widget.Material3.Chip.Filter">
+        <item name="chipStrokeWidth">0dp</item>
+    </style>
+
 </resources>

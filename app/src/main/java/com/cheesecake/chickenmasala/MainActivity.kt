@@ -1,12 +1,9 @@
 package com.cheesecake.chickenmasala
 
-import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.LayoutInflater
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
 import com.cheesecake.chickenmasala.datasource.CsvDataSource
 import com.cheesecake.chickenmasala.datasource.CsvParser
-import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseActivity
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
@@ -20,40 +17,45 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
 
-    private lateinit var recipes: RecipesManager
-
-
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        loadFragmentIntoContainer(HomeFragment(recipes))
-    }
-
     override fun onStart() {
         super.onStart()
         setupRecipes()
-        binding.navBarButton.selectedItemId = R.id.home
+        initializeHomeScreen()
         addCallBacks()
     }
 
     private fun setupRecipes() {
-        val parser = CsvParser()
-        val dataSource = CsvDataSource(parser, assets.open(FILE_NAME))
-        recipes = RecipesManager(dataSource.getAllMealsData())
+        val indianMeals = CsvDataSource(CsvParser(), assets.open("indian_food_v3.csv"))
+            .getAllMealsData().filter { it.cuisine == "Indian" }
+        RecipesManager.initialize(indianMeals)
+
+    }
+
+
+    private fun initializeHomeScreen() {
+        binding.bottomNavigationMenu.selectedItemId = R.id.home
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(binding.fragmentContainer.id, HomeFragment()).commit()
     }
 
 
     private fun addCallBacks() {
-        binding.navBarButton.setOnItemSelectedListener { item ->
+        binding.bottomNavigationMenu.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    loadFragmentIntoContainer(HomeFragment(recipes))
+                    changeAppBarTitle(R.string.home)
+                    loadFragmentIntoContainer(HomeFragment())
                     true
                 }
                 R.id.search -> {
-                    loadFragmentIntoContainer(SearchFragment.createFragment(recipes))
+                    changeAppBarTitle(R.string.search)
+                    loadFragmentIntoContainer(
+                        SearchFragment.newInstance(RecipesManager.indianFoodSearch)
+                    )
                     true
                 }
                 R.id.categories -> {
+                    changeAppBarTitle(R.string.category)
                     loadFragmentIntoContainer(CategoriesFragment())
                     true
                 }
@@ -71,18 +73,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun changeAppBarTitle(resourceString: Int) {
         if (supportActionBar?.isShowing != true) supportActionBar?.show()
-        supportActionBar?.title =
-            getString(resourceString)
+        supportActionBar?.title = getString(resourceString)
     }
 
     private fun loadFragmentIntoContainer(baseFragment: BaseFragment<*>) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container, baseFragment)
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, baseFragment)
             .commit()
     }
 
-    companion object {
-        const val FILE_NAME = "indian_food_v3.csv"
-    }
+
 }

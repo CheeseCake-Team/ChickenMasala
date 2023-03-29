@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_large_56">56dp</dimen>
+
+    <dimen name="margin_large_24">24dp</dimen>
+    <dimen name="margin_medium_16">16dp</dimen>
+    <dimen name="margin_medium_12">12dp</dimen>
+    <dimen name="margin_small_8">8dp</dimen>
+    <dimen name="margin_small_4">4dp</dimen>
+    <dimen name="margin_small_2">2dp</dimen>
+    <dimen name="margin_image_width">158dp</dimen>
+
+    <dimen name="font_size_16">16sp</dimen>
+    <dimen name="font_size_14">14sp</dimen>
+
+
+    <dimen name="margin_image_home_height">170dp</dimen>
+
+    <dimen name="margin_large_170">170dp</dimen>
+    <dimen name="margin_large_99">99dp</dimen>
+    <dimen name="margin_large_145">145dp</dimen>
+    <dimen name="margin_large_122">122dp</dimen>
+    <dimen name="margin_large_28">28dp</dimen>
+    <dimen name="elevation_1">1dp</dimen>
+    <dimen name="recipe_image_width">160dp</dimen>
+    <dimen name="recipe_image_height">108dp</dimen>
+    <dimen name="large_padding_end">40dp</dimen>
+</resources>
