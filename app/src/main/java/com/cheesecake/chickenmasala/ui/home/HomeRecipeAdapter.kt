@@ -10,13 +10,13 @@ import com.cheesecake.chickenmasala.databinding.ItemRecipesBinding
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.meals.MealItemCallback
 
-class HomeRecipeAdapter(private val clickListener: HomeRecipeListener) :
+class HomeRecipeAdapter(private val clickListener: (item: Meal) -> Unit)  :
     ListAdapter<Meal, HomeRecipeAdapter.RecipeViewHolder>(MealItemCallback()) {
 
     class RecipeViewHolder(private var binding: ItemRecipesBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(listener: HomeRecipeListener, item: Meal) {
+        fun bind(clickListener: (item: Meal) -> Unit, item: Meal) {
             binding.apply {
                 Glide.with(itemView.context).load(item.imageUrl).into(imageViewRecipeImage)
                 textViewCuisine.text = item.cuisine
@@ -25,7 +25,8 @@ class HomeRecipeAdapter(private val clickListener: HomeRecipeListener) :
                     item.TotalTimeInMinutes
                 )
                 textViewRecipeName.text = item.translatedRecipeName
-            }.root.setOnClickListener { listener.onClick(item) }
+                root.setOnClickListener { clickListener(item) }
+            }
         }
     }
 
@@ -37,8 +38,4 @@ class HomeRecipeAdapter(private val clickListener: HomeRecipeListener) :
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) =
         holder.bind(clickListener, getItem(position))
-}
-
-class HomeRecipeListener(val clickListener: (item: Meal) -> Unit) {
-    fun onClick(item: Meal) = clickListener(item)
 }
