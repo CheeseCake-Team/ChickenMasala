@@ -16,7 +16,7 @@
     <string name="soups">Soups</string>
     <string name="search">Search</string>
     <string name="meal_name">Spicy chicken burger with French fries</string>
-    <string name="ingredient">ingredient</string>
+    <string name="ingredient">ingredients</string>
     <string name="home">Home</string>
     <string name="filter">Filter</string>
     <string name="_20_minutes">20 m</string>
@@ -58,4 +58,5 @@
     <string name="masala">Masala</string>
     <string name="Cake">Cake</string>
     <string name="chicken">Chicken</string>
+    <string name="meal_steps_count">%1$d steps</string>
 </resources>
