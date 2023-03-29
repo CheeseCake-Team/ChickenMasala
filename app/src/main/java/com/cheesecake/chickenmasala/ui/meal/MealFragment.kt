@@ -33,8 +33,6 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
             recyclerviewMeal.adapter = ingredientAdapter
             textMealTime.text =
                 requireContext().getString(R.string.meal_time, meal.TotalTimeInMinutes)
-            textMealCount.text =
-                requireContext().getString(R.string.meal_ingredient_count, meal.ingredientCount)
             textMealName.text = meal.translatedRecipeName
             Glide.with(requireContext()).load(meal.imageUrl)
                 .error(R.drawable.ic_baseline_error_outline_24).into(imageMeal)
@@ -53,9 +51,12 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         binding.apply {
             buttonIngredient.setOnClickListener {
                 recyclerviewMeal.adapter = ingredientAdapter
+                textMealCount.text =
+                    requireContext().getString(R.string.meal_ingredient_count, meal.ingredientCount)
             }
             buttonInstructions.setOnClickListener {
                 recyclerviewMeal.adapter = instructionAdapter
+                textMealCount.text = requireContext().getString(R.string.meal_steps_count, meal.translatedInstructions.size)
             }
 
         }
