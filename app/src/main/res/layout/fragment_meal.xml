@@ -10,27 +10,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/image_meal"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/margin_large_170"
-        android:layout_marginHorizontal="@dimen/margin_medium_16"
-        android:layout_marginTop="@dimen/margin_medium_16"
-        android:scaleType="centerCrop"
-        android:src="@drawable/side_dish_category"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:roundPercent="0.2" />
-
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/image_meal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_large_170"
+            android:layout_marginHorizontal="@dimen/margin_medium_16"
+            android:layout_marginTop="@dimen/margin_medium_16"
+            android:scaleType="centerCrop"
+            android:src="@drawable/side_dish_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:roundPercent="0.2" />
 
         <TextView
             android:id="@+id/text_meal_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium_16"
             android:layout_marginTop="@dimen/margin_small_8"
             android:layout_marginEnd="@dimen/margin_medium_16"
+            android:layout_marginStart="@dimen/margin_medium_16"
             android:text="@string/meal_name"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textColor="@color/material_on_background_emphasis_high_type"
@@ -38,78 +37,80 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_meal" />
 
+
         <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/button_toggle_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_medium_16"
-        android:layout_marginTop="@dimen/margin_medium_16"
-        app:selectionRequired="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_meal_name"
-        app:singleSelection="true">
+            android:id="@+id/button_toggle_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium_16"
+            android:layout_marginTop="@dimen/margin_medium_16"
+            app:selectionRequired="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_meal_name"
+            app:singleSelection="true">
 
-        <Button
-            android:id="@+id/button_ingredient"
-            style="?attr/materialButtonOutlinedStyle"
+            <Button
+                android:id="@+id/button_ingredient"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/ingredient" />
+
+
+            <Button
+                android:id="@+id/button_instructions"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/instructions" />
+
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+        <TextView
+            android:id="@+id/text_meal_time"
+            style="@style/TextAppearance.Material3.LabelLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/ingredient" />
+            android:layout_marginStart="@dimen/margin_medium_16"
+            android:drawablePadding="@dimen/margin_small_4"
+            android:gravity="bottom"
+            android:text="@string/m"
+            android:textColor="@color/material_on_background_emphasis_medium"
+            app:drawableStartCompat="@drawable/timer_icon"
+            app:drawableTint="@color/material_on_background_emphasis_medium"
+            app:layout_constraintBottom_toBottomOf="@id/text_meal_count"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
-        <Button
-            android:id="@+id/button_instructions"
-            style="?attr/materialButtonOutlinedStyle"
+        <TextView
+            android:id="@+id/text_meal_count"
+            style="@style/TextAppearance.Material3.LabelLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/instructions" />
+            android:layout_marginTop="@dimen/margin_large_24"
+            android:layout_marginEnd="@dimen/margin_medium_16"
+            android:gravity="center"
+            android:text="@string/_10_ingredients"
+            android:textColor="@color/material_on_background_emphasis_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_toggle_group" />
 
-
-    </com.google.android.material.button.MaterialButtonToggleGroup>
-
-
-    <TextView
-        android:id="@+id/text_meal_time"
-        style="@style/TextAppearance.Material3.LabelLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium_16"
-        android:drawablePadding="@dimen/margin_small_4"
-        android:gravity="bottom"
-        android:text="@string/m"
-        android:textColor="@color/material_on_background_emphasis_medium"
-        app:drawableStartCompat="@drawable/timer_icon"
-        app:drawableTint="@color/material_on_background_emphasis_medium"
-        app:layout_constraintBottom_toBottomOf="@id/text_meal_count"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <TextView
-        android:id="@+id/text_meal_count"
-        style="@style/TextAppearance.Material3.LabelLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_large_24"
-        android:layout_marginEnd="@dimen/margin_medium_16"
-        android:gravity="center"
-        android:text="@string/_10_ingredients"
-        android:textColor="@color/material_on_background_emphasis_medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_toggle_group" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_meal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_small_8"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_meal_count"
-        tools:itemCount="12"
-        tools:listitem="@layout/item_translated_ingredient" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_meal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_small_8"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_meal_count"
+            tools:itemCount="12"
+            tools:listitem="@layout/item_translated_ingredient" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
