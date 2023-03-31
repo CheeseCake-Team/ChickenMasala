@@ -4,18 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ChipsInjectBinding
 import com.cheesecake.chickenmasala.databinding.FragmentSearchBinding
+import com.cheesecake.chickenmasala.datasource.Constants
 import com.cheesecake.chickenmasala.model.IndianFoodSearch
-import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 import com.cheesecake.chickenmasala.ui.meals.MealsAdapter
 
-private const val ARG_INDIAN_FOOD_SEARCH = "indian_food"
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListener {
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding =
@@ -30,7 +28,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        foodSearch = arguments?.getParcelable(ARG_INDIAN_FOOD_SEARCH)!!
+        foodSearch = arguments?.getParcelable(Constants.Keys.ARGUMENT)!!
         installViews()
         addCallBacks()
 
@@ -38,7 +36,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     }
 
     private fun installViews() {
-        mealsAdapter = MealsAdapter { loadMealFragment(it) }
+        mealsAdapter = MealsAdapter {  loadFragment(MealFragment.newInstance(it)) }
         binding.recyclerMeals.adapter = mealsAdapter
         setupAutoComplete()
     }
@@ -98,14 +96,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
         }
     }
 
-    private fun loadMealFragment(meal: Meal) {
-        requireActivity().supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment_container, MealFragment.newInstance(meal))
-            addToBackStack(null)
-            commit()
-        }
-    }
-
     private fun showBottomSheet() {
         if (!::searchNameIngredient.isInitialized)
             searchNameIngredient = foodSearch
@@ -117,7 +107,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
         @JvmStatic
         fun newInstance(indianFoodSearch: IndianFoodSearch) = SearchFragment().apply {
             arguments = Bundle().apply {
-                putParcelable(ARG_INDIAN_FOOD_SEARCH, indianFoodSearch)
+                putParcelable(Constants.Keys.ARGUMENT, indianFoodSearch)
             }
         }
     }

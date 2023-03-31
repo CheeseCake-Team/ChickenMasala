@@ -6,10 +6,9 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealBinding
+import com.cheesecake.chickenmasala.datasource.Constants
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
-
-private const val ARGUMENT_MEAL = "meal"
 
 class MealFragment : BaseFragment<FragmentMealBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentMealBinding =
@@ -20,7 +19,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
     private lateinit var meal: Meal
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        meal = arguments?.getParcelable(ARGUMENT_MEAL)!!
+        meal = arguments?.getParcelable(Constants.Keys.ARGUMENT)!!
         initViews()
         setUpAdapters()
         addCallBacks()
@@ -56,7 +55,10 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
             }
             buttonInstructions.setOnClickListener {
                 recyclerviewMeal.adapter = instructionAdapter
-                textMealCount.text = requireContext().getString(R.string.meal_steps_count, meal.translatedInstructions.size)
+                textMealCount.text = requireContext().getString(
+                    R.string.meal_steps_count,
+                    meal.translatedInstructions.size
+                )
             }
 
         }
@@ -65,9 +67,9 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
     companion object {
         @JvmStatic
         fun newInstance(meal: Meal) = MealFragment().apply {
-            arguments = Bundle().apply {
-                putParcelable(ARGUMENT_MEAL, meal)
-            }
+            createArgument(meal, this)
         }
     }
+
+
 }

@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FilterBottomSheetBarBinding
+import com.cheesecake.chickenmasala.datasource.Constants
 import com.cheesecake.chickenmasala.model.IndianFoodSearch
 import com.cheesecake.chickenmasala.model.MealCourse
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-private const val ARGUMENT_INDIAN_FOOD_SEARCH = "indian_food"
 
 class FilterBottomSheet : BottomSheetDialogFragment() {
 
@@ -21,7 +21,7 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FilterBottomSheetBarBinding.inflate(inflater, container, false)
-        searchIndianFood = arguments?.getParcelable(ARGUMENT_INDIAN_FOOD_SEARCH)!!
+        searchIndianFood = arguments?.getParcelable(Constants.Keys.ARGUMENT)!!
 
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
@@ -143,7 +143,7 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
         @JvmStatic
         fun newInstance(searchIndianFood: IndianFoodSearch) = FilterBottomSheet().apply {
             arguments = Bundle().apply {
-                putParcelable(ARGUMENT_INDIAN_FOOD_SEARCH, searchIndianFood)
+                putParcelable(Constants.Keys.ARGUMENT, searchIndianFood)
             }
         }
     }
