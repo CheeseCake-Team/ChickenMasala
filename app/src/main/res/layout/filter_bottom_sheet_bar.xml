@@ -136,11 +136,11 @@
                 android:text="@string/Cake" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip_rice"
+                android:id="@+id/chip_chicken"
                 style="@style/NoOutlineChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/rice" />
+                android:text="@string/chicken" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_spicy"
@@ -162,12 +162,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/soups" />
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_baked"
-                style="@style/NoOutlineChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/baked" />
 
 
         </com.google.android.material.chip.ChipGroup>
