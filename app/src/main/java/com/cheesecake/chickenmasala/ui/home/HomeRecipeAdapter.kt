@@ -38,4 +38,5 @@ class HomeRecipeAdapter(private val clickListener: (item: Meal) -> Unit)  :
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) =
         holder.bind(clickListener, getItem(position))
+
 }

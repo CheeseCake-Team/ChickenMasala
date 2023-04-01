@@ -7,9 +7,9 @@ import android.widget.ArrayAdapter
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ChipsInjectBinding
 import com.cheesecake.chickenmasala.databinding.FragmentSearchBinding
-import com.cheesecake.chickenmasala.datasource.Constants
-import com.cheesecake.chickenmasala.model.IndianFoodSearch
-import com.cheesecake.chickenmasala.model.RecipesManager
+import com.cheesecake.chickenmasala.interactor.RecipesInteractor
+import com.cheesecake.chickenmasala.interactor.SearchAndFilterInteractor
+import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 import com.cheesecake.chickenmasala.ui.meals.MealsAdapter
@@ -19,31 +19,32 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding =
         FragmentSearchBinding::inflate
 
+    private lateinit var searchResult: List<Meal>
     private val searchBarInputs = mutableListOf<String>()
-
     private lateinit var mealsAdapter: MealsAdapter
-    private lateinit var foodSearch: IndianFoodSearch
-    private lateinit var searchNameIngredient: IndianFoodSearch
+    private lateinit var foodSearch: SearchAndFilterInteractor
+    private val recipesInteractor: RecipesInteractor = RecipesInteractor()
     private lateinit var adapter: ArrayAdapter<String>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        foodSearch = arguments?.getParcelable(Constants.Keys.ARGUMENT)!!
+
+        foodSearch = SearchAndFilterInteractor(recipesInteractor.getMeals())
+
         installViews()
         addCallBacks()
-
-
     }
 
     private fun installViews() {
-        mealsAdapter = MealsAdapter {  loadFragment(MealFragment.newInstance(it)) }
+        mealsAdapter = MealsAdapter { loadMealFragment(it) }
         binding.recyclerMeals.adapter = mealsAdapter
         setupAutoComplete()
     }
 
     private fun setupAutoComplete() {
-        val allSuggestions = if (foodSearch.isSearchByName) RecipesManager.indianRecipesName
-        else RecipesManager.indianIngredients
+        val allSuggestions =
+            if (SearchAndFilterInteractor.isSearchByName) recipesInteractor.indianRecipesName
+            else recipesInteractor.indianIngredients
         adapter = StringArrayAdapter(allSuggestions, requireContext(), searchBarInputs)
         binding.searchAutoCompleteTextView.setAdapter(adapter)
     }
@@ -51,6 +52,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     private fun addCallBacks() {
 
         binding.apply {
+
             searchAutoCompleteTextView.onFocusChangeListener =
                 View.OnFocusChangeListener { _, hasFocus ->
                     if (hasFocus) {
@@ -66,14 +68,14 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
 
             searchAutoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
                 adapter.getItem(position)?.let { selectedItem ->
-                    searchNameIngredient = if (!foodSearch.isSearchByName) {
+                    searchResult = if (!SearchAndFilterInteractor.isSearchByName) {
                         searchBarInputs.add(selectedItem)
                         createChip(selectedItem)
-                        foodSearch.searchAndFilter(ingredients = searchBarInputs)
+                        foodSearch.searchByIngredients(ingredients = searchBarInputs).getSearchedMeals()
                     } else {
-                        foodSearch.searchAndFilter(name = selectedItem)
+                        foodSearch.searchByName(name = selectedItem).getSearchedMeals()
                     }
-                    mealsAdapter.submitList(searchNameIngredient.getSearchedMeals())
+                    mealsAdapter.submitList(searchResult)
                     binding.searchAutoCompleteTextView.setText("")
                 }
             }
@@ -87,41 +89,36 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
                 searchBarInputs.remove(text)
                 adapter.notifyDataSetChanged()
                 binding.chipGroupHolder.removeView(root)
-                foodSearch = foodSearch.searchAndFilter(ingredients = searchBarInputs)
-                mealsAdapter.submitList(
-                    foodSearch.getSearchedMeals()
-                )
+                searchResult =
+                    foodSearch.searchByIngredients(ingredients = searchBarInputs).getSearchedMeals()
+                mealsAdapter.submitList(searchResult)
             }
             binding.chipGroupHolder.addView(root)
         }
     }
 
-    private fun showBottomSheet() {
-        if (!::searchNameIngredient.isInitialized)
-            searchNameIngredient = foodSearch
-        val bottomSheetFragment = FilterBottomSheet.newInstance(searchNameIngredient)
-        bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(indianFoodSearch: IndianFoodSearch) = SearchFragment().apply {
-            arguments = Bundle().apply {
-                putParcelable(Constants.Keys.ARGUMENT, indianFoodSearch)
-            }
+    private fun loadMealFragment(meal: Meal) {
+        requireActivity().supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, MealFragment.newInstance(meal))
+            addToBackStack(null)
+            commit()
         }
     }
 
-    override fun onBottomSheetDataSelected(searchIndianFood: IndianFoodSearch) {
-        foodSearch = searchIndianFood
+    private fun showBottomSheet() {
+
+        val bottomSheetFragment = FilterBottomSheet.newInstance(SearchAndFilterInteractor(searchResult))
+        bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)
+    }
+
+
+    override fun onBottomSheetDataSelected(searchResult: List<Meal>) {
         setupAutoComplete()
-        mealsAdapter.submitList(
-            foodSearch.getSearchedMeals()
-        )
+        mealsAdapter.submitList(searchResult)
     }
 }
 
 interface BottomSheetListener {
-    fun onBottomSheetDataSelected(searchIndianFood: IndianFoodSearch)
+    fun onBottomSheetDataSelected(searchResult: List<Meal>)
 }
 

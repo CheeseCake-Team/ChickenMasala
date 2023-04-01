@@ -17,12 +17,10 @@ class CsvParser {
             translatedIngredients = tokenizedList[Constants.ColumnIndex.TRANSLATED_INGREDIENTS].split("-"),
             ingredientCount = tokenizedList[Constants.ColumnIndex.INGREDIENT_COUNT].trim().toInt(),
             course = getMealCourse(tokenizedList[Constants.ColumnIndex.TRANSLATED_RECIPE_NAME])
-
         )
     }
-
     private fun getMealCourse(mealName: String): MealCourse? {
-        return when {
+        return when{
             mealName.contains("Soup") -> MealCourse.SOUPS
             mealName.contains("Spicy") -> MealCourse.SPICY
             mealName.contains("chicken") -> MealCourse.CHICKEN
@@ -30,14 +28,7 @@ class CsvParser {
             mealName.contains("Masala") -> MealCourse.MASALA
             mealName.contains("Cake") -> MealCourse.CAKES
             mealName.contains("Breakfast") -> MealCourse.BREAKFAST
-
-
             else -> null
         }
     }
-
-
-
-
-
 }

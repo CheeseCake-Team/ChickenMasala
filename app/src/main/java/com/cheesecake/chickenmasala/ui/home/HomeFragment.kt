@@ -1,8 +1,10 @@
 package com.cheesecake.chickenmasala.ui.home
 
 import android.view.LayoutInflater
+import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentHomeBinding
-import com.cheesecake.chickenmasala.model.RecipesManager
+import com.cheesecake.chickenmasala.interactor.RecipesInteractor
+import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
@@ -19,30 +21,32 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         val adviceAdapter = AdviceImageSliderAdapter().apply {
             submitList(AdviceFactory(requireContext()).prepareFoodAdviceList)
         }
-
-        val fastRecipeAdapter = HomeRecipeAdapter {
-                loadFragment(MealFragment.newInstance(it))
-            }.apply {
-                submitList(RecipesManager.getFastMeals())
+        val recipesInteractor = RecipesInteractor()
+        val fastRecipeAdapter =
+            HomeRecipeAdapter(::loadMealFragment).apply {
+                submitList(recipesInteractor.getFastMeals())
             }
-
-        val recipesOfTodayAdapter = HomeRecipeAdapter {
-                loadFragment(MealFragment.newInstance(it))
-            }.apply {
-                submitList(RecipesManager.getRandomMeals())
+        val recipesOfTodayAdapter =
+            HomeRecipeAdapter(::loadMealFragment).apply {
+                submitList(recipesInteractor.getRandomMeals())
             }
-
-        val lowIngredientsFoodAdapter = HomeRecipeAdapter {
-                loadFragment(MealFragment.newInstance(it))
-            }.apply {
-                submitList(RecipesManager.getLessIngredientMeals())
+        val lowIngredientsFoodAdapter =
+            HomeRecipeAdapter(::loadMealFragment).apply {
+                submitList(recipesInteractor.getLessIngredientMeals())
             }
-
         binding.apply {
             recyclerViewFastRecipes.adapter = fastRecipeAdapter
             recyclerViewRecipesOfToday.adapter = recipesOfTodayAdapter
             recyclerViewLowIngredientsFood.adapter = lowIngredientsFoodAdapter
             adviceImageSlider.adapter = adviceAdapter
+        }
+    }
+
+    private fun loadMealFragment(meal: Meal) {
+        requireActivity().supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, MealFragment.newInstance(meal))
+            addToBackStack(null)
+            commit()
         }
     }
 
