@@ -29,6 +29,9 @@ class RecipesInteractor {
 
     fun getCuisineRecipes(cuisineName: String) = meals?.filter { it.cuisine == cuisineName }!!
 
+    fun getRandomCuisineImage(cuisineName: String) =
+        meals?.filter { it.cuisine == cuisineName }?.random()?.imageUrl!!
+
     fun getRandomMeals(): List<Meal> = indianMealsForToday!!
 
     fun getFastMeals(): List<Meal> = indianMeals?.sortedBy { it.TotalTimeInMinutes }?.take(20)!!
