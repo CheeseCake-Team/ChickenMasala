@@ -3,9 +3,8 @@ package com.cheesecake.chickenmasala.ui.home
 import android.view.LayoutInflater
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentHomeBinding
-import com.cheesecake.chickenmasala.model.Advice
+import com.cheesecake.chickenmasala.interactor.RecipesInteractor
 import com.cheesecake.chickenmasala.model.Meal
-import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
@@ -22,18 +21,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         val adviceAdapter = AdviceImageSliderAdapter().apply {
             submitList(AdviceFactory(requireContext()).prepareFoodAdviceList)
         }
-
+        val recipesInteractor = RecipesInteractor()
         val fastRecipeAdapter =
             HomeRecipeAdapter(::loadMealFragment).apply {
-                submitList(RecipesManager.getFastMeals())
+                submitList(recipesInteractor.getFastMeals())
             }
         val recipesOfTodayAdapter =
             HomeRecipeAdapter(::loadMealFragment).apply {
-                submitList(RecipesManager.getRandomMeals())
+                submitList(recipesInteractor.getRandomMeals())
             }
         val lowIngredientsFoodAdapter =
             HomeRecipeAdapter(::loadMealFragment).apply {
-                submitList(RecipesManager.getLessIngredientMeals())
+                submitList(recipesInteractor.getLessIngredientMeals())
             }
         binding.apply {
             recyclerViewFastRecipes.adapter = fastRecipeAdapter

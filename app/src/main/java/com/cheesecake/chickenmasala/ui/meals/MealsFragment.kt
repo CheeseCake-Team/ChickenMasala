@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealsBinding
+import com.cheesecake.chickenmasala.interactor.RecipesInteractor
+import com.cheesecake.chickenmasala.interactor.SearchAndFilterInteractor
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.model.MealCourse
-import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
@@ -28,8 +29,10 @@ class MealsFragment :
     }
 
     private fun setupViews() {
+        val recipesInteractor = RecipesInteractor()
+        val indianFoodSearch = SearchAndFilterInteractor(recipesInteractor.getMeals())
         val meals =
-            RecipesManager.indianFoodSearch.searchAndFilter(course = mealCourse).getSearchedMeals()
+            indianFoodSearch.filterMealsByCourseAndTimeRange(course = mealCourse).getSearchedMeals()
 
         val mealsAdapter = MealsAdapter { loadMealFragment(it) }
         mealsAdapter.submitList(meals)
