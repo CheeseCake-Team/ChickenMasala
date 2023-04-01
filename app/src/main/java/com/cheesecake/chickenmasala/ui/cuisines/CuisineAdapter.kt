@@ -2,13 +2,10 @@ package com.cheesecake.chickenmasala.ui.cuisines
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ItemCategoryBinding
-import com.cheesecake.chickenmasala.model.MealCourse
-import com.cheesecake.chickenmasala.ui.categories.CategoriesAdapter
 import com.cheesecake.chickenmasala.ui.meal.StringDiffUtil
 
 class CuisineAdapter(private val clickListener: (item: String) -> Unit) :
@@ -33,6 +30,7 @@ class CuisineAdapter(private val clickListener: (item: String) -> Unit) :
                 root.setOnClickListener { clickListener(item) }
             }
         }
+
         private fun getRandomImageResource(): Int {
             val images = arrayOf(
                 R.drawable.soup_category,
