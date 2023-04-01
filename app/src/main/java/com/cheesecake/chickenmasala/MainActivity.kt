@@ -8,6 +8,7 @@ import com.cheesecake.chickenmasala.interactor.RecipesInteractor
 import com.cheesecake.chickenmasala.ui.base.BaseActivity
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.categories.CategoriesFragment
+import com.cheesecake.chickenmasala.ui.cuisines.CuisinesFragment
 import com.cheesecake.chickenmasala.ui.history.HistoryFragment
 import com.cheesecake.chickenmasala.ui.home.HomeFragment
 import com.cheesecake.chickenmasala.ui.search.SearchFragment
@@ -26,7 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun setupRecipes() {
         val indianMeals = CsvDataSource(CsvParser(), assets.open("indian_food_v3.csv"))
-            .getAllMealsData().filter { it.cuisine == "Indian" }
+            .getAllMealsData()
         RecipesInteractor.initialize(indianMeals)
     }
 
@@ -34,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun initializeHomeScreen() {
         binding.bottomNavigationMenu.selectedItemId = R.id.home
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(binding.fragmentContainer.id, HomeFragment()).commit()
+        transaction.add(binding.fragmentContainer.id, CuisinesFragment()).commit()
     }
 
 

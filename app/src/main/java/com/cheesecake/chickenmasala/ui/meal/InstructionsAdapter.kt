@@ -8,7 +8,7 @@ import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ItemTranslatedInstructionBinding
 
 class InstructionsAdapter :
-    ListAdapter<String, InstructionsAdapter.InstructionsViewHolder>(MealAdapterDiffUtil()) {
+    ListAdapter<String, InstructionsAdapter.InstructionsViewHolder>(StringDiffUtil()) {
 
     class InstructionsViewHolder(private val binding: ItemTranslatedInstructionBinding) :
         RecyclerView.ViewHolder(binding.root) {
