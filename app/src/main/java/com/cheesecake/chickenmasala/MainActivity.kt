@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
 import com.cheesecake.chickenmasala.datasource.CsvDataSource
 import com.cheesecake.chickenmasala.datasource.CsvParser
-import com.cheesecake.chickenmasala.model.RecipesManager
+import com.cheesecake.chickenmasala.interactor.RecipesInteractor
 import com.cheesecake.chickenmasala.ui.base.BaseActivity
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.categories.CategoriesFragment
+import com.cheesecake.chickenmasala.ui.cuisines.CuisinesFragment
 import com.cheesecake.chickenmasala.ui.history.HistoryFragment
 import com.cheesecake.chickenmasala.ui.home.HomeFragment
 import com.cheesecake.chickenmasala.ui.search.SearchFragment
@@ -26,16 +27,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun setupRecipes() {
         val indianMeals = CsvDataSource(CsvParser(), assets.open("indian_food_v3.csv"))
-            .getAllMealsData().filter { it.cuisine == "Indian" }
-        RecipesManager.initialize(indianMeals)
-
+            .getAllMealsData()
+        RecipesInteractor.initialize(indianMeals)
     }
 
 
     private fun initializeHomeScreen() {
         binding.bottomNavigationMenu.selectedItemId = R.id.home
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(binding.fragmentContainer.id, HomeFragment()).commit()
+        transaction.add(binding.fragmentContainer.id, CuisinesFragment()).commit()
     }
 
 
@@ -49,9 +49,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
                 R.id.search -> {
                     changeAppBarTitle(R.string.search)
-                    loadFragmentIntoContainer(
-                        SearchFragment.newInstance(RecipesManager.indianFoodSearch)
-                    )
+                    loadFragmentIntoContainer(SearchFragment())
                     true
                 }
                 R.id.categories -> {

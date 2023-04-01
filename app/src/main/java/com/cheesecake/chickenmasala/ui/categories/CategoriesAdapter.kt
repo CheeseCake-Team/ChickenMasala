@@ -8,16 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cheesecake.chickenmasala.databinding.ItemCategoryBinding
 import com.cheesecake.chickenmasala.model.MealCourse
 
-class CategoriesAdapter(private val clickListener: (item: MealCourse) -> Unit) :
+class CategoriesAdapter(private val clickListener: (item: String) -> Unit) :
     ListAdapter<MealCourse, CategoriesAdapter.CategoriesViewHolder>(CategoriesItemCallback()) {
 
     class CategoriesViewHolder(private var binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(clickListener: (item: MealCourse) -> Unit, item: MealCourse) {
+        fun bind(clickListener: (item: String) -> Unit, item: MealCourse) {
             binding.apply {
                 textViewTextAddress.text = item.courseName
                 cardImgHolder.setImageResource(item.imageResourceId)
-                root.setOnClickListener { clickListener(item) }
+                root.setOnClickListener { clickListener(item.courseName) }
             }
         }
     }
