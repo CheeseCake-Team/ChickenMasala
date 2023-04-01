@@ -35,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun initializeHomeScreen() {
         binding.bottomNavigationMenu.selectedItemId = R.id.home
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(binding.fragmentContainer.id, CuisinesFragment()).commit()
+        transaction.add(binding.fragmentContainer.id, HomeFragment()).commit()
     }
 
 
@@ -55,6 +55,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 R.id.categories -> {
                     changeAppBarTitle(R.string.category)
                     loadFragmentIntoContainer(CategoriesFragment())
+                    true
+                }
+                R.id.cuisine -> {
+                    changeAppBarTitle(R.string.cuisine)
+                    loadFragmentIntoContainer(CuisinesFragment())
                     true
                 }
                 R.id.history -> {

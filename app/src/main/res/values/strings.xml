@@ -59,6 +59,6 @@
     <string name="Cake">Cake</string>
     <string name="chicken">Chicken</string>
     <string name="meal_steps_count">%1$d steps</string>
-    <string name="cuisine">cuisine</string>
+    <string name="cuisine">Cuisines</string>
     <string name="history">History</string>
 </resources>
