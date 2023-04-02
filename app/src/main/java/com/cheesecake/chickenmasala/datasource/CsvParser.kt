@@ -11,8 +11,7 @@ class CsvParser {
             url = tokenizedList[Constants.ColumnIndex.URL],
             imageUrl = tokenizedList[Constants.ColumnIndex.IMAGE_URL],
             cuisine = tokenizedList[Constants.ColumnIndex.CUISINE],
-            translatedInstructions = tokenizedList[Constants.ColumnIndex.TRANSLATED_INSTRUCTIONS]
-                .replace("\n", "").replace("\"", "").split(".").dropLast(1),
+            translatedInstructions = tokenizedList[Constants.ColumnIndex.TRANSLATED_INSTRUCTIONS].replace("\n", "").replace("\"", "").split(".").dropLast(1),
             TotalTimeInMinutes = tokenizedList[Constants.ColumnIndex.TOTAL_TIME_IN_MINUTES].toInt(),
             cleanedIngredients = tokenizedList[Constants.ColumnIndex.CLEANED_INGREDIENTS].split("-"),
             translatedIngredients = tokenizedList[Constants.ColumnIndex.TRANSLATED_INGREDIENTS].split("-"),
@@ -24,15 +23,13 @@ class CsvParser {
         return when{
             mealName.contains("Soup") -> MealCourse.SOUPS
             mealName.contains("Spicy") -> MealCourse.SPICY
-            mealName.contains("baked") -> MealCourse.BAKED
+            mealName.contains("Rice") -> MealCourse.RICE
             mealName.contains("Vegetables") -> MealCourse.VEGETABLES
             mealName.contains("Masala") -> MealCourse.MASALA
             mealName.contains("Cake") -> MealCourse.CAKES
-            mealName.contains("Breakfast") -> MealCourse.BREAKFAST
-            mealName.contains("Rice") -> MealCourse.RICE
-            mealName.contains("grilled") -> MealCourse.GRILLED
-            mealName.contains("juice") -> MealCourse.JUICE
-
+            mealName.contains("Baked") -> MealCourse.BAKED
+            mealName.contains("Grilled") -> MealCourse.GRILLED
+            mealName.contains("Juice") -> MealCourse.JUICE
             else -> null
         }
     }

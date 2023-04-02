@@ -57,9 +57,12 @@
     <string name="steak_with_tomato_sauce_and_bulgur_rice">Steak with tomato sauce and bulgur rice.</string>
     <string name="masala">Masala</string>
     <string name="Cake">Cake</string>
-    <string name="rice">Rice</string>
+    <string name="chicken">Chicken</string>
     <string name="meal_steps_count">%1$d steps</string>
     <string name="cuisine">Cuisines</string>
     <string name="history">History</string>
+    <string name="rice">Rice</string>
     <string name="baked">Baked</string>
+    <string name="grilled">Grilled</string>
+    <string name="juice">Juice</string>
 </resources>

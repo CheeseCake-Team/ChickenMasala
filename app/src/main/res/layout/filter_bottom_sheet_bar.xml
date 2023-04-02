@@ -162,6 +162,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/soups" />
+
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_baked"
                 style="@style/NoOutlineChipStyle"
@@ -169,7 +170,19 @@
                 android:layout_height="wrap_content"
                 android:text="@string/baked" />
 
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_grilled"
+                style="@style/NoOutlineChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grilled" />
 
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_juice"
+                style="@style/NoOutlineChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/juice" />
         </com.google.android.material.chip.ChipGroup>
 
         <Button

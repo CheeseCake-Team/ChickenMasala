@@ -55,6 +55,9 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
                 MealCourse.BREAKFAST -> chipBreakfast.isChecked = true
                 MealCourse.CAKES -> chipCake.isChecked = true
                 MealCourse.BAKED -> chipBaked.isChecked = true
+                MealCourse.GRILLED -> chipGrilled.isChecked = true
+                MealCourse.JUICE -> chipJuice.isChecked = true
+
                 else -> {
                     chipSoups.isChecked = false
                     chipSpicy.isChecked = false
@@ -64,6 +67,8 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
                     chipBreakfast.isChecked = false
                     chipCake.isChecked = false
                     chipBaked.isChecked = false
+                    chipGrilled.isChecked = false
+                    chipJuice.isChecked = false
                 }
             }
 
@@ -102,9 +107,9 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
                 }
 
                 course = when (chipGroupCategory.checkedChipId) {
-                    R.id.chip_baked -> {
-                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.BAKED
-                        MealCourse.BAKED
+                    R.id.chip_rice -> {
+                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.RICE
+                        MealCourse.RICE
                     }
                     R.id.chip_breakfast -> {
                         SearchAndFilterInteractor.selectedMealCourse = MealCourse.BREAKFAST
@@ -130,9 +135,15 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
                         SearchAndFilterInteractor.selectedMealCourse = MealCourse.SPICY
                         MealCourse.SPICY
                     }
-                    R.id.chip_rice -> {
-                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.RICE
-                        MealCourse.RICE
+                    R.id.chip_baked -> {
+                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.BAKED
+                        MealCourse.BAKED
+                    }R.id.chip_grilled -> {
+                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.GRILLED
+                        MealCourse.GRILLED
+                    }R.id.chip_juice -> {
+                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.JUICE
+                        MealCourse.JUICE
                     }
                     else -> {
                         SearchAndFilterInteractor.selectedMealCourse = null
