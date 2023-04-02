@@ -1,6 +1,8 @@
 package com.cheesecake.chickenmasala.interactor
 
+import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.model.Meal
+import com.cheesecake.chickenmasala.model.Recommendation
 
 class RecipesInteractor {
     companion object {
@@ -32,11 +34,20 @@ class RecipesInteractor {
     fun getRandomCuisineImage(cuisineName: String) =
         meals?.filter { it.cuisine == cuisineName }?.random()?.imageUrl!!
 
-    fun getRandomMeals(): List<Meal> = indianMealsForToday!!
+    private fun getRandomMeals(): List<Meal> = indianMealsForToday!!
 
-    fun getFastMeals(): List<Meal> = indianMeals?.sortedBy { it.TotalTimeInMinutes }?.take(20)!!
+    private fun getFastMeals(): List<Meal> = indianMeals?.sortedBy { it.TotalTimeInMinutes }?.take(20)!!
 
-    fun getLessIngredientMeals() = indianMeals?.sortedBy { it.ingredientCount }?.take(20)
+    private fun getLessIngredientMeals() = indianMeals?.sortedBy { it.ingredientCount }?.take(20)
 
     fun getMeals() = indianMeals!!
+
+    fun getRandomMealsRecommendation() = Recommendation(R.string.recipes_of_the_day,
+        getRandomMeals())
+
+    fun getFastestMealsRecommendation() = Recommendation(R.string.fastest_recipes,
+        getFastMeals())
+
+    fun getLessIngredientRecommendation() = Recommendation(R.string.low_ingredient_recipes,
+        getLessIngredientMeals()!!)
 }
