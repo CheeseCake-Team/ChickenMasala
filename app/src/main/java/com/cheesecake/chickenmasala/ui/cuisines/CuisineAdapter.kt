@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.cheesecake.chickenmasala.R
+import com.bumptech.glide.Glide
 import com.cheesecake.chickenmasala.databinding.ItemCategoryBinding
+import com.cheesecake.chickenmasala.interactor.RecipesInteractor
 import com.cheesecake.chickenmasala.ui.meal.StringDiffUtil
 
 class CuisineAdapter(private val clickListener: (item: String) -> Unit) :
@@ -26,23 +27,15 @@ class CuisineAdapter(private val clickListener: (item: String) -> Unit) :
         fun bind(clickListener: (item: String) -> Unit, item: String) {
             binding.apply {
                 textViewTextAddress.text = item
-                cardImgHolder.setImageResource(getRandomImageResource())
+                Glide.with(itemView.context).load(getRandomImageResource(item)).into(cardImgHolder)
+
                 root.setOnClickListener { clickListener(item) }
             }
         }
 
-        private fun getRandomImageResource(): Int {
-            val images = arrayOf(
-                R.drawable.soup_category,
-                R.drawable.spicy_category,
-                R.drawable.food_image_six,
-                R.drawable.vegetables_category,
-                R.drawable.masala_category,
-                R.drawable.breakfast_category,
-                R.drawable.cake_category,
-            )
-            return images.random()
-        }
+        private fun getRandomImageResource(string: String) =
+            RecipesInteractor().getRandomCuisineImage(string)
+
     }
 }
 

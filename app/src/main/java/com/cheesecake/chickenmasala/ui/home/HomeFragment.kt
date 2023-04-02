@@ -18,27 +18,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun setupViews() {
-        val adviceAdapter = AdviceImageSliderAdapter().apply {
-            submitList(AdviceFactory(requireContext()).prepareFoodAdviceList)
-        }
         val recipesInteractor = RecipesInteractor()
-        val fastRecipeAdapter =
-            HomeRecipeAdapter(::loadMealFragment).apply {
-                submitList(recipesInteractor.getFastMeals())
-            }
-        val recipesOfTodayAdapter =
-            HomeRecipeAdapter(::loadMealFragment).apply {
-                submitList(recipesInteractor.getRandomMeals())
-            }
-        val lowIngredientsFoodAdapter =
-            HomeRecipeAdapter(::loadMealFragment).apply {
-                submitList(recipesInteractor.getLessIngredientMeals())
-            }
+        val homeList = listOf(
+            AdviceFactory().prepareFoodAdviceList,
+            recipesInteractor.getRandomMealsRecommendation(),
+            recipesInteractor.getFastestMealsRecommendation(),
+            recipesInteractor.getLessIngredientRecommendation()
+        )
+        val homeAdapter = HomeAdapter(::loadMealFragment, homeList)
         binding.apply {
-            recyclerViewFastRecipes.adapter = fastRecipeAdapter
-            recyclerViewRecipesOfToday.adapter = recipesOfTodayAdapter
-            recyclerViewLowIngredientsFood.adapter = lowIngredientsFoodAdapter
-            adviceImageSlider.adapter = adviceAdapter
+            recyclerViewHome.adapter = homeAdapter
         }
     }
 
@@ -49,6 +38,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             commit()
         }
     }
-
 
 }

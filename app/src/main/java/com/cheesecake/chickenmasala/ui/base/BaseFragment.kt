@@ -47,4 +47,5 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
             }
         }
 
+
 }

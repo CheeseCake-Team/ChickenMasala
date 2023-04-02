@@ -20,9 +20,9 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         meal = arguments?.getParcelable(Constants.Keys.ARGUMENT)!!
+        addCallBacks()
         initViews()
         setUpAdapters()
-        addCallBacks()
         super.onViewCreated(view, savedInstanceState)
     }
 

@@ -23,8 +23,8 @@ class AdviceImageSliderAdapter :
 
         fun bind(item: Advice) {
             binding.apply {
-                adviceTitleText.text = item.title
-                adviceBodyText.text = item.body
+                adviceTitleText.text = root.context.getString(item.title)
+                adviceBodyText.text = root.context.getString(item.body)
                 adviceImage.setImageDrawable(
                     AppCompatResources.getDrawable(adviceImage.context, item.imageResourceId)
                 )
