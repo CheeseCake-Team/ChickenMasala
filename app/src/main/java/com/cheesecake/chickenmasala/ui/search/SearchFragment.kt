@@ -1,6 +1,7 @@
 package com.cheesecake.chickenmasala.ui.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
@@ -76,6 +77,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
                         foodSearch.searchByName(name = selectedItem).getSearchedMeals()
                     }
                     mealsAdapter.submitList(searchResult)
+
                     binding.searchAutoCompleteTextView.setText("")
                 }
             }
