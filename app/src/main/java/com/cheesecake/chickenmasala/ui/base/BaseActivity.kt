@@ -31,4 +31,6 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         super.onDestroy()
         _binding = null
     }
+
+
 }
