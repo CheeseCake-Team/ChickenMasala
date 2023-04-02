@@ -1,9 +1,10 @@
 package com.cheesecake.chickenmasala.model
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 
 data class Advice(
-    val title: String,
-    val body: String,
+    @StringRes val title: Int,
+    @StringRes val body: Int,
     @DrawableRes val imageResourceId: Int
 )

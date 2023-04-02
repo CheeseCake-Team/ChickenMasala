@@ -3,9 +3,8 @@ package com.cheesecake.chickenmasala.ui.home
 import android.view.LayoutInflater
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentHomeBinding
-import com.cheesecake.chickenmasala.model.Advice
+import com.cheesecake.chickenmasala.interactor.RecipesInteractor
 import com.cheesecake.chickenmasala.model.Meal
-import com.cheesecake.chickenmasala.model.RecipesManager
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 
@@ -19,27 +18,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun setupViews() {
-        val adviceAdapter = AdviceImageSliderAdapter().apply {
-            submitList(AdviceFactory(requireContext()).prepareFoodAdviceList)
-        }
-
-        val fastRecipeAdapter =
-            HomeRecipeAdapter(::loadMealFragment).apply {
-                submitList(RecipesManager.getFastMeals())
-            }
-        val recipesOfTodayAdapter =
-            HomeRecipeAdapter(::loadMealFragment).apply {
-                submitList(RecipesManager.getRandomMeals())
-            }
-        val lowIngredientsFoodAdapter =
-            HomeRecipeAdapter(::loadMealFragment).apply {
-                submitList(RecipesManager.getLessIngredientMeals())
-            }
+        val recipesInteractor = RecipesInteractor()
+        val homeList = listOf(
+            AdviceFactory().prepareFoodAdviceList,
+            recipesInteractor.getRandomMealsRecommendation(),
+            recipesInteractor.getFastestMealsRecommendation(),
+            recipesInteractor.getLessIngredientRecommendation()
+        )
+        val homeAdapter = HomeAdapter(::loadMealFragment, homeList)
         binding.apply {
-            recyclerViewFastRecipes.adapter = fastRecipeAdapter
-            recyclerViewRecipesOfToday.adapter = recipesOfTodayAdapter
-            recyclerViewLowIngredientsFood.adapter = lowIngredientsFoodAdapter
-            adviceImageSlider.adapter = adviceAdapter
+            recyclerViewHome.adapter = homeAdapter
         }
     }
 
@@ -50,6 +38,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             commit()
         }
     }
-
 
 }

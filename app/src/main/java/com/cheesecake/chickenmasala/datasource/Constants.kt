@@ -12,4 +12,9 @@ object Constants {
         const val IMAGE_URL = 7
         const val INGREDIENT_COUNT = 8
     }
+
+    object Keys {
+        const val ARGUMENT = "param1"
+    }
+
 }

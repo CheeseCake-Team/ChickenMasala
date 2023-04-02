@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
 import com.cheesecake.chickenmasala.datasource.CsvDataSource
 import com.cheesecake.chickenmasala.datasource.CsvParser
-import com.cheesecake.chickenmasala.model.RecipesManager
+import com.cheesecake.chickenmasala.interactor.RecipesInteractor
 import com.cheesecake.chickenmasala.ui.base.BaseActivity
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.categories.CategoriesFragment
+import com.cheesecake.chickenmasala.ui.cuisines.CuisinesFragment
 import com.cheesecake.chickenmasala.ui.history.HistoryFragment
 import com.cheesecake.chickenmasala.ui.home.HomeFragment
 import com.cheesecake.chickenmasala.ui.search.SearchFragment
@@ -26,9 +27,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun setupRecipes() {
         val indianMeals = CsvDataSource(CsvParser(), assets.open("indian_food_v3.csv"))
-            .getAllMealsData().filter { it.cuisine == "Indian" }
-        RecipesManager.initialize(indianMeals)
-
+            .getAllMealsData()
+        RecipesInteractor.initialize(indianMeals)
     }
 
 
@@ -49,14 +49,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
                 R.id.search -> {
                     changeAppBarTitle(R.string.search)
-                    loadFragmentIntoContainer(
-                        SearchFragment.newInstance(RecipesManager.indianFoodSearch)
-                    )
+                    loadFragmentIntoContainer(SearchFragment())
                     true
                 }
                 R.id.categories -> {
                     changeAppBarTitle(R.string.category)
                     loadFragmentIntoContainer(CategoriesFragment())
+                    true
+                }
+                R.id.cuisine -> {
+                    changeAppBarTitle(R.string.cuisine)
+                    loadFragmentIntoContainer(CuisinesFragment())
                     true
                 }
                 R.id.history -> {
