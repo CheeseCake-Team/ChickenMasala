@@ -1,10 +1,10 @@
 package com.cheesecake.chickenmasala.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ChipsInjectBinding
 import com.cheesecake.chickenmasala.databinding.FragmentSearchBinding
@@ -76,8 +76,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
                     } else {
                         foodSearch.searchByName(name = selectedItem).getSearchedMeals()
                     }
-                    mealsAdapter.submitList(searchResult)
+                    if (searchResult.isEmpty()) {
+                        Toast.makeText(context, "No result", Toast.LENGTH_SHORT).show()
+                    }
 
+                    mealsAdapter.submitList(searchResult)
                     binding.searchAutoCompleteTextView.setText("")
                 }
             }
@@ -94,6 +97,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
                 searchResult =
                     foodSearch.searchByIngredients(ingredients = searchBarInputs).getSearchedMeals()
                 mealsAdapter.submitList(searchResult)
+                if (searchResult.isEmpty()) {
+                    binding.recyclerMeals.visibility = View.INVISIBLE
+                    Toast.makeText(context, "No result", Toast.LENGTH_SHORT).show()
+                }
             }
             binding.chipGroupHolder.addView(root)
         }
@@ -117,6 +124,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
 
     override fun onBottomSheetDataSelected(searchResult: List<Meal>) {
         setupAutoComplete()
+        if (searchResult.isEmpty()) {
+            binding.recyclerMeals.visibility = View.INVISIBLE
+            Toast.makeText(context, "No result", Toast.LENGTH_SHORT).show()
+
+        }
         mealsAdapter.submitList(searchResult)
     }
 }

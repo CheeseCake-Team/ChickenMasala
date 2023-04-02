@@ -12,10 +12,9 @@
         <OnSwipe
             motion:autoCompleteMode="spring"
             motion:dragDirection="dragUp"
-            motion:touchAnchorId="@id/recyclerMeals"
-            motion:touchAnchorSide="middle"
             motion:onTouchUp="decelerateAndComplete"
-            />
+            motion:touchAnchorId="@id/recyclerMeals"
+            motion:touchAnchorSide="middle" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -39,7 +38,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:alpha="1"
-
             motion:layout_constraintBottom_toBottomOf="@id/search_text_input_layout"
             motion:layout_constraintEnd_toEndOf="@id/search_text_input_layout"
             motion:layout_constraintTop_toTopOf="@id/search_text_input_layout" />
@@ -49,9 +47,34 @@
             android:layout_height="wrap_content"
             android:alpha="1"
             motion:layout_constraintTop_toBottomOf="@id/search_text_input_layout" />
+
+        <Constraint
+            android:id="@+id/text_view_search_error"
+            android:alpha="0"
+            style="@style/TitleMediumTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="0dp"
+            android:gravity="center"
+            android:text="@string/there_is_no_result"
+            android:textColor="@color/md_theme_light_onBackground_opacity"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/search_text_input_layout" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/text_view_search_error"
+            android:alpha="1"
+            style="@style/TitleMediumTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="0dp"
+            android:gravity="center"
+            android:text="@string/there_is_no_result"
+            android:textColor="@color/md_theme_light_onBackground_opacity"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/search_text_input_layout"/>
         <Constraint
             android:id="@+id/recyclerMeals"
             android:layout_width="match_parent"
@@ -71,7 +94,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:alpha="0"
-
             motion:layout_constraintBottom_toBottomOf="@id/search_text_input_layout"
             motion:layout_constraintEnd_toEndOf="@id/search_text_input_layout"
             motion:layout_constraintTop_toTopOf="@id/search_text_input_layout" />
@@ -81,5 +103,6 @@
             android:layout_height="wrap_content"
             android:alpha="0"
             motion:layout_constraintTop_toBottomOf="@id/search_text_input_layout" />
+
     </ConstraintSet>
 </MotionScene>
