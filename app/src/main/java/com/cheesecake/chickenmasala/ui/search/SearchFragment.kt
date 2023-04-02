@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ChipsInjectBinding
 import com.cheesecake.chickenmasala.databinding.FragmentSearchBinding
@@ -18,6 +19,10 @@ import com.cheesecake.chickenmasala.ui.meals.MealsAdapter
 class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListener {
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding =
         FragmentSearchBinding::inflate
+
+    override fun hasBackButtonOrNot() {
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+    }
 
     private lateinit var searchResult: List<Meal>
     private val searchBarInputs = mutableListOf<String>()

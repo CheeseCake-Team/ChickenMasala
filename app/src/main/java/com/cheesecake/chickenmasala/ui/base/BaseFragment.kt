@@ -24,6 +24,7 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = bindingInflater(layoutInflater)
+        hasBackButtonOrNot()
         return _binding!!.root
     }
 
@@ -47,5 +48,6 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
             }
         }
 
+    abstract fun hasBackButtonOrNot()
 
 }

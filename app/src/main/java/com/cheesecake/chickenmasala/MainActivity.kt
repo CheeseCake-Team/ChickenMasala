@@ -20,6 +20,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onStart() {
         super.onStart()
+        this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setupRecipes()
         initializeHomeScreen()
         addCallBacks()

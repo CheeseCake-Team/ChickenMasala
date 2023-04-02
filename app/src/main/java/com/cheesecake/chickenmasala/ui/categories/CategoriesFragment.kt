@@ -3,6 +3,7 @@ package com.cheesecake.chickenmasala.ui.categories
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentCategoriesBinding
 import com.cheesecake.chickenmasala.model.MealCourse
@@ -13,6 +14,10 @@ class CategoriesFragment :
     BaseFragment<FragmentCategoriesBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentCategoriesBinding =
         FragmentCategoriesBinding::inflate
+
+    override fun hasBackButtonOrNot() {
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
