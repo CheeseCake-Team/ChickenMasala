@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ItemMealCardBinding
 import com.cheesecake.chickenmasala.model.Meal
 
@@ -29,7 +30,8 @@ class MealsAdapter(
             binding.apply {
                 textViewMealLocation.text = item.cuisine
                 textViewMealName.text = item.translatedRecipeName
-                textViewMealTime.text = "${item.TotalTimeInMinutes.toString()} m"
+                textViewMealTime.text =
+                    itemView.context.getString(R.string.meal_time, item.TotalTimeInMinutes)
                 Glide.with(itemView.context).load(item.imageUrl).into(imageMealOnMealCard)
                 binding.root.setOnClickListener { listener(item) }
             }

@@ -1,7 +1,6 @@
 package com.cheesecake.chickenmasala.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
@@ -15,13 +14,12 @@ import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
 import com.cheesecake.chickenmasala.ui.meals.MealsAdapter
-import kotlin.math.log
 
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListener {
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding =
         FragmentSearchBinding::inflate
-    val LOG_TAG = "search fragment"
+
     private lateinit var searchResult: List<Meal>
     private val searchBarInputs = mutableListOf<String>()
     private lateinit var mealsAdapter: MealsAdapter
@@ -42,10 +40,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
         mealsAdapter = MealsAdapter { loadMealFragment(it) }
         binding.recyclerMeals.adapter = mealsAdapter
         setupAutoComplete()
-    }
-
-    override fun onStart() {
-        super.onStart()
     }
 
     private fun setupAutoComplete() {
@@ -78,8 +72,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
                     searchResult = if (!SearchAndFilterInteractor.isSearchByName) {
                         searchBarInputs.add(selectedItem)
                         createChip(selectedItem)
-                        foodSearch.searchByIngredients(ingredients = searchBarInputs)
-                            .getSearchedMeals()
+                        foodSearch.searchByIngredients(ingredients = searchBarInputs).getSearchedMeals()
                     } else {
                         foodSearch.searchByName(name = selectedItem).getSearchedMeals()
                     }
@@ -90,8 +83,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
                     mealsAdapter.submitList(searchResult)
                     binding.searchAutoCompleteTextView.setText("")
                 }
-
-
             }
         }
     }
@@ -124,10 +115,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     }
 
     private fun showBottomSheet() {
-        if (!::searchResult.isInitialized)
+        if(!::searchResult.isInitialized)
             searchResult = emptyList()
-        val bottomSheetFragment =
-            FilterBottomSheet.newInstance(SearchAndFilterInteractor(searchResult))
+        val bottomSheetFragment = FilterBottomSheet.newInstance(SearchAndFilterInteractor(searchResult))
         bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)
     }
 
