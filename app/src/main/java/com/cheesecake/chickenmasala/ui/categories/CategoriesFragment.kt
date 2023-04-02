@@ -14,6 +14,7 @@ class CategoriesFragment :
     override val bindingInflater: (LayoutInflater) -> FragmentCategoriesBinding =
         FragmentCategoriesBinding::inflate
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
