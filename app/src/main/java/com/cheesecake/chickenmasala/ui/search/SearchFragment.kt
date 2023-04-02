@@ -106,7 +106,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     }
 
     private fun showBottomSheet() {
-
+        if(!::searchResult.isInitialized)
+            searchResult = emptyList()
         val bottomSheetFragment = FilterBottomSheet.newInstance(SearchAndFilterInteractor(searchResult))
         bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)
     }
