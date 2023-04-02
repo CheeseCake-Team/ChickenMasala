@@ -49,19 +49,26 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
             when (SearchAndFilterInteractor.selectedMealCourse) {
                 MealCourse.SOUPS -> chipSoups.isChecked = true
                 MealCourse.SPICY -> chipSpicy.isChecked = true
-                MealCourse.CHICKEN -> chipChicken.isChecked = true
+                MealCourse.RICE -> chipRice.isChecked = true
                 MealCourse.VEGETABLES -> chipVegetables.isChecked = true
                 MealCourse.MASALA -> chipMasala.isChecked = true
                 MealCourse.BREAKFAST -> chipBreakfast.isChecked = true
                 MealCourse.CAKES -> chipCake.isChecked = true
+                MealCourse.BAKED -> chipBaked.isChecked = true
+                MealCourse.GRILLED -> chipGrilled.isChecked = true
+                MealCourse.JUICE -> chipJuice.isChecked = true
+
                 else -> {
                     chipSoups.isChecked = false
                     chipSpicy.isChecked = false
-                    chipChicken.isChecked = false
+                    chipRice.isChecked = false
                     chipVegetables.isChecked = false
                     chipMasala.isChecked = false
                     chipBreakfast.isChecked = false
                     chipCake.isChecked = false
+                    chipBaked.isChecked = false
+                    chipGrilled.isChecked = false
+                    chipJuice.isChecked = false
                 }
             }
 
@@ -100,9 +107,9 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
                 }
 
                 course = when (chipGroupCategory.checkedChipId) {
-                    R.id.chip_chicken -> {
-                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.CHICKEN
-                        MealCourse.CHICKEN
+                    R.id.chip_rice -> {
+                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.RICE
+                        MealCourse.RICE
                     }
                     R.id.chip_breakfast -> {
                         SearchAndFilterInteractor.selectedMealCourse = MealCourse.BREAKFAST
@@ -127,6 +134,16 @@ class FilterBottomSheet : BottomSheetDialogFragment() {
                     R.id.chip_spicy -> {
                         SearchAndFilterInteractor.selectedMealCourse = MealCourse.SPICY
                         MealCourse.SPICY
+                    }
+                    R.id.chip_baked -> {
+                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.BAKED
+                        MealCourse.BAKED
+                    }R.id.chip_grilled -> {
+                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.GRILLED
+                        MealCourse.GRILLED
+                    }R.id.chip_juice -> {
+                        SearchAndFilterInteractor.selectedMealCourse = MealCourse.JUICE
+                        MealCourse.JUICE
                     }
                     else -> {
                         SearchAndFilterInteractor.selectedMealCourse = null
