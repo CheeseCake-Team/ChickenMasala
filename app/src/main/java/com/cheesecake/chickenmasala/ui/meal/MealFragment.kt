@@ -2,14 +2,12 @@ package com.cheesecake.chickenmasala.ui.meal
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.cheesecake.chickenmasala.MainActivity
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealBinding
-import com.cheesecake.chickenmasala.datasource.Constants
+import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 

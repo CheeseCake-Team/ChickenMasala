@@ -7,15 +7,12 @@ import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ScrollView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.cheesecake.chickenmasala.R
-import com.cheesecake.chickenmasala.datasource.Constants
+import com.cheesecake.chickenmasala.model.Constants
 
 abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
 
@@ -34,7 +31,8 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
     ): View {
         _binding = bindingInflater(layoutInflater)
         sharedPreferences =
-            requireActivity().getSharedPreferences(Constants.Keys.SHARED_FRAGMENT,
+            requireActivity().getSharedPreferences(
+                Constants.Keys.SHARED_FRAGMENT,
                 Context.MODE_PRIVATE)
 
         hasBackButtonOrNot()

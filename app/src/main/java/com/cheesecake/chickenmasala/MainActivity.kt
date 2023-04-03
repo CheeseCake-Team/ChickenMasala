@@ -5,10 +5,8 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
-import com.cheesecake.chickenmasala.datasource.Constants
+import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.datasource.CsvDataSource
 import com.cheesecake.chickenmasala.datasource.CsvParser
 import com.cheesecake.chickenmasala.interactor.RecipesInteractor
@@ -129,10 +127,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun saveFragmentState() {
         val editor = sharedPreferences.edit()
 
-        editor.putString(Constants.Keys.SAVE_TITLE_STATE,
+        editor.putString(
+            Constants.Keys.SAVE_TITLE_STATE,
             supportActionBar?.title.toString())
 
-        editor.putInt(Constants.Keys.SAVE_BOTTOM_NAV_STATE,
+        editor.putInt(
+            Constants.Keys.SAVE_BOTTOM_NAV_STATE,
             binding.bottomNavigationMenu.selectedItemId)
 
         editor.apply()

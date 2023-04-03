@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentHomeBinding
+import com.cheesecake.chickenmasala.interactor.AdviceInteractor
 import com.cheesecake.chickenmasala.interactor.RecipesInteractor
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
@@ -30,7 +31,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun setupViews() {
         val recipesInteractor = RecipesInteractor()
         val homeList = listOf(
-            AdviceFactory().prepareFoodAdviceList,
+            AdviceInteractor().prepareFoodAdviceList,
             recipesInteractor.getRandomMealsRecommendation(),
             recipesInteractor.getFastestMealsRecommendation(),
             recipesInteractor.getLessIngredientRecommendation()

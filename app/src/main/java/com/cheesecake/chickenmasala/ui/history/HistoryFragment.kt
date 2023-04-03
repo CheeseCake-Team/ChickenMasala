@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cheesecake.chickenmasala.R
 import android.view.View
 import com.cheesecake.chickenmasala.databinding.FragmentHistoryBinding
-import com.cheesecake.chickenmasala.datasource.Constants
+import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
