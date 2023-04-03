@@ -1,9 +1,14 @@
 package com.cheesecake.chickenmasala
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
+import com.cheesecake.chickenmasala.datasource.Constants
 import com.cheesecake.chickenmasala.datasource.CsvDataSource
 import com.cheesecake.chickenmasala.datasource.CsvParser
 import com.cheesecake.chickenmasala.interactor.RecipesInteractor
@@ -20,6 +25,19 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
+    private lateinit var sharedPreferences: SharedPreferences
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedPreferences = getSharedPreferences(Constants.Keys.SHARED_ACTIVITY, Context.MODE_PRIVATE)
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        restoreFragmentState()
+    }
 
     override fun onStart() {
         super.onStart()
@@ -54,22 +72,27 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.bottomNavigationMenu.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
+                    changeAppBarTitle(R.string.home)
                     loadFragmentIntoContainer(HomeFragment())
                     true
                 }
                 R.id.search -> {
+                    changeAppBarTitle(R.string.search)
                     loadFragmentIntoContainer(SearchFragment())
                     true
                 }
                 R.id.categories -> {
+                    changeAppBarTitle(R.string.category)
                     loadFragmentIntoContainer(CategoriesFragment())
                     true
                 }
                 R.id.cuisine -> {
+                    changeAppBarTitle(R.string.cuisine)
                     loadFragmentIntoContainer(CuisinesFragment())
                     true
                 }
                 R.id.history -> {
+                    changeAppBarTitle(R.string.history_of_indian_cuisine)
                     loadFragmentIntoContainer(HistoryFragment())
                     true
                 }
@@ -79,9 +102,46 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
     }
 
+
+    private fun changeAppBarTitle(resourceString: Int) {
+        if (supportActionBar?.isShowing != true) supportActionBar?.show()
+        supportActionBar?.title = getString(resourceString)
+    }
+
     private fun loadFragmentIntoContainer(baseFragment: BaseFragment<*>) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, baseFragment)
             .commit()
     }
+
+    private fun restoreFragmentState() {
+
+
+        supportActionBar?.title = sharedPreferences.getString(
+            Constants.Keys.SAVE_TITLE_STATE, "")
+
+        binding.bottomNavigationMenu.selectedItemId =
+            sharedPreferences.getInt(Constants.Keys.SAVE_BOTTOM_NAV_STATE, 0)
+
+
+
+    }
+
+    private fun saveFragmentState() {
+        val editor = sharedPreferences.edit()
+
+        editor.putString(Constants.Keys.SAVE_TITLE_STATE,
+            supportActionBar?.title.toString())
+
+        editor.putInt(Constants.Keys.SAVE_BOTTOM_NAV_STATE,
+            binding.bottomNavigationMenu.selectedItemId)
+
+        editor.apply()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        saveFragmentState()
+    }
+
 
 }
