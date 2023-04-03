@@ -25,6 +25,7 @@ object Constants {
         const val CATEGORIES_TYPE = 1
         const val CUISINES_TYPE = 2
         const val ARG_TYPE = "type"
+        const val SEARCH_BAR_INPUTS_STATE_KEY = "searchBarInputsState"
 
     }
 

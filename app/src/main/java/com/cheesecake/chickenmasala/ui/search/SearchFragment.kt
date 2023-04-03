@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.ChipsInjectBinding
 import com.cheesecake.chickenmasala.databinding.FragmentSearchBinding
 import com.cheesecake.chickenmasala.interactor.RecipesInteractor
 import com.cheesecake.chickenmasala.interactor.SearchAndFilterInteractor
+import com.cheesecake.chickenmasala.model.Constants.Keys.SEARCH_BAR_INPUTS_STATE_KEY
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
 import com.cheesecake.chickenmasala.ui.meal.MealFragment
@@ -21,24 +22,17 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding =
         FragmentSearchBinding::inflate
 
-    override fun hasBackButtonOrNot() {
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-    }
-
-    override fun setActionBarTitle() {
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.search)
-
-    }
-
     private lateinit var searchResult: List<Meal>
-    private val searchBarInputs = mutableListOf<String>()
+    private var searchBarInputs = mutableListOf<String>()
     private lateinit var mealsAdapter: MealsAdapter
-    private lateinit var foodSearch: SearchAndFilterInteractor
     private val recipesInteractor: RecipesInteractor = RecipesInteractor()
+    private var foodSearch = SearchAndFilterInteractor(recipesInteractor.getMeals())
     private lateinit var adapter: ArrayAdapter<String>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        searchBarInputs = savedInstanceState?.getStringArrayList(SEARCH_BAR_INPUTS_STATE_KEY) ?: mutableListOf()
 
         foodSearch = SearchAndFilterInteractor(recipesInteractor.getMeals())
 
@@ -49,10 +43,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     private fun installViews() {
         mealsAdapter = MealsAdapter { loadMealFragment(it) }
         binding.recyclerMeals.adapter = mealsAdapter
-        searchBarInputs.forEach{
-            createChip(it)
-        }
-
         setupAutoComplete()
     }
 
@@ -108,17 +98,20 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     }
 
     private fun searchByIngredients() {
-        searchResult = foodSearch.searchByIngredients(ingredients = searchBarInputs).getSearchedMeals()
+        searchResult =
+            foodSearch.searchByIngredients(ingredients = searchBarInputs).getSearchedMeals()
         mealsAdapter.submitList(searchResult)
         binding.searchAutoCompleteTextView.setText("")
-        binding.recyclerMeals.visibility = if (searchResult.isEmpty()) View.INVISIBLE else View.VISIBLE
+        binding.recyclerMeals.visibility =
+            if (searchResult.isEmpty()) View.INVISIBLE else View.VISIBLE
     }
 
     private fun searchByName(name: String) {
         searchResult = foodSearch.searchByName(name = name).getSearchedMeals()
         mealsAdapter.submitList(searchResult)
         binding.searchAutoCompleteTextView.setText("")
-        binding.recyclerMeals.visibility = if (searchResult.isEmpty()) View.INVISIBLE else View.VISIBLE
+        binding.recyclerMeals.visibility =
+            if (searchResult.isEmpty()) View.INVISIBLE else View.VISIBLE
     }
 
     private fun loadMealFragment(meal: Meal) {
@@ -130,9 +123,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     }
 
     private fun showBottomSheet() {
-        if(!::searchResult.isInitialized)
-            searchResult = emptyList()
-        val bottomSheetFragment = FilterBottomSheet.newInstance(SearchAndFilterInteractor(searchResult))
+        if (!::searchResult.isInitialized) searchResult = emptyList()
+        val bottomSheetFragment =
+            FilterBottomSheet.newInstance(SearchAndFilterInteractor(searchResult))
         bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)
     }
 
@@ -146,6 +139,21 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
         }
         mealsAdapter.submitList(searchResult)
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putStringArrayList(SEARCH_BAR_INPUTS_STATE_KEY, ArrayList(searchBarInputs))
+    }
+
+    override fun hasBackButtonOrNot() {
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+    }
+
+    override fun setActionBarTitle() {
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.search)
+
+    }
+
 }
 
 interface BottomSheetListener {

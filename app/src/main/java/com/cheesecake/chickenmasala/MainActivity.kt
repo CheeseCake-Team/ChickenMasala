@@ -28,8 +28,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPreferences = getSharedPreferences(Constants.Keys.SHARED_ACTIVITY, Context.MODE_PRIVATE)
-
-
     }
 
     override fun onResume() {
@@ -112,16 +110,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun restoreFragmentState() {
-
-
         supportActionBar?.title = sharedPreferences.getString(
             Constants.Keys.SAVE_TITLE_STATE, "")
 
         binding.bottomNavigationMenu.selectedItemId =
             sharedPreferences.getInt(Constants.Keys.SAVE_BOTTOM_NAV_STATE, 0)
-
-
-
     }
 
     private fun saveFragmentState() {
