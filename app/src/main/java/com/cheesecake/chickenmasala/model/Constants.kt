@@ -1,4 +1,4 @@
-package com.cheesecake.chickenmasala.datasource
+package com.cheesecake.chickenmasala.model
 
 object Constants {
     object ColumnIndex {
@@ -15,6 +15,17 @@ object Constants {
 
     object Keys {
         const val ARGUMENT = "param1"
+        const val SHARED_FRAGMENT = "shared"
+        const val SHARED_ACTIVITY = "sharedA"
+        const val CUISINES = "cuisines"
+        const val CATEGORIES = "categories"
+        const val HISTORY = "history"
+        const val SAVE_BOTTOM_NAV_STATE = "bottom"
+        const val SAVE_TITLE_STATE = "title"
+        const val CATEGORIES_TYPE = 1
+        const val CUISINES_TYPE = 2
+        const val ARG_TYPE = "type"
+
     }
 
 }

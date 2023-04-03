@@ -1,10 +1,9 @@
-package com.cheesecake.chickenmasala.ui.home
+package com.cheesecake.chickenmasala.interactor
 
-import android.content.Context
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.model.Advice
 
-class AdviceFactory() {
+class AdviceInteractor() {
     val prepareFoodAdviceList = prepareFoodAdviceList()
     private fun prepareFoodAdviceList() = mutableListOf(
         Advice(

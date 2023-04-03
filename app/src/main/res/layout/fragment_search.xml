@@ -8,18 +8,19 @@
     tools:context=".ui.search.SearchFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+
         android:id="@+id/recyclerMeals"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:padding="@dimen/margin_medium_12"
         android:paddingVertical="@dimen/margin_medium_12"
+        android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/chips_holder"
         app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="16dp"
-        tools:listitem="@layout/item_meal_card" />
+        tools:layout_editor_absoluteX="16dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_text_input_layout"
@@ -27,26 +28,26 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/margin_large_56"
         android:elevation="6dp"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:hintEnabled="false">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/search_auto_complete_text_view"
+            style="@style/SearchBarStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/margin_medium_16"
             android:layout_marginTop="@dimen/margin_medium_16"
-            android:paddingStart="@dimen/margin_medium_16"
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="@dimen/margin_medium_16"
+            android:focusableInTouchMode="true"
             android:hint="@string/search"
             android:imeOptions="actionGo"
             android:inputType="text"
             android:maxLines="1"
-            style="@style/SearchBarStyle"
-            android:focusableInTouchMode="true"/>
+            android:paddingStart="@dimen/margin_medium_16" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
@@ -80,5 +81,6 @@
             app:layout_constraintTop_toBottomOf="@id/search_text_input_layout"
             app:singleLine="true" />
     </HorizontalScrollView>
+
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

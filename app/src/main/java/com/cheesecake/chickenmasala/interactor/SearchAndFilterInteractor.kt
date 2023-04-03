@@ -21,7 +21,7 @@ class SearchAndFilterInteractor(private val meals: List<Meal>) : Parcelable {
     }
 
     fun searchByName(name: String) = SearchAndFilterInteractor(meals).apply {
-        searchedMeals = searchedMeals.filter { it.translatedRecipeName.contains(name) }
+        searchedMeals = meals.filter { it.translatedRecipeName.contains(name) }
     }
 
     fun searchByIngredients(ingredients: List<String>) = SearchAndFilterInteractor(meals).apply {
