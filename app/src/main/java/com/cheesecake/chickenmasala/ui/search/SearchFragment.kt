@@ -1,7 +1,6 @@
 package com.cheesecake.chickenmasala.ui.search
 
 import android.app.Activity
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,7 +26,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
         FragmentSearchBinding::inflate
 
     private lateinit var searchResult: List<Meal>
-    private var searchBarInputs = mutableListOf<String>()
+    private lateinit var searchBarInputs: MutableList<String>
     private lateinit var mealsAdapter: MealsAdapter
     private val recipesInteractor: RecipesInteractor = RecipesInteractor()
     private var foodSearch = SearchAndFilterInteractor(recipesInteractor.getMeals())
@@ -36,25 +35,17 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        searchBarInputs = savedInstanceState?.getStringArrayList(SEARCH_BAR_INPUTS_STATE_KEY) ?: mutableListOf()
+        searchBarInputs = sharedPreferences.getStringSet(Constants.Keys.CHIP_LIST, emptySet())?.toMutableList()!!
 
         foodSearch = SearchAndFilterInteractor(recipesInteractor.getMeals())
-
         installViews()
         addCallBacks()
-
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-        sharedPreferences.getStringSet(Constants.Keys.CHIP_LIST, emptySet())
     }
 
     override fun onPause() {
         super.onPause()
-        sharedPreferences.edit().putStringSet(Constants.Keys.CHIP_LIST,searchBarInputs.toMutableSet()).apply()
+        sharedPreferences.edit()
+            .putStringSet(Constants.Keys.CHIP_LIST, searchBarInputs.toMutableSet()).apply()
     }
 
     private fun installViews() {
@@ -177,9 +168,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
 
 
     fun hideSoftKeyboard(activity: Activity) {
-        val inputMethodManager = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         if (inputMethodManager.isAcceptingText) {
-            inputMethodManager.hideSoftInputFromWindow( activity.currentFocus?.windowToken, 0 )
+            inputMethodManager.hideSoftInputFromWindow(activity.currentFocus?.windowToken, 0)
         }
     }
 
