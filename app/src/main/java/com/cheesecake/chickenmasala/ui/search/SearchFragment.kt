@@ -24,6 +24,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
+    override fun setActionBarTitle() {
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.search)
+
+    }
+
     private lateinit var searchResult: List<Meal>
     private val searchBarInputs = mutableListOf<String>()
     private lateinit var mealsAdapter: MealsAdapter

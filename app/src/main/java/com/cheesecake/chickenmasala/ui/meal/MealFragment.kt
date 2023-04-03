@@ -2,9 +2,11 @@ package com.cheesecake.chickenmasala.ui.meal
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.cheesecake.chickenmasala.MainActivity
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealBinding
 import com.cheesecake.chickenmasala.datasource.Constants
@@ -19,6 +21,11 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
+    override fun setActionBarTitle() {
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.meal)
+
+    }
+
     private val ingredientAdapter = IngredientAdapter()
     private val instructionAdapter = InstructionsAdapter()
     private lateinit var meal: Meal
@@ -28,6 +35,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         addCallBacks()
         initViews()
         setUpAdapters()
+
         super.onViewCreated(view, savedInstanceState)
     }
 

@@ -27,6 +27,11 @@ class MealsFragment :
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
+    override fun setActionBarTitle() {
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.meals)
+
+    }
+
     private lateinit var string: String
     private var type by Delegates.notNull<Int>()
 

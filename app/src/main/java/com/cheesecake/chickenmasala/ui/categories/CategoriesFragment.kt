@@ -16,9 +16,13 @@ class CategoriesFragment :
         FragmentCategoriesBinding::inflate
 
     override fun hasBackButtonOrNot() {
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
+    override fun setActionBarTitle() {
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.category)
+
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

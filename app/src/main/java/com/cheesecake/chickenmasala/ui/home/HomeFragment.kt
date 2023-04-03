@@ -17,6 +17,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
+    override fun setActionBarTitle() {
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.home)
+
+    }
+
     override fun onStart() {
         super.onStart()
         setupViews()
