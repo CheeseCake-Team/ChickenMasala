@@ -1,6 +1,8 @@
 package com.cheesecake.chickenmasala
 
 import android.view.LayoutInflater
+import android.view.MenuItem
+import android.widget.Toast
 import com.cheesecake.chickenmasala.databinding.ActivityMainBinding
 import com.cheesecake.chickenmasala.datasource.CsvDataSource
 import com.cheesecake.chickenmasala.datasource.CsvParser
@@ -12,6 +14,7 @@ import com.cheesecake.chickenmasala.ui.cuisines.CuisinesFragment
 import com.cheesecake.chickenmasala.ui.history.HistoryFragment
 import com.cheesecake.chickenmasala.ui.home.HomeFragment
 import com.cheesecake.chickenmasala.ui.search.SearchFragment
+
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -32,6 +35,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         RecipesInteractor.initialize(indianMeals)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            super.onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 
     private fun initializeHomeScreen() {
         binding.bottomNavigationMenu.selectedItemId = R.id.home
@@ -44,27 +54,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.bottomNavigationMenu.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    changeAppBarTitle(R.string.home)
                     loadFragmentIntoContainer(HomeFragment())
                     true
                 }
                 R.id.search -> {
-                    changeAppBarTitle(R.string.search)
                     loadFragmentIntoContainer(SearchFragment())
                     true
                 }
                 R.id.categories -> {
-                    changeAppBarTitle(R.string.category)
                     loadFragmentIntoContainer(CategoriesFragment())
                     true
                 }
                 R.id.cuisine -> {
-                    changeAppBarTitle(R.string.cuisine)
                     loadFragmentIntoContainer(CuisinesFragment())
                     true
                 }
                 R.id.history -> {
-                    changeAppBarTitle(R.string.history_of_indian_cuisine)
                     loadFragmentIntoContainer(HistoryFragment())
                     true
                 }
@@ -74,16 +79,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
     }
 
-
-    private fun changeAppBarTitle(resourceString: Int) {
-        if (supportActionBar?.isShowing != true) supportActionBar?.show()
-        supportActionBar?.title = getString(resourceString)
-    }
-
     private fun loadFragmentIntoContainer(baseFragment: BaseFragment<*>) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, baseFragment)
             .commit()
     }
-
 
 }
