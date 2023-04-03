@@ -49,6 +49,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     private fun installViews() {
         mealsAdapter = MealsAdapter { loadMealFragment(it) }
         binding.recyclerMeals.adapter = mealsAdapter
+        searchBarInputs.forEach{
+            createChip(it)
+        }
+
         setupAutoComplete()
     }
 
@@ -79,19 +83,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
 
             searchAutoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
                 adapter.getItem(position)?.let { selectedItem ->
-                    searchResult = if (!SearchAndFilterInteractor.isSearchByName) {
+                    if (!SearchAndFilterInteractor.isSearchByName) {
                         searchBarInputs.add(selectedItem)
                         createChip(selectedItem)
-                        foodSearch.searchByIngredients(ingredients = searchBarInputs).getSearchedMeals()
                     } else {
-                        foodSearch.searchByName(name = selectedItem).getSearchedMeals()
+                        searchByName(selectedItem)
                     }
-                    if (searchResult.isEmpty()) {
-                        Toast.makeText(context, "No result", Toast.LENGTH_SHORT).show()
-                    }
-
-                    mealsAdapter.submitList(searchResult)
-                    binding.searchAutoCompleteTextView.setText("")
                 }
             }
         }
@@ -100,20 +97,28 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     private fun createChip(text: String) {
         ChipsInjectBinding.inflate(layoutInflater).apply {
             customChip.text = text
+            searchByIngredients()
             customChip.setOnClickListener {
                 searchBarInputs.remove(text)
-                adapter.notifyDataSetChanged()
                 binding.chipGroupHolder.removeView(root)
-                searchResult =
-                    foodSearch.searchByIngredients(ingredients = searchBarInputs).getSearchedMeals()
-                mealsAdapter.submitList(searchResult)
-                if (searchResult.isEmpty()) {
-                    binding.recyclerMeals.visibility = View.INVISIBLE
-                    Toast.makeText(context, "No result", Toast.LENGTH_SHORT).show()
-                }
+                searchByIngredients()
             }
             binding.chipGroupHolder.addView(root)
         }
+    }
+
+    private fun searchByIngredients() {
+        searchResult = foodSearch.searchByIngredients(ingredients = searchBarInputs).getSearchedMeals()
+        mealsAdapter.submitList(searchResult)
+        binding.searchAutoCompleteTextView.setText("")
+        binding.recyclerMeals.visibility = if (searchResult.isEmpty()) View.INVISIBLE else View.VISIBLE
+    }
+
+    private fun searchByName(name: String) {
+        searchResult = foodSearch.searchByName(name = name).getSearchedMeals()
+        mealsAdapter.submitList(searchResult)
+        binding.searchAutoCompleteTextView.setText("")
+        binding.recyclerMeals.visibility = if (searchResult.isEmpty()) View.INVISIBLE else View.VISIBLE
     }
 
     private fun loadMealFragment(meal: Meal) {
