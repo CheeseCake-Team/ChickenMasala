@@ -1,8 +1,11 @@
 package com.cheesecake.chickenmasala.ui.search
 
+import android.app.Activity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +14,7 @@ import com.cheesecake.chickenmasala.databinding.ChipsInjectBinding
 import com.cheesecake.chickenmasala.databinding.FragmentSearchBinding
 import com.cheesecake.chickenmasala.interactor.RecipesInteractor
 import com.cheesecake.chickenmasala.interactor.SearchAndFilterInteractor
+import com.cheesecake.chickenmasala.model.Constants
 import com.cheesecake.chickenmasala.model.Constants.Keys.SEARCH_BAR_INPUTS_STATE_KEY
 import com.cheesecake.chickenmasala.model.Meal
 import com.cheesecake.chickenmasala.ui.base.BaseFragment
@@ -29,6 +33,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     private var foodSearch = SearchAndFilterInteractor(recipesInteractor.getMeals())
     private lateinit var adapter: ArrayAdapter<String>
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -38,12 +43,27 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
 
         installViews()
         addCallBacks()
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        sharedPreferences.getStringSet(Constants.Keys.CHIP_LIST, emptySet())
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sharedPreferences.edit().putStringSet(Constants.Keys.CHIP_LIST,searchBarInputs.toMutableSet()).apply()
     }
 
     private fun installViews() {
         mealsAdapter = MealsAdapter { loadMealFragment(it) }
         binding.recyclerMeals.adapter = mealsAdapter
         setupAutoComplete()
+        searchBarInputs.forEach {
+            createChip(it)
+        }
     }
 
     private fun setupAutoComplete() {
@@ -75,6 +95,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
                 adapter.getItem(position)?.let { selectedItem ->
                     if (!SearchAndFilterInteractor.isSearchByName) {
                         searchBarInputs.add(selectedItem)
+                        hideSoftKeyboard(requireActivity())
                         createChip(selectedItem)
                     } else {
                         searchByName(selectedItem)
@@ -152,6 +173,14 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), BottomSheetListene
     override fun setActionBarTitle() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.search)
 
+    }
+
+
+    fun hideSoftKeyboard(activity: Activity) {
+        val inputMethodManager = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        if (inputMethodManager.isAcceptingText) {
+            inputMethodManager.hideSoftInputFromWindow( activity.currentFocus?.windowToken, 0 )
+        }
     }
 
 }
