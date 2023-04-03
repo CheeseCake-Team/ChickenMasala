@@ -24,8 +24,12 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = bindingInflater(layoutInflater)
+        hasBackButtonOrNot()
+        setActionBarTitle()
         return _binding!!.root
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()
@@ -47,5 +51,8 @@ abstract class BaseFragment<viewBinding : ViewBinding> : Fragment() {
             }
         }
 
+    abstract fun hasBackButtonOrNot()
+
+    abstract fun setActionBarTitle()
 
 }

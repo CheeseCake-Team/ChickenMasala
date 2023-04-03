@@ -66,4 +66,6 @@
     <string name="baked">Baked</string>
     <string name="grilled">Grilled</string>
     <string name="juice">Juice</string>
+    <string name="meals">Meals</string>
+    <string name="meal">Meal</string>
 </resources>

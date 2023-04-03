@@ -3,6 +3,7 @@ package com.cheesecake.chickenmasala.ui.meals
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.cheesecake.chickenmasala.R
 import com.cheesecake.chickenmasala.databinding.FragmentMealsBinding
 import com.cheesecake.chickenmasala.interactor.RecipesInteractor
@@ -21,6 +22,15 @@ class MealsFragment :
 
     override val bindingInflater: (LayoutInflater) -> FragmentMealsBinding =
         FragmentMealsBinding::inflate
+
+    override fun hasBackButtonOrNot() {
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun setActionBarTitle() {
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.meals)
+
+    }
 
     private lateinit var string: String
     private var type by Delegates.notNull<Int>()
