@@ -61,6 +61,7 @@
     <string name="meal_steps_count">%1$d steps</string>
     <string name="cuisine">Cuisines</string>
     <string name="history">History</string>
+    <string name="there_is_no_result">There is no result</string>
     <string name="rice">Rice</string>
     <string name="baked">Baked</string>
     <string name="grilled">Grilled</string>
